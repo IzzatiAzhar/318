@@ -51,37 +51,36 @@
 	  
 	  
     <div class="main">
+<article> 
+						 <?php 
+							  include 'conn.php';
 
-         <!-- Sing in  Form -->
-        <section class="sign-in">
-            <div class="container">
-                <div class="signin-content">
-                    <div class="signin-image">
-                        <figure><img src="images2/signin-image.jpg" alt="sing up image"></figure>
-                        <a href="registerparticipant.php" class="signup-image-link">Create an account</a>
-						<a href="index.php" class="signup-image-link">Back To Homepage</a>
-                    </div>
+							  $conn=OpenCon();
+							  session_start();
+							  
+							  $partid=$_POST["partid"];
+							  $partpassword=$_POST["partpassword"];
 
-                    <div class="signin-form">
-                        <h2 class="form-title">Sign In</h2>
-                        <form method="POST" class="register-form" id="login-form" action="participantloginaction.php">
-                            <div class="form-group">
-                                <label for="partid"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                <input type="text" name="partid" id="partid" placeholder="Your User ID"/>
-                            </div>
-                            <div class="form-group">
-                                <label for="partpassword"><i class="zmdi zmdi-lock"></i></label>
-                                <input type="password" name="partpassword" id="partpassword" placeholder="Password"/>
-                            </div>
-                            <div class="form-group form-button">
-                                <input type="submit" name="submit" id="signin" class="form-submit" value="Log in"/>
-                            </div>
-                        </form>
-                       
-                    </div>
-                </div>
-            </div>
-        </section>
+							  $sql="SELECT * FROM `participant` e WHERE partid=$partid and partpassword='$partpassword'";
+							  
+							  $result=$conn->query($sql);
+							  //output data
+							  if($result->num_rows > 0)
+							  {													  
+								   while($row=$result->fetch_assoc())
+								   {
+										$_SESSION['login_user']=$partid;
+										
+										header("location:participanthome.php");
+								   }
+							  }
+							  // else {
+							  // 	header("location:emplogin.php");						
+							  // }
+
+							  CloseCon($conn);
+						 ?>
+				 </article>
 
         
 

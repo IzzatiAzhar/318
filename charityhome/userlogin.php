@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -22,76 +21,83 @@
 
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/style.css">
-	
-	<!--css for login and signup-->
-	<meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Sign In</title>
-
-    <!-- Font Icon -->
-    <link rel="stylesheet" href="fonts2/material-icon/css/material-design-iconic-font.min.css">
-
-    <!-- Main css -->
-    <link rel="stylesheet" href="css2/style.css">
-	<!--end css for login and signup-->
 
   </head>
   <body>
     
-  <nav class="navbar navbar-expand-lg navbar-light ftco_navbar bg-light ftco-navbar-dark" id="ftco-navbar">
+  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
     <div class="container">
       <a class="navbar-brand" href="index.php">FoodForAll</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="oi oi-menu"></span> Menu
+      </button>
+
+      <div class="collapse navbar-collapse" id="ftco-nav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active"><a href="index.php" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="registerparticipant.php" class="nav-link">Sign Up</a></li>
+          <li class="nav-item"><a href="participantlogin.php" class="nav-link">Sign In</a></li>
+        </ul>
+      </div>
     </div>
   </nav>
   <!-- END nav -->
-  <article>
+  
   <div class="block-31" style="position: relative;">
     <div class="owl-carousel loop-block-31 ">
-	  
-	  
-    <div class="main">
-
-         <!-- Sing in  Form -->
-        <section class="sign-in">
-            <div class="container">
-                <div class="signin-content">
-                    <div class="signin-image">
-                        <figure><img src="images2/signin-image.jpg" alt="sing up image"></figure>
-                        <a href="registerparticipant.php" class="signup-image-link">Create an account</a>
-						<a href="index.php" class="signup-image-link">Back To Homepage</a>
-                    </div>
-
-                    <div class="signin-form">
-                        <h2 class="form-title">Sign In</h2>
-                        <form method="POST" class="register-form" id="login-form" action="participantloginaction.php">
-                            <div class="form-group">
-                                <label for="partid"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                <input type="text" name="partid" id="partid" placeholder="Your User ID"/>
-                            </div>
-                            <div class="form-group">
-                                <label for="partpassword"><i class="zmdi zmdi-lock"></i></label>
-                                <input type="password" name="partpassword" id="partpassword" placeholder="Password"/>
-                            </div>
-                            <div class="form-group form-button">
-                                <input type="submit" name="submit" id="signin" class="form-submit" value="Log in"/>
-                            </div>
-                        </form>
-                       
-                    </div>
-                </div>
+      <div class="block-30 block-30-sm item" style="background-image: url('images/bg_1.jpg');" data-stellar-background-ratio="0.5">
+        <div class="container">
+          <div class="row align-items-center justify-content-center text-center">
+            <div class="col-md-7">
+              <h2 class="heading mb-5">Food For All Login Category</h2>
             </div>
-        </section>
-
-        
-
-    </div>
+          </div>
+        </div>
+      </div>
       
     </div>
   </div>
-  <!-- JS -->
-			<script src="vendor2/jquery/jquery.min.js"></script>
-			<script src="js2/main.js"></script>
+  
+  <div class="site-section section-counter">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 pr-5">
+          <div class="block-48">
+              <span class="block-48-text-1">Members Login</span>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="site-section border-top">
+    <div class="container">
+      <div class="row">
+
+
+        <div class="col-md-4">
+          <div class="media block-6">
+            <div class="icon"><span class="ion-ios-contacts"></span></div>
+            <div class="media-body">
+              <h3 class="heading">Organizer</h3>
+              <p>Food For All Organization</p>
+              <p><a href="#" class="link-underline">Sign In Here</a></p>
+            </div>
+          </div> 
+        </div>
+		 <div class="col-md-4">
+          <div class="media block-6">
+            <div class="icon"><span class="ion-ios-contacts"></span></div>
+            <div class="media-body">
+              <h3 class="heading">Volunteers / Participants</h3>
+              <p><a href="participantlogin.php" class="link-underline">Sign In Here</a></p>
+            </div>
+          </div> 
+        </div>
+
+      </div>
+    </div>
+  </div> <!-- .site-section -->
 
 
 

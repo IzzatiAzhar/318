@@ -99,7 +99,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 	<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Sign Up Form by Colorlib</title>
+    <title>Sign Up</title>
 
     <!-- Font Icon -->
     <link rel="stylesheet" href="fonts2/material-icon/css/material-design-iconic-font.min.css">
@@ -114,17 +114,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
   <nav class="navbar navbar-expand-lg navbar-light ftco_navbar bg-light ftco-navbar-dark" id="ftco-navbar">
     <div class="container">
       <a class="navbar-brand" href="index.php">FoodForAll</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="oi oi-menu"></span> Menu
-      </button>
-
-      <div class="collapse navbar-collapse" id="ftco-nav">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item"><a href="index.php" class="nav-link">Home</a></li>
-          <li class="nav-item active"><a href="registerparticipant.php" class="nav-link">Sign Up</a></li>
-          <li class="nav-item"><a href="participantlogin.php" class="nav-link">Sign In</a></li>
-        </ul>
-      </div>
+     
     </div>
   </nav>
   <!-- END nav -->
@@ -140,36 +130,47 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
             <div class="container">
                 <div class="signup-content">
                     <div class="signup-form">
-                        <h2 class="form-title">Sign up</h2>
+                        <h2 class="form-title">Sign Up</h2>
+						<h4 class="form-title">Come And Join Us!</h4>
                         <form method="POST" class="register-form" id="register-form">
                             <div class="form-group">
-                                <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                <input type="text" name="name" id="name" placeholder="Your Name"/>
+                                <label for="partid"><i class="zmdi zmdi-account-box-o"></i></label>
+                                <input type="text" name="partid" id="partid" placeholder="Your User ID"/>
                             </div>
                             <div class="form-group">
-                                <label for="email"><i class="zmdi zmdi-email"></i></label>
-                                <input type="email" name="email" id="email" placeholder="Your Email"/>
+                                <label for="partname"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                                <input type="text" name="partname" id="partname" placeholder="Your Full Name"/>
                             </div>
                             <div class="form-group">
-                                <label for="pass"><i class="zmdi zmdi-lock"></i></label>
-                                <input type="password" name="pass" id="pass" placeholder="Password"/>
+                                <label for="partage"><i class="zmdi zmdi-account-calendar"></i></label>
+                                <input type="text" name="partage" id="partage" placeholder="Your Age"/>
                             </div>
                             <div class="form-group">
-                                <label for="re-pass"><i class="zmdi zmdi-lock-outline"></i></label>
-                                <input type="password" name="re_pass" id="re_pass" placeholder="Repeat your password"/>
+                                <label for="partstate"><i class="zmdi zmdi-sort-amount-desc"></i></label>
+                                <input type="text" name="partstate" id="partstate" placeholder="Your Current State"/>
+                            </div>
+							<div class="form-group">
+                                <label for="partoccupation"><i class="zmdi zmdi-view-stream"></i></label>
+                                <input type="text" name="partoccupation" id="partoccupation" placeholder="Occupation"/>
+                            </div>
+							<div class="form-group">
+                                <label for="partpassword"><i class="zmdi zmdi-lock"></i></label>
+                                <input type="password" name="partpassword" id="partpassword" placeholder="Password"/>
                             </div>
                             <div class="form-group">
-                                <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
+                                <input type="checkbox" name="term" id="agree-term" class="agree-term" />
                                 <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in  <a href="#" class="term-service">Terms of service</a></label>
                             </div>
                             <div class="form-group form-button">
-                                <input type="submit" name="signup" id="signup" class="form-submit" value="Register"/>
+                                <input type="submit" name="submit" id="submit" class="form-submit" value="Register"/>
                             </div>
                         </form>
                     </div>
                     <div class="signup-image">
                         <figure><img src="images2/signup-image.jpg" alt="sing up image"></figure>
-                        <a href="#" class="signup-image-link">I am already member</a>
+                        <a href="participantlogin.php" class="signup-image-link">I am already member</a>
+						<a href="index.php" class="signup-image-link">Back To Homepage</a>
+
                     </div>
                 </div>
             </div>
