@@ -35,8 +35,6 @@
       <div class="collapse navbar-collapse" id="ftco-nav">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active"><a href="index.php" class="nav-link">Home</a></li>
-          <li class="nav-item"><a href="registerparticipant.php" class="nav-link">Sign Up</a></li>
-          <li class="nav-item"><a href="participantlogin.php" class="nav-link">Sign In</a></li>
         </ul>
       </div>
     </div>
@@ -63,7 +61,7 @@
       <div class="row">
         <div class="col-md-6 pr-5">
           <div class="block-48">
-              <span class="block-48-text-1">Members Login</span>
+              <span class="block-48-text-1">Join Our Team !</span>
             </div>
         </div>
       </div>
@@ -81,7 +79,7 @@
             <div class="media-body">
               <h3 class="heading">Organizer</h3>
               <p>Food For All Organization</p>
-              <p><a href="loginorg.php" class="link-underline">Sign In Here</a></p>
+              <p><a href="registerorg.php" class="link-underline">Register Here</a></p>
             </div>
           </div> 
         </div>
@@ -90,7 +88,7 @@
             <div class="icon"><span class="ion-ios-contacts"></span></div>
             <div class="media-body">
               <h3 class="heading">Volunteers / Participants</h3>
-              <p><a href="participantlogin.php" class="link-underline">Sign In Here</a></p>
+              <p><a href="registerparticipant.php" class="link-underline">Register Here</a></p>
             </div>
           </div> 
         </div>
