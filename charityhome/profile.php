@@ -105,6 +105,9 @@
 				$partage = $row["partage"];
 				$partstate = $row["partstate"];
 				$partoccupation = $row["partoccupation"];
+				$parttelno = $row["parttelno"];
+				$partemail = $row["partemail"];
+				$partaddress = $row["partaddress"];
 				
 				
 				echo "<table id=user>";
@@ -127,6 +130,18 @@
 				echo "<tr>";
 					echo "<th>Occupation </th>";
 					echo "<td>$partoccupation</td>";
+				echo "</tr>";
+				echo "<tr>";
+					echo "<th>Contact Number </th>";
+					echo "<td>$parttelno</td>";
+				echo "</tr>";
+				echo "<tr>";
+					echo "<th>Email </th>";
+					echo "<td>$partemail</td>";
+				echo "</tr>";
+				echo "<tr>";
+					echo "<th>Address </th>";
+					echo "<td>$partaddress</td>";
 				echo "</tr>";
 				
 				
