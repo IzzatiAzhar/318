@@ -18,6 +18,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 			$partstate = mysqli_escape_string($conn, $_POST['partstate']);
 			$partoccupation = mysqli_escape_string($conn, $_POST['partoccupation']);
 			$partpassword = mysqli_escape_string($conn, $_POST['partpassword']);
+			$parttelno = mysqli_escape_string($conn, $_POST['parttelno']);
+			$partemail = mysqli_escape_string($conn, $_POST['partemail']);
+			$partaddress = mysqli_escape_string($conn, $_POST['partaddress']);
 
 			function validate($form_data)
 			{
@@ -31,13 +34,16 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 			$vuserstate = validate($partstate);
 			$vuseroccupation = validate($partoccupation);
 			$vuserpassword = validate($partpassword);
+			$vusertelno = validate($parttelno);
+			$vuseremail = validate($partemail);
+			$vuseraddress = validate($partaddress);
 
-			if(!empty($vuserid) && !empty($vusername) && !empty($vuserage) && !empty($vuserstate) && !empty($vuseroccupation)  && !empty($vuserpassword))
+			if(!empty($vuserid) && !empty($vusername) && !empty($vuserage) && !empty($vuserstate) && !empty($vuseroccupation)  && !empty($vuserpassword) && !empty($vusertelno) && !empty($vuseremail) && !empty($vuseraddress))
 			{
 
 				$pass = password_hash($vuserpassword, PASSWORD_DEFAULT);
 
-				$insert = "INSERT INTO `participant`(`partid`,`partname`,`partage`,`partstate`,`partoccupation`,`partpassword`) VALUES('$vuserid','$vusername','$vuserage','$vuserstate','$vuseroccupation','$vuserpassword')";
+				$insert = "INSERT INTO `participant`(`partid`,`partname`,`partage`,`partstate`,`partoccupation`,`partpassword`,`parttelno`,`partemail`, `partaddress`) VALUES('$vuserid','$vusername','$vuserage','$vuserstate','$vuseroccupation','$vuserpassword','$vusertelno','$vuseremail','$vuseraddress')";
 
 				if(mysqli_query($conn, $insert))
 				{
@@ -130,8 +136,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
             <div class="container">
                 <div class="signup-content">
                     <div class="signup-form">
-                        <h2 class="form-title">Sign Up</h2>
-						<h4 class="form-title">Come And Join Us!</h4>
+                        <h2 class="form-title">SIGN UP</h2>
+						<h4 class="form-title">Come and Join Us As a Volunteer !</h4>
                         <form method="POST" class="register-form" id="register-form">
                             <div class="form-group">
                                 <label for="partid"><i class="zmdi zmdi-account-box-o"></i></label>
@@ -156,6 +162,18 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 							<div class="form-group">
                                 <label for="partpassword"><i class="zmdi zmdi-lock"></i></label>
                                 <input type="password" name="partpassword" id="partpassword" placeholder="Password"/>
+                            </div>
+							<div class="form-group">
+                                <label for="parttelno"><i class="zmdi zmdi-lock"></i></label>
+                                <input type="text" name="parttelno" id="parttelno" placeholder="Contact Number"/>
+                            </div>
+							<div class="form-group">
+                                <label for="partemail"><i class="zmdi zmdi-lock"></i></label>
+                                <input type="email" name="partemail" id="partemail" placeholder="Email"/>
+                            </div>
+							<div class="form-group">
+                                <label for="partaddress"><i class="zmdi zmdi-lock"></i></label>
+                                <input type="text" name="partaddress" id="partaddress" placeholder="Current Address"/>
                             </div>
                             <div class="form-group">
                                 <input type="checkbox" name="term" id="agree-term" class="agree-term" />
