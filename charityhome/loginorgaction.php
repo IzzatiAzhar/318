@@ -51,37 +51,32 @@
 	  
 	  
     <div class="main">
+<article> 
+						 <?php 
+							  include 'conn.php';
 
-         <!-- Sign in  Form -->
-        <section class="sign-in">
-            <div class="container">
-                <div class="signin-content">
-                    <div class="signin-image">
-                        <figure><img src="images2/signin-image.jpg" alt="sing up image"></figure>
-                        <a href="registerparticipant.php" class="signup-image-link">Create an account</a>
-						<a href="index.php" class="signup-image-link">Back To Homepage</a>
-                    </div>
+							  $conn=OpenCon();
+							  session_start();
+							  
+							  $orgid=$_POST["orgid"];
+							  $orgpassword=$_POST["orgpassword"];
 
-                    <div class="signin-form">
-                        <h2 class="form-title">Organizer Sign In</h2>
-                        <form method="POST" class="register-form" id="login-form" action="loginorgaction.php">
-                            <div class="form-group">
-                                <label for="orgid"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                <input type="text" name="orgid" id="orgid" placeholder="Your Organizer ID"/>
-                            </div>
-                            <div class="form-group">
-                                <label for="orgpassword"><i class="zmdi zmdi-lock"></i></label>
-                                <input type="password" name="orgpassword" id="orgpassword" placeholder="Password"/>
-                            </div>
-                            <div class="form-group form-button">
-                                <input type="submit" name="submit" id="signin" class="form-submit" value="Log in"/>
-                            </div>
-                        </form>
-                       
-                    </div>
-                </div>
-            </div>
-        </section>
+							  $sql="SELECT * FROM `organizer` o WHERE orgid=$orgid and orgpassword='$orgpassword'";
+							  
+							  $result=$conn->query($sql);
+							  //output data
+							  if($result->num_rows > 0)
+							  {													  
+								   while($row=$result->fetch_assoc())
+								   {
+										$_SESSION['login_user']=$orgid;
+										
+										header("location:orghome.php");
+								   }
+							  }
+							  CloseCon($conn);
+						 ?>
+				 </article>
 
         
 

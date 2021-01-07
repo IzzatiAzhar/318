@@ -25,22 +25,7 @@
   </head>
   <body>
     
-  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
-    <div class="container">
-      <a class="navbar-brand" href="index.php">FoodForAll</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="oi oi-menu"></span> Menu
-      </button>
-
-      <div class="collapse navbar-collapse" id="ftco-nav">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item active"><a href="index.php" class="nav-link">Home</a></li>
-          <li class="nav-item"><a href="registerparticipant.php" class="nav-link">Sign Up</a></li>
-          <li class="nav-item"><a href="userlogin.php" class="nav-link">Sign In</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+  <?php include 'orgnav.php'; ?>
   <!-- END nav -->
   
   <div class="block-31" style="position: relative;">
@@ -50,7 +35,7 @@
           <div class="row align-items-center justify-content-center text-center">
             <div class="col-md-7">
               <h2 class="heading mb-5">Food For All</h2>
-			  <p style="display: inline-block;color:white">We Care. We Share. We Love.</p>
+              <p style="display: inline-block;color:white">We Care. We Share. We Love.</p>
             </div>
           </div>
         </div>
@@ -64,19 +49,16 @@
       <div class="row">
         <div class="col-md-6 pr-5">
           <div class="block-48">
-              <span class="block-48-text-1">In Malaysia,</span>
-              <div class="block-48-counter ftco-number" data-number="15000">14500</div><p>tonnes of food are wasted daily</p>
-			  <div class="block-48-counter ftco-number" data-number="10000000">9500000</div><p>million people can be feed !</p>
-              <!-- <span class="block-48-text-1 mb-4 d-block">Children in 150 Countries</span>
-              <p class="mb-0"><a href="#" class="btn btn-white px-3 py-2">View Our Program</a></p>-->
+              <span class="block-48-text-1">Served Over</span>
+              <div class="block-48-counter ftco-number" data-number="1321901">0</div>
+              <span class="block-48-text-1 mb-4 d-block">Children in 150 Countries</span>
+              <p class="mb-0"><a href="#" class="btn btn-white px-3 py-2">View Our Program</a></p>
             </div>
         </div>
         <div class="col-md-6 welcome-text">
-          <h2 class="display-4 mb-3">What We Do?</h2>
-		  
-		  
-          <p class="lead">Globally, more than 820 million people struggle with hunger every day. In Malaysia 3,000 tonnes of edible food is thrown away each day which is enough to provide 10 million meals. </p>
-          <p class="mb-4">We are committed to reduce waste and feeding the less fortunate. By the platform that we created, our charity partners are able to provide about of 33,000 meals a week for thousands of Malaysian’s living on or below the poverty line.</p>
+          <h2 class="display-4 mb-3">Who Are We?</h2>
+          <p class="lead">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+          <p class="mb-4">A small river named Duden flows by their place and supplies it with the necessary regelialia. </p>
           <p class="mb-0"><a href="#" class="btn btn-primary px-3 py-2">Learn More</a></p>
         </div>
       </div>
@@ -92,7 +74,7 @@
             <div class="icon"><span class="ion-ios-bulb"></span></div>
             <div class="media-body">
               <h3 class="heading">Our Mission</h3>
-              <p>We believe hat no one should ever be hungry. We support individuals regardless of age, disability, ethnic or religious group, and we do not tolerate any form of discrimination.Together, let's end hunger in for all in Malaysia !</p>
+              <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
               <p><a href="#" class="link-underline">Learn More</a></p>
             </div>
           </div>     
@@ -103,7 +85,7 @@
             <div class="icon"><span class="ion-ios-cash"></span></div>
             <div class="media-body">
               <h3 class="heading">Make Donations</h3>
-              <p>Donation of  money keep the Food For All project running. Donate and help us to feed thousands of people everyday.</p>
+              <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
               <p><a href="#" class="link-underline">Learn More</a></p>
             </div>
           </div>  
@@ -113,8 +95,8 @@
           <div class="media block-6">
             <div class="icon"><span class="ion-ios-contacts"></span></div>
             <div class="media-body">
-              <h3 class="heading">We Need Volunteers, Join Us !</h3>
-              <p>It doesn’t take a big commitment to make a big impact. We have an ever-growing dedicated team of food distributing heroes.</p>
+              <h3 class="heading">We Need Volunteers</h3>
+              <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
               <p><a href="#" class="link-underline">Learn More</a></p>
             </div>
           </div> 
@@ -374,7 +356,7 @@
 
           <div class="form-volunteer">
             
-            <h2>Be A Volunteer Today</h2>
+            <h2>Organize event and spread love with us!</h2>
             <form action="#" method="post">
               <div class="form-group">
                 <!-- <label for="name">Name</label> -->
@@ -402,83 +384,7 @@
   </div> <!-- .featured-donate -->
 
   <footer class="footer">
-    <div class="container">
-      <div class="row mb-5">
-        <div class="col-md-6 col-lg-4">
-          <h3 class="heading-section">About Us</h3>
-          <p class="lead">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
-          <p class="mb-5">Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-          <p><a href="#" class="link-underline">Read  More</a></p>
-        </div>
-        <div class="col-md-6 col-lg-4">
-          <h3 class="heading-section">Recent Blog</h3>
-          <div class="block-21 d-flex mb-4">
-            <figure class="mr-3">
-              <img src="images/img_1.jpg" alt="" class="img-fluid">
-            </figure>
-            <div class="text">
-              <h3 class="heading"><a href="#">Water Is Life. Clean Water In Urban Area</a></h3>
-              <div class="meta">
-                <div><a href="#"><span class="icon-calendar"></span> July 29, 2018</a></div>
-                <div><a href="#"><span class="icon-person"></span> Admin</a></div>
-                <div><a href="#"><span class="icon-chat"></span> 19</a></div>
-              </div>
-            </div>
-          </div>
-
-          <div class="block-21 d-flex mb-4">
-            <figure class="mr-3">
-              <img src="images/img_2.jpg" alt="" class="img-fluid">
-            </figure>
-            <div class="text">
-              <h3 class="heading"><a href="#">Life Is Short So Be Kind</a></h3>
-              <div class="meta">
-                <div><a href="#"><span class="icon-calendar"></span> July 29, 2018</a></div>
-                <div><a href="#"><span class="icon-person"></span> Admin</a></div>
-                <div><a href="#"><span class="icon-chat"></span> 19</a></div>
-              </div>
-            </div>
-          </div>
-
-          <div class="block-21 d-flex mb-4">
-            <figure class="mr-3">
-              <img src="images/img_4.jpg" alt="" class="img-fluid">
-            </figure>
-            <div class="text">
-              <h3 class="heading"><a href="#">Unfortunate Children Need Your Love</a></h3>
-              <div class="meta">
-                <div><a href="#"><span class="icon-calendar"></span> July 29, 2018</a></div>
-                <div><a href="#"><span class="icon-person"></span> Admin</a></div>
-                <div><a href="#"><span class="icon-chat"></span> 19</a></div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4">
-          <div class="block-23">
-            <h3 class="heading-section">Get Connected</h3>
-              <ul>
-                <li><span class="icon icon-map-marker"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
-                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+2 392 3929 210</span></a></li>
-                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@yourdomain.com</span></a></li>
-              </ul>
-            </div>
-        </div>
-        
-        
-      </div>
-      <div class="row pt-5">
-        <div class="col-md-12 text-center">
-          
-            <p>
-            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="ion-ios-heart text-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" >Colorlib</a>
-            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-            </p>
-          
-        </div>
-      </div>
-    </div>
+    <?php include 'footer.php'; ?>
   </footer>
 
   <!-- loader -->
