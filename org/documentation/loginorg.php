@@ -6,7 +6,7 @@
     <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
     <link rel="icon" type="image/png" href="../assets/img/favicon.ico">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <title>Light Bootstrap Dashboard - Free Bootstrap 4 Admin Dashboard by Creative Tim</title>
+    <title>Food For All</title>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
     <!--     Fonts and icons     -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
@@ -29,27 +29,27 @@
             <div class="sidebar-wrapper">
                 <div class="logo">
                     <a href="javascript:;" class="simple-text">
-                      Your Logo
+                       Logo
                     </a>
                 </div>
                 <ul class="nav">
                     <li class="nav-item active">
                         <a class="nav-link" href="dashboard.html">
                             <i class="nc-icon nc-icon nc-paper-2"></i>
-                            <p>First example</p>
+                            <p>Events</p>
                         </a>
                     </li>
-                    <li>
+                    <!--<li>
                         <a class="nav-link" href="./user.html">
                             <i class="nc-icon nc-bell-55"></i>
                             <p>Second example</p>
                         </a>
-                    </li>
+                    </li>-->
 
                     <li class="nav-item active active-pro">
                         <a class="nav-link active" href="javascript:;">
                             <i class="nc-icon nc-alien-33"></i>
-                            <p>Upgrade plan</p>
+                            <p></p>
                         </a>
                     </li>
                 </ul>
@@ -59,7 +59,7 @@
             <!-- Navbar -->
             <nav class="navbar navbar-expand-lg " color-on-scroll="500">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="#pablo">Template</a>
+                    <a class="navbar-brand" href="#pablo">Food For All</a>
                     <button href="" class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-bar burger-lines"></span>
                         <span class="navbar-toggler-bar burger-lines"></span>
@@ -97,18 +97,16 @@
                         <ul class="navbar-nav ml-auto">
                             <li class="nav-item">
                                 <a class="nav-link" href="#pablo">
-                                    <span class="no-icon">Account</span>
+                                    <span class="no-icon">Profile</span>
                                 </a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span class="no-icon">Dropdown</span>
+                                    <span class="no-icon">Menu</span>
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                    <a class="dropdown-item" href="#">Something</a>
-                                    <a class="dropdown-item" href="#">Something else here</a>
+                                    <a class="dropdown-item" href="registerorg.php">New Event</a>
+                                    <a class="dropdown-item" href="#">Current Event</a>
                                     <div class="divider"></div>
                                     <a class="dropdown-item" href="#">Separated link</a>
                                 </div>
@@ -126,6 +124,35 @@
             <div class="content">
                 <div class="container-fluid">
                     <div class="section">
+				<section>
+				<nav>
+				<ul>
+				<li><a href="login.php">Please Login First</a></li>
+				</ul>
+				</nav>
+				
+				<article>
+				<h2 style="text-align:left">Login</h2>
+				<form action="loginaction.php" id="form" method="POST">
+				<table>
+					<tr>
+						<td>Organizer ID</td>
+						<td><input style="text-align:center" type="text" name="staffid" maxlength="10" placeholder="Staff Id" required></td>
+					</tr>
+					
+					<tr>
+					<td>Password</td>
+						<td><input style="text-align:center" type="text" name="password" maxlength="10" placeholder="Password" required></td>
+					</tr>
+					
+					<tr>
+						<td colspan="2" align="center">
+						<input type="submit" value="Login">
+						<input type="reset" value="Reset">
+						</td>
+					</tr>
+	</table>
+	</article>
                     </div>
                 </div>
             </div>
@@ -166,7 +193,7 @@
             </footer>
         </div>
     </div>
-   
+
 </body>
 <!--   Core JS Files   -->
 <script src="../assets/js/core/jquery.3.2.1.min.js" type="text/javascript"></script>
