@@ -298,12 +298,12 @@
       <div class="row">
 
         <div class="col-md-6">
-          <img src="images/bg_3.jpg" alt="Image placeholder" class="img-fluid">
+          <img src="images/covid.jpg" alt="Image placeholder" class="img-fluid">
         </div>
 
         <div class="col-md-6 pl-md-5">
-          <span class="featured-text d-block mb-3">Success Stories</span>
-          <h2>Water Is Life. We Successfuly Provide Clean Water in South East Asia</h2>
+          <span class="featured-text d-block mb-3"><b>#STOP THE SPREAD</b></span>
+          <h2>Together we can stop the spread of Covid-19</h2>
           <p class="mb-3">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
           <span class="fund-raised d-block mb-5">We have raised $100,000</span>
 
