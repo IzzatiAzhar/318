@@ -45,7 +45,7 @@
   
   <div class="block-31" style="position: relative;">
     <div class="owl-carousel loop-block-31 ">
-      <div class="block-30 block-30-sm item" style="background-image: url('images/bg_1.jpg');" data-stellar-background-ratio="0.5">
+      <div class="block-30 block-30-sm item" style="background-image: url('images/banner.jpg');" data-stellar-background-ratio="0.5">
         <div class="container">
           <div class="row align-items-center justify-content-center text-center">
             <div class="col-md-7">
@@ -81,7 +81,7 @@
             <div class="media-body">
               <h3 class="heading">Organizer</h3>
               <p>Food For All Organization</p>
-              <p><a href="registerorg.php" class="link-underline">Sign In Here</a></p>
+              <p><a href="loginorg.php" class="link-underline">Sign In Here</a></p>
             </div>
           </div> 
         </div>
