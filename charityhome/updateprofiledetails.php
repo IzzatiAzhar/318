@@ -48,16 +48,6 @@
 		  color: white;
 		}
 	</style>
-	
-	<script type="text/javascript">
-		function confirmDelete(partid)
-		{
-			if(confirm('Your Data Will Be Deleted Permanently.You sure want to leave ?'))
-			{
-				window.location.href='deleteparticipant.php?partid='+partid;
-			}
-		}
-	</script>
 
   </head>
   <body>
@@ -86,92 +76,90 @@
     <div class="container">
       <div class="row block-9">
         <div class="col-md-6 pr-md-5">
-          <form action="updateprofiledetails.php" method="POST">
-            <article>
-		<h2 style="text-align:center">Profile</h2>
-		<article>
-		 
-		<?php
-		
-		$partid = $login_id;
-		$partname = $login_name;
-		
-		$conn = OpenCon();
-		
-		
-		
-		$sql = "select * from participant where partid = $partid";
-				
-		$result = $conn->query($sql);
-		
-		
-		
-		if ($result->num_rows > 0){
-		//Ouput data of each row
-			while($row = $result->fetch_assoc()){
-				
-				$partid = $row["partid"];
-				$partname = $row["partname"];
-				$partage = $row["partage"];
-				$partstate = $row["partstate"];
-				$partoccupation = $row["partoccupation"];
-				$parttelno = $row["parttelno"];
-				$partemail = $row["partemail"];
-				$partaddress = $row["partaddress"];
-				
-				
-				echo "<table id=user>";
-				echo "<tr>";
-					echo "<th>Name </th>";
-					echo "<td>$partname</td>";
-				echo "</tr>";
-				echo "<tr>";
-					echo "<th>ID </th>";
-					echo "<td>$partid</td>";
-				echo "</tr>";
-				echo "<tr>";
-					echo "<th>Age </th>";
-					echo "<td>$partage</td>";
-				echo "</tr>";
-				echo "<tr>";
-					echo "<th>State </th>";
-					echo "<td>$partstate</td>";
-				echo "</tr>";
-				echo "<tr>";
-					echo "<th>Occupation </th>";
-					echo "<td>$partoccupation</td>";
-				echo "</tr>";
-				echo "<tr>";
-					echo "<th>Contact Number </th>";
-					echo "<td>$parttelno</td>";
-				echo "</tr>";
-				echo "<tr>";
-					echo "<th>Email </th>";
-					echo "<td>$partemail</td>";
-				echo "</tr>";
-				echo "<tr>";
-					echo "<th>Address </th>";
-					echo "<td>$partaddress</td>";
-				echo "</tr>";
-				
-				
+			<article>
+			<h2 style="text-align:center">Updating Profile</h2><br>
+			<h4 style="text-align:center">Please update your profile accordingly. Thank you</h4><br>
+			<form action="updateprofileaction.php" id="updateform" method ="POST">
+			<?php
+			
+			$conn = OpenCon();
+			
+			//$regid = $_GET["regid"];
+			$partid = $login_id;
+			$partname = $login_name;
+			
+			
+			$sql = "select * from participant where partid = $partid";
+					
+			$result = $conn->query($sql);
+			
+			if($result->num_rows > 0){
+			//Output data of each row
+				while($row = $result->fetch_assoc()){
+					
+					$partid = $row["partid"];
+					$partname = $row["partname"];
+					$partage = $row["partage"];
+					$partstate = $row["partstate"];
+					$partoccupation = $row["partoccupation"];
+					$parttelno = $row["parttelno"];
+					$partemail = $row["partemail"];
+					$partaddress = $row["partaddress"];
+					
+					
+					
+						echo "<table id=user>";
+							echo "<tr>";
+								echo "<th>User ID</th>";
+								echo "<td>"?><input type="text" name="partid" value="<?php echo $partid;?>" readonly><?php "</td>" ;
+							echo "</tr>";
+							echo "<tr>";
+								echo "<th>Name</th>";
+								echo "<td>"?><input type="text" name="partname" value="<?php echo $partname;?>" readonly><?php "</td>" ;
+							echo "</tr>";
+							echo "<tr>";
+								echo "<th>Age </th>";
+								echo "<td>"?><input type="text" name="partage" value="<?php echo $partage;?>" required><?php "</td>" ;
+							echo "</tr>";
+							echo "<tr>";
+								echo "<th>State </th>";
+								echo "<td>"?><input type="text" name="partstate" value="<?php echo $partstate;?>" required><?php "</td>" ;
+							echo "</tr>";
+							echo "<tr>";
+								echo "<th>Occupation </th>";
+								echo "<td>"?><input type="text" name="partoccupation" value="<?php echo $partoccupation;?>" required><?php "</td>" ;
+							echo "</tr>";
+							echo "<tr>";
+								echo "<th>Contact Number </th>";
+								echo "<td>"?><input type="text" name="parttelno" value="<?php echo $parttelno;?>" required><?php "</td>" ;
+							echo "</tr>";
+							echo "<tr>";
+								echo "<th>Email </th>";
+								echo "<td>"?><input type="text" name="partemail" value="<?php echo $partemail;?>" required><?php "</td>" ;
+							echo "</tr>";
+							echo "<tr>";
+								echo "<th>Address </th>";
+								echo "<td>"?><textarea type="text" name="partaddress" value="<?php echo $partaddress;?>" required></textarea><?php "</td>" ;
+							echo "</tr>";
+							
+						echo "</table>";
+				}
+			}else{
+				echo "Data cannot be displayed";
 			}
-		}else
-			echo "Error in fetching data";
-		echo "</table>";
-		echo "<br>";
-		?><button onclick="window.location.href='updateprofiledetails.php?partid=<?php echo $partid ?>'">UPDATE</button>
-		 <button onclick="confirmDelete('<?php echo $partid ?>')">DELETE</button><?php
-		
-	
-		
-		
-		CloseCon($conn);
-		
-		?>
-		
-		
-	</article>
+			CloseCon($conn);
+			?>
+			
+			<table>
+				<tr>
+					<td colspan="2" align="center">
+						<input type="submit" value="Submit" />
+						<input type="button" value="Cancel"  onclick="history.back()" />
+					</td>
+				</tr>
+			</table>
+				
+		</article>
         
         </div>
 

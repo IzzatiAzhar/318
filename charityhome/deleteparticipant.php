@@ -24,40 +24,7 @@
 	
 	 <?php include 'header.php'; ?>
 	 
-	<style>
-		#user {
-		  font-family: Arial, Helvetica, sans-serif;
-		  border-collapse: collapse;
-		  width: 100%;
-		}
-
-		#user td, #user th {
-		  border: 1px solid #ddd;
-		  padding: 8px;
-		}
-
-		#user tr:nth-child(even){background-color: #f2f2f2;}
-
-		#user tr:hover {background-color: #ddd;}
-
-		#user th {
-		  padding-top: 12px;
-		  padding-bottom: 12px;
-		  text-align: left;
-		  background-color: #BC8F8F;
-		  color: white;
-		}
-	</style>
 	
-	<script type="text/javascript">
-		function confirmDelete(partid)
-		{
-			if(confirm('Your Data Will Be Deleted Permanently.You sure want to leave ?'))
-			{
-				window.location.href='deleteparticipant.php?partid='+partid;
-			}
-		}
-	</script>
 
   </head>
   <body>
@@ -86,89 +53,25 @@
     <div class="container">
       <div class="row block-9">
         <div class="col-md-6 pr-md-5">
-          <form action="updateprofiledetails.php" method="POST">
-            <article>
-		<h2 style="text-align:center">Profile</h2>
 		<article>
-		 
+		<h2 style="text-align:center">Delete Participant</h2>
 		<?php
 		
-		$partid = $login_id;
-		$partname = $login_name;
+		$partid = $_GET["partid"];
 		
 		$conn = OpenCon();
 		
+		$sql = "delete from participant where partid = $partid";
 		
-		
-		$sql = "select * from participant where partid = $partid";
-				
 		$result = $conn->query($sql);
 		
-		
-		
-		if ($result->num_rows > 0){
-		//Ouput data of each row
-			while($row = $result->fetch_assoc()){
-				
-				$partid = $row["partid"];
-				$partname = $row["partname"];
-				$partage = $row["partage"];
-				$partstate = $row["partstate"];
-				$partoccupation = $row["partoccupation"];
-				$parttelno = $row["parttelno"];
-				$partemail = $row["partemail"];
-				$partaddress = $row["partaddress"];
-				
-				
-				echo "<table id=user>";
-				echo "<tr>";
-					echo "<th>Name </th>";
-					echo "<td>$partname</td>";
-				echo "</tr>";
-				echo "<tr>";
-					echo "<th>ID </th>";
-					echo "<td>$partid</td>";
-				echo "</tr>";
-				echo "<tr>";
-					echo "<th>Age </th>";
-					echo "<td>$partage</td>";
-				echo "</tr>";
-				echo "<tr>";
-					echo "<th>State </th>";
-					echo "<td>$partstate</td>";
-				echo "</tr>";
-				echo "<tr>";
-					echo "<th>Occupation </th>";
-					echo "<td>$partoccupation</td>";
-				echo "</tr>";
-				echo "<tr>";
-					echo "<th>Contact Number </th>";
-					echo "<td>$parttelno</td>";
-				echo "</tr>";
-				echo "<tr>";
-					echo "<th>Email </th>";
-					echo "<td>$partemail</td>";
-				echo "</tr>";
-				echo "<tr>";
-					echo "<th>Address </th>";
-					echo "<td>$partaddress</td>";
-				echo "</tr>";
-				
-				
-			}
-		}else
-			echo "Error in fetching data";
-		echo "</table>";
-		echo "<br>";
-		?><button onclick="window.location.href='updateprofiledetails.php?partid=<?php echo $partid ?>'">UPDATE</button>
-		 <button onclick="confirmDelete('<?php echo $partid ?>')">DELETE</button><?php
-		
-	
-		
-		
-		CloseCon($conn);
-		
-		?>
+		if(! $result){
+			die('Could not delete data: ' . mysqli_error());
+		}else {
+				echo "Data has been deleted";
+		}
+		//header("Location:index.php");
+	?>	
 		
 		
 	</article>
