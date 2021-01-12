@@ -24,18 +24,17 @@
 
   </head>
   <body>
-    
-  <?php include 'navigation.php'; ?>
-  <!-- END nav -->
+    <?php include 'header.php'; ?>
   
+  
+  <?php include 'navigation.php'; ?>
   <div class="block-31" style="position: relative;">
     <div class="owl-carousel loop-block-31 ">
-      <div class="block-30 block-30-sm item" style="background-image: url('images/bg_1.jpg');" data-stellar-background-ratio="0.5">
+      <div class="block-30 block-30-sm item" style="background-image: url('images/banner.jpg');" data-stellar-background-ratio="0.5">
         <div class="container">
           <div class="row align-items-center justify-content-center text-center">
             <div class="col-md-7">
-              <h2 class="heading mb-5">Food For All</h2>
-              <p style="display: inline-block;">We Care. We Share. We Love.</p>
+              <h2 class="heading">Better To Give Than To Receive</h2>
             </div>
           </div>
         </div>
@@ -44,344 +43,352 @@
     </div>
   </div>
   
-  <div class="site-section section-counter">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6 pr-5">
-          <div class="block-48">
-              <span class="block-48-text-1">Served Over</span>
-              <div class="block-48-counter ftco-number" data-number="1321901">0</div>
-              <span class="block-48-text-1 mb-4 d-block">Children in 150 Countries</span>
-              <p class="mb-0"><a href="#" class="btn btn-white px-3 py-2">View Our Program</a></p>
-            </div>
-        </div>
-        <div class="col-md-6 welcome-text">
-          <h2 class="display-4 mb-3">Who Are We?</h2>
-          <p class="lead">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-          <p class="mb-4">A small river named Duden flows by their place and supplies it with the necessary regelialia. </p>
-          <p class="mb-0"><a href="#" class="btn btn-primary px-3 py-2">Learn More</a></p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="site-section border-top">
-    <div class="container">
-      <div class="row">
-
-        <div class="col-md-4">
-          <div class="media block-6">
-            <div class="icon"><span class="ion-ios-bulb"></span></div>
-            <div class="media-body">
-              <h3 class="heading">Our Mission</h3>
-              <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-              <p><a href="#" class="link-underline">Learn More</a></p>
-            </div>
-          </div>     
-        </div>
-
-        <div class="col-md-4">
-          <div class="media block-6">
-            <div class="icon"><span class="ion-ios-cash"></span></div>
-            <div class="media-body">
-              <h3 class="heading">Make Donations</h3>
-              <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-              <p><a href="#" class="link-underline">Learn More</a></p>
-            </div>
-          </div>  
-        </div>
-
-        <div class="col-md-4">
-          <div class="media block-6">
-            <div class="icon"><span class="ion-ios-contacts"></span></div>
-            <div class="media-body">
-              <h3 class="heading">We Need Volunteers</h3>
-              <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-              <p><a href="#" class="link-underline">Learn More</a></p>
-            </div>
-          </div> 
-        </div>
-
-      </div>
-    </div>
-  </div> <!-- .site-section -->
-
-
-
-  
-
-  <div class="site-section fund-raisers bg-light">
-    <div class="container">
-      <div class="row mb-3 justify-content-center">
-        <div class="col-md-8 text-center">
-          <h2>Latest Fundraisers</h2>
-          <p class="lead">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <p><a href="#" class="link-underline">View All Fundraisers</a></p>
-        </div>
-      </div>
-    </div>
-
-    <div class="container-fluid">
-
-      <!-- <div class="row"> -->
-        
-        <div class="col-md-12 block-11">
-          <div class="nonloop-block-11 owl-carousel">
-
-            <div class="card fundraise-item">
-              <a href="#"><img class="card-img-top" src="images/img_1.jpg" alt="Image placeholder"></a>
-              <div class="card-body">
-                <h3 class="card-title"><a href="#">Water Is Life. Clean Water In Urban Area</a></h3>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <span class="donation-time mb-3 d-block">Last donation 1w ago</span>
-                <div class="progress custom-progress-success">
-                  <div class="progress-bar bg-primary" role="progressbar" style="width: 28%" aria-valuenow="28" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-                <span class="fund-raised d-block">$12,000 raised of $30,000</span>
-              </div>
-            </div>
-
-            
-            <div class="card fundraise-item">
-              <a href="#"><img class="card-img-top" src="images/img_7.jpg" alt="Image placeholder"></a>
-              <div class="card-body">
-                <h3 class="card-title"><a href="#">Need Shelter for Children in Africa</a></h3>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <span class="donation-time mb-3 d-block">Last donation 1w ago</span>
-                <div class="progress custom-progress-success">
-                  <div class="progress-bar bg-primary" role="progressbar" style="width: 28%" aria-valuenow="28" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-                <span class="fund-raised d-block">$12,000 raised of $30,000</span>
-              </div>
-            </div>
-            
-            <div class="card fundraise-item">
-              <a href="#"><img class="card-img-top" src="images/img_3.jpg" alt="Image placeholder"></a>
-              <div class="card-body">
-                <h3 class="card-title"><a href="#">Children Needs Education</a></h3>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <span class="donation-time mb-3 d-block">Last donation 1w ago</span>
-                <div class="progress custom-progress-success">
-                  <div class="progress-bar bg-primary" role="progressbar" style="width: 28%" aria-valuenow="28" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-                <span class="fund-raised d-block">$12,000 raised of $30,000</span>
-              </div>
-            </div>
-
-
-            <div class="card fundraise-item">
-              <a href="#"><img class="card-img-top" src="images/img_4.jpg" alt="Image placeholder"></a>
-              <div class="card-body">
-                <h3 class="card-title"><a href="#">Refugees Needs Food</a></h3>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <span class="donation-time mb-3 d-block">Last donation 1w ago</span>
-                <div class="progress custom-progress-success">
-                  <div class="progress-bar bg-primary" role="progressbar" style="width: 28%" aria-valuenow="28" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-                <span class="fund-raised d-block">$12,000 raised of $30,000</span>
-              </div>
-            </div>
-
-            
-            <div class="card fundraise-item">
-              <a href="#"><img class="card-img-top" src="images/img_6.jpg" alt="Image placeholder"></a>
-              <div class="card-body">
-                <h3 class="card-title"><a href="#">Voluteer </a></h3>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <span class="donation-time mb-3 d-block">Last donation 1w ago</span>
-                <div class="progress custom-progress-success">
-                  <div class="progress-bar bg-primary" role="progressbar" style="width: 28%" aria-valuenow="28" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-                <span class="fund-raised d-block">$12,000 raised of $30,000</span>
-              </div>
-            </div>
-            
-            <div class="card fundraise-item">
-              <a href="#"><img class="card-img-top" src="images/img_3.jpg" alt="Image placeholder"></a>
-              <div class="card-body">
-                <h3 class="card-title"><a href="#">Children Needs Food</a></h3>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <span class="donation-time mb-3 d-block">Last donation 1w ago</span>
-                <div class="progress custom-progress-success">
-                  <div class="progress-bar bg-primary" role="progressbar" style="width: 28%" aria-valuenow="28" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-                <span class="fund-raised d-block">$12,000 raised of $30,000</span>
-              </div>
-            </div>
-           
-          </div>
-        </div>
-      <!-- </div> -->
-    </div>
-  </div> <!-- .section -->
-
-
   <div class="site-section fund-raisers">
     <div class="container">
       <div class="row mb-3 justify-content-center">
         <div class="col-md-8 text-center">
-          <h2>Latest Donations</h2>
-          <p class="lead">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <p class="mb-5"><a href="#" class="link-underline">View All Donations</a></p>
+          <h2>FOOD FOR ALL</h2>
+          <p class="lead">We are committed to reduce waste and feeding the less fortunate. By the platform that we created, our charity partners are able to provide about of 33,000 meals a week for thousands of Malaysian’s living on or below the poverty line.</p>
+		  
         </div>
       </div>
 
       <div class="row">
         <div class="col-md-6 col-lg-3 mb-5">
           <div class="person-donate text-center">
-            <img src="images/person_1.jpg" alt="Image placeholder" class="img-fluid">
-            <div class="donate-info">
-              <h2>Jorge Smith</h2>
-              <span class="time d-block mb-3">Donated Just now</span>
-              <p>Donated <span class="text-success">$252</span> <br> <em>for</em> <a href="#" class="link-underline fundraise-item">Water Is Life. Clean Water In Urban Area</a></p>
+		  <!-- Event 1 -->
+			<div class="text-box">
+					<?php
+						/* remove -> include 'conn.php'; bcs
+						we have put connection inside header page */
+						$conn = OpenCon();
+
+						/**Value is supplierid coming from supplierloginaction.php**/
+						$partid = $_SESSION['login_user'];
+				
+						$sql = "SELECT `eventname`,`eventid` FROM `event` where `eventid` = 'E001'";
+						$result = $conn->query($sql);
+				
+						if ($result->num_rows > 0) {
+							//output data of each row
+												
+							while($row = $result->fetch_assoc())
+							{                              
+									//echo "<br>" . $row["totalorder"] . "<br>";
+									$eventname = $row["eventname"];
+									$eventid = $row["eventid"];
+							}
+						}
+						else {
+							echo "Error in fetching data";
+						}
+						
+						CloseCon($conn);			
+					?>
+					<img src="images/kbk.png" alt="Image placeholder" class="img-fluid">
+						<div class="donate-info">
+						  <h2>#KITAPRIHATIN</h2>
+						  <span class="time d-block mb-3">Click the event for more details</span>
+						  <p><span class="text-success"></span><br> <em>for </em> <?php echo "<a href=kitabantukita.php>$eventid - $eventname Events</a>" ?></p>
+						</div>
+			</div>
+				
+          </div>    
+        </div>
+
+        <div class="col-md-6 col-lg-3 mb-5">
+          <div class="person-donate text-center">
+		  <!-- Event 2 -->
+			<div class="text-box">
+					<?php
+						/* remove -> include 'conn.php'; bcs
+						we have put connection inside header page */
+						$conn = OpenCon();
+
+						/**Value is supplierid coming from supplierloginaction.php**/
+						$partid = $_SESSION['login_user'];
+				
+						$sql = "SELECT `eventname`,`eventid` FROM `event` where `eventid` = 'E002'";
+						$result = $conn->query($sql);
+				
+						if ($result->num_rows > 0) {
+							//output data of each row
+												
+							while($row = $result->fetch_assoc())
+							{                              
+									//echo "<br>" . $row["totalorder"] . "<br>";
+									$eventname = $row["eventname"];
+									$eventid = $row["eventid"];
+							}
+						}
+						else {
+							echo "Error in fetching data";
+						}
+						
+						CloseCon($conn);			
+					?>
+					 <img src="images/stls.png" alt="Image placeholder" class="img-fluid">
+						<div class="donate-info">
+						  <h2>#WeCare</h2>
+						  <span class="time d-block mb-3">Click the event for more details</span>
+						  <p><span class="text-success"></span><br> <em>for </em><?php echo "<a href=sharethelove.php>$eventid - $eventname Events</a>" ?></p>
+						</div>
             </div>
           </div>    
         </div>
 
         <div class="col-md-6 col-lg-3 mb-5">
           <div class="person-donate text-center">
-            <img src="images/person_2.jpg" alt="Image placeholder" class="img-fluid">
-            <div class="donate-info">
-              <h2>Christine Charles</h2>
-              <span class="time d-block mb-3">Donated 1 hour ago</span>
-              <p>Donated <span class="text-success">$400</span> <br> <em>for</em> <a href="#" class="link-underline fundraise-item">Children Needs Education</a></p>
+			<!-- Event 3 -->
+			<div class="text-box">
+				<?php
+					/* remove -> include 'conn.php'; bcs
+					we have put connection inside header page */
+					$conn = OpenCon();
+
+					/**Value is supplierid coming from supplierloginaction.php**/
+					$partid = $_SESSION['login_user'];
+			
+					$sql = "SELECT `eventname`,`eventid` FROM `event` where `eventid` = 'E003'";
+					$result = $conn->query($sql);
+			
+					if ($result->num_rows > 0) {
+						//output data of each row
+											
+						while($row = $result->fetch_assoc())
+						{                              
+								//echo "<br>" . $row["totalorder"] . "<br>";
+								$eventname = $row["eventname"];
+								$eventid = $row["eventid"];
+						}
+					}
+					else {
+						echo "Error in fetching data";
+					}
+					
+					CloseCon($conn);			
+				?>
+				<img src="images/stlj.png" alt="Image placeholder" class="img-fluid">
+				<div class="donate-info">
+				  <h2>#WeLove</h2>
+				  <span class="time d-block mb-3">Click the event for more details</span>
+				  <p><span class="text-success"></span><br> <em>for </em><?php echo "<a href=sharethelove.php>$eventid - $eventname Events</a>" ?></p>
+				</div>
             </div>
           </div>    
         </div>
 
         <div class="col-md-6 col-lg-3 mb-5">
           <div class="person-donate text-center">
-            <img src="images/person_3.jpg" alt="Image placeholder" class="img-fluid">
-            <div class="donate-info">
-              <h2>Albert Sluyter</h2>
-              <span class="time d-block mb-3">Donated 4 hours ago</span>
-              <p>Donated <span class="text-success">$1,200</span> <br> <em>for</em> <a href="#" class="link-underline fundraise-item">Need Shelter for Children in Africa</a></p>
+			<!-- Event 4 -->
+			<div class="text-box">
+				<?php
+					/* remove -> include 'conn.php'; bcs
+					we have put connection inside header page */
+					$conn = OpenCon();
+
+					/**Value is supplierid coming from supplierloginaction.php**/
+					$partid = $_SESSION['login_user'];
+			
+					$sql = "SELECT `eventname`,`eventid` FROM `event` where `eventid` = 'E004'";
+					$result = $conn->query($sql);
+			
+					if ($result->num_rows > 0) {
+						//output data of each row
+											
+						while($row = $result->fetch_assoc())
+						{                              
+								//echo "<br>" . $row["totalorder"] . "<br>";
+								$eventname = $row["eventname"];
+								$eventid = $row["eventid"];
+						}
+					}
+					else {
+						echo "Error in fetching data";
+					}
+					
+					CloseCon($conn);			
+				?>
+				<img src="images/stlm.png" alt="Image placeholder" class="img-fluid">
+					<div class="donate-info">
+					  <h2>#WeHelp</h2>
+					  <span class="time d-block mb-3">Click the event for more details</span>
+					  <p><span class="text-success"></span><br> <em>for </em><?php echo "<a href=sharethelove.php>$eventid - $eventname Events</a>" ?></p>
+					</div>
             </div>
+          </div>    
+        </div>
+
+
+        <div class="col-md-6 col-lg-3 mb-5">
+          <div class="person-donate text-center">
+			<!-- Event 5 -->
+			<div class="text-box">
+				<?php
+					/* remove -> include 'conn.php'; bcs
+					we have put connection inside header page */
+					$conn = OpenCon();
+
+					/**Value is supplierid coming from supplierloginaction.php**/
+					$partid = $_SESSION['login_user'];
+			
+					$sql = "SELECT `eventname`,`eventid` FROM `event` where `eventid` = 'E005'";
+					$result = $conn->query($sql);
+			
+					if ($result->num_rows > 0) {
+						//output data of each row
+											
+						while($row = $result->fetch_assoc())
+						{                              
+								//echo "<br>" . $row["totalorder"] . "<br>";
+								$eventname = $row["eventname"];
+								$eventid = $row["eventid"];
+						}
+					}
+					else {
+						echo "Error in fetching data";
+					}
+					
+					CloseCon($conn);			
+				?>
+				<img src="images/stlkl.png" alt="Image placeholder" class="img-fluid">
+					<div class="donate-info">
+					  <h2>#WeConcern</h2>
+					  <span class="time d-block mb-3">Click the event for more details</span>
+					  <p><span class="text-success"></span><br> <em>for </em><?php echo "<a href=sharethelove.php>$eventid - $eventname Events</a>" ?></p>
+					</div>
+			</div>    
+          </div>
+		</div>
+
+        <div class="col-md-6 col-lg-3 mb-5">
+          <div class="person-donate text-center">
+		  <!-- Event 6 -->
+			<div class="text-box">
+				<?php
+					/* remove -> include 'conn.php'; bcs
+					we have put connection inside header page */
+					$conn = OpenCon();
+
+					/**Value is supplierid coming from supplierloginaction.php**/
+					$partid = $_SESSION['login_user'];
+			
+					$sql = "SELECT `eventname`,`eventid` FROM `event` where `eventid` = 'E006'";
+					$result = $conn->query($sql);
+			
+					if ($result->num_rows > 0) {
+						//output data of each row
+											
+						while($row = $result->fetch_assoc())
+						{                              
+								//echo "<br>" . $row["totalorder"] . "<br>";
+								$eventname = $row["eventname"];
+								$eventid = $row["eventid"];
+						}
+					}
+					else {
+						echo "Error in fetching data";
+					}
+					
+					CloseCon($conn);			
+				?>
+				<img src="images/pscc.png" alt="Image placeholder" class="img-fluid">
+					<div class="donate-info">
+					  <h2>Together We Help</h2>
+					  <span class="time d-block mb-3">Click the event for more details</span>
+					  <p><span class="text-success"></span><br> <em>for </em><?php echo "<a href=pitstopcommunity.php>$eventid - $eventname Events</a>" ?></p>
+					</div>
+			</div>
           </div>    
         </div>
 
         <div class="col-md-6 col-lg-3 mb-5">
           <div class="person-donate text-center">
-            <img src="images/person_4.jpg" alt="Image placeholder" class="img-fluid">
-            <div class="donate-info">
-              <h2>Andrew Holloway</h2>
-              <span class="time d-block mb-3">Donated 9 hours ago</span>
-              <p>Donated <span class="text-success">$100</span> <br> <em>for</em> <a href="#" class="link-underline fundraise-item">Water Is Life. Clean Water In Urban Area</a></p>
-            </div>
+		  <!-- Event 7 -->
+			<div class="text-box">
+				<?php
+					/* remove -> include 'conn.php'; bcs
+					we have put connection inside header page */
+					$conn = OpenCon();
+
+					/**Value is supplierid coming from supplierloginaction.php**/
+					$partid = $_SESSION['login_user'];
+			
+					$sql = "SELECT `eventname`,`eventid` FROM `event` where `eventid` = 'E007'";
+					$result = $conn->query($sql);
+			
+					if ($result->num_rows > 0) {
+						//output data of each row
+											
+						while($row = $result->fetch_assoc())
+						{                              
+								//echo "<br>" . $row["totalorder"] . "<br>";
+								$eventname = $row["eventname"];
+								$eventid = $row["eventid"];
+						}
+					}
+					else {
+						echo "Error in fetching data";
+					}
+					
+					CloseCon($conn);			
+				?>
+				<img src="images/tlfp.png" alt="Image placeholder" class="img-fluid">
+					<div class="donate-info">
+					  <h2>Save The World</h2>
+					  <span class="time d-block mb-3">Click the event for more details</span>
+					   <p><span class="text-success"></span><br> <em>for </em><?php echo "<a href=lostfoodproject.php>$eventid - $eventname Events</a>" ?></p>
+					</div>
+			</div>
           </div>    
         </div>
+
+        <div class="col-md-6 col-lg-3 mb-5">
+          <div class="person-donate text-center">
+		  <!-- Event 8 -->
+			<div class="text-box">
+				<?php
+					/* remove -> include 'conn.php'; bcs
+					we have put connection inside header page */
+					$conn = OpenCon();
+
+					/**Value is supplierid coming from supplierloginaction.php**/
+					$partid = $_SESSION['login_user'];
+			
+					$sql = "SELECT `eventname`,`eventid` FROM `event` where `eventid` = 'E008'";
+					$result = $conn->query($sql);
+			
+					if ($result->num_rows > 0) {
+						//output data of each row
+											
+						while($row = $result->fetch_assoc())
+						{                              
+								//echo "<br>" . $row["totalorder"] . "<br>";
+								$eventname = $row["eventname"];
+								$eventid = $row["eventid"];
+						}
+					}
+					else {
+						echo "Error in fetching data";
+					}
+					
+					CloseCon($conn);			
+				?>
+				<img src="images/fmkl.png" alt="Image placeholder" class="img-fluid">
+					<div class="donate-info">
+					  <h2>Come and Get It</h2>
+					  <span class="time d-block mb-3">Click the event for more details</span>
+					  <p><span class="text-success"></span><br> <em>for </em><?php echo "<a href=freemealskl.php>$eventid - $eventname Events</a>" ?></p>
+					</div>
+			</div>
+          </div>    
+        </div>
+
       </div>
     </div>
   </div> <!-- .section -->
 
-  <div class="featured-section overlay-color-2" style="background-image: url('images/bg_3.jpg');">
-    
-    <div class="container">
-      <div class="row">
 
-        <div class="col-md-6">
-          <img src="images/bg_3.jpg" alt="Image placeholder" class="img-fluid">
-        </div>
-
-        <div class="col-md-6 pl-md-5">
-          <span class="featured-text d-block mb-3">Success Stories</span>
-          <h2>Water Is Life. We Successfuly Provide Clean Water in South East Asia</h2>
-          <p class="mb-3">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-          <span class="fund-raised d-block mb-5">We have raised $100,000</span>
-
-          <p><a href="#" class="btn btn-success btn-hover-white py-3 px-5">Read The Full Story</a></p>
-        </div>
-        
-      </div>
-    </div>
-
-  </div> <!-- .featured-donate -->
-
-  <div class="site-section bg-light">
-    <div class="container">
-      <div class="row mb-5">
-        <div class="col-md-12">
-          <h2>Latest News</h2>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-12 col-sm-6 col-md-6 col-lg-4 mb-4 mb-lg-0">
-          <div class="post-entry">
-            <a href="#" class="mb-3 img-wrap">
-              <img src="images/img_4.jpg" alt="Image placeholder" class="img-fluid">
-            </a>
-            <h3><a href="#">Be A Volunteer Today</a></h3>
-            <span class="date mb-4 d-block text-muted">July 26, 2018</span>
-            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.</p>
-            <p><a href="#" class="link-underline">Read More</a></p>
-          </div>
-        </div>
-        <div class="col-12 col-sm-6 col-md-6 col-lg-4 mb-4 mb-lg-0">
-          <div class="post-entry">
-            <a href="#" class="mb-3 img-wrap">
-              <img src="images/img_5.jpg" alt="Image placeholder" class="img-fluid">
-            </a>
-            <h3><a href="#">You May Save The Life of A Child</a></h3>
-            <span class="date mb-4 d-block text-muted">July 26, 2018</span>
-            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.</p>
-            <p><a href="#" class="link-underline">Read More</a></p>
-          </div>
-        </div>
-        <div class="col-12 col-sm-6 col-md-6 col-lg-4 mb-4 mb-lg-0">
-          <div class="post-entry">
-            <a href="#" class="mb-3 img-wrap">
-              <img src="images/img_6.jpg" alt="Image placeholder" class="img-fluid">
-            </a>
-            <h3><a href="#">Children That Needs Care</a></h3>
-            <span class="date mb-4 d-block text-muted">July 26, 2018</span>
-            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.</p>
-            <p><a href="#" class="link-underline">Read More</a></p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div> <!-- .section -->
-
-  <div class="featured-section overlay-color-2" style="background-image: url('images/bg_2.jpg');">
-    
-    <div class="container">
-      <div class="row">
-
-        <div class="col-md-6 mb-5 mb-md-0">
-          <img src="images/bg_2.jpg" alt="Image placeholder" class="img-fluid">
-        </div>
-
-        <div class="col-md-6 pl-md-5">
-
-          <div class="form-volunteer">
-            
-            <h2>Be A Volunteer Today</h2>
-            <form action="#" method="post">
-              <div class="form-group">
-                <!-- <label for="name">Name</label> -->
-                <input type="text" class="form-control py-2" id="name" placeholder="Enter your name">
-              </div>
-              <div class="form-group">
-                <!-- <label for="email">Email</label> -->
-                <input type="text" class="form-control py-2" id="email" placeholder="Enter your email">
-              </div>
-              <div class="form-group">
-                <!-- <label for="v_message">Email</label> -->
-                <textarea name="v_message" id="" cols="30" rows="3" class="form-control py-2" placeholder="Write your message"></textarea>
-                <!-- <input type="text" class="form-control py-2" id="email"> -->
-              </div>
-              <div class="form-group">
-                <input type="submit" class="btn btn-white px-5 py-2" value="Send">
-              </div>
-            </form>
-          </div>
-        </div>
-        
-      </div>
-    </div>
-
-  </div> <!-- .featured-donate -->
 
   <footer class="footer">
     <?php include 'footer.php'; ?>
