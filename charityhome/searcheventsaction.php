@@ -22,6 +22,15 @@
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/style.css">
 
+	<script type="text/javascript">
+	  function confirmJoin(eventid)
+	  {
+		 if(confirm('Join This Events?'))
+		 {
+		    window.location.href='joinevents.php?eventid='+eventid;
+		 }
+	   }
+  </script>
   </head>
   <body>
     <?php include 'header.php'; ?>
@@ -130,7 +139,7 @@
 													echo "<td>$eventdate</td>";
 													echo "<td>$eventtotaldonation</td>";
 													echo "<td>$eventpic</td>";
-													 echo "<td>" ?><button type="submit" onclick="window.location.href='joinevents.php?partid=<?php echo $partid ?>'">JOIN</button><?php "</td>";
+													 echo "<td>" ?><button value="Print" onclick="confirmJoin('<?php echo $eventid ?>')">JOIN</button><?php "</td>";
 													
 												echo "</tr>";
 											}
