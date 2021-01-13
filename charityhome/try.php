@@ -1,8 +1,7 @@
+
+	
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<link rel="icon" type="image/png" href="/favicon.png"/>
-</head>
   <head>
     <title>FoodForAll &mdash; We Care</title>
     <meta charset="utf-8">
@@ -47,7 +46,100 @@
     </div>
   </div>
   
+   <article>
+  <div class="block-31" style="position: relative;">
+    <div class="owl-carousel loop-block-31 ">
+	  
+	  
+    <div class="main">
+	<?php
+	
+	$conn = mysqli_connect("localhost","root","","ffa") or die("Database Not Connected");
+	
+	//get page number
+	$page=0;
+	
+	//set variable
+	if(isset($_GET["page"])==true)
+	{
+		$page=$_GET["page"];
+	}
+	
+	else 
+	{
+		$page=0;
+	}
+	
+	//algo for pagination in sql
+	if($page==""|| $page=="1")
+	{
+		$page1=0;
+	}
+	else
+	{
+		$page1=($page*4)-4;
+	}
+	
+		
+	$sql="select * from event limit $page1,4";
+	$result=$conn->query($sql);
+	
+	echo"<table>";
+		echo"<tr>";
+			echo"<th>Name</th>";
+			echo"<th>State</th>";
+			echo"<th>Location</th>";
+			echo"<th>Date</th>";
+			echo"<th>Organization Representative</th>";
+		echo"</tr>";
+		
+		if($result->num_rows>0)
+			{
+				//output data of each rows
+				while($row=$result->fetch_assoc())
+				{
+					
+					$eventname=$row["eventname"];
+					$eventstate=$row["eventstate"];
+					$eventlocation=$row["eventlocation"];
+					$eventnumofpart=$row["eventnumofpart"];
+					$eventdate=$row["eventdate"];
+					$eventpic=$row["eventpic"];
+					
+					echo"</tr>";
+						echo"<td>$eventname</td>";
+						echo"<td>$eventstate</td>";
+						echo"<td>$eventlocation</td>";
+						echo"<td>$eventnumofpart</td>";
+						echo"<td>$eventdate</td>";
+						echo"<td>$eventpic</td>";
+					echo"</tr>";
+				}
+			}
+		else 
+					echo "Error in fetching data";
+		echo"</table>";
+		
+		//count number of record
+		$sql2="select count(*) FROM event";
+		$result=$conn->query($sql2);
+		$row=$result->fetch_row();
+		$count=ceil($row[0]/4);
+		
+		for($pageno=1;$pageno<=$count;$pageno++)
+		{
+			?><a href="listevents.php?page=<?php echo $pageno; ?>" style="text-decoration:none"> <?php echo $pageno. "";?></a><?php
+		}
+	
+	?>
  
+
+        
+
+    </div>
+      
+    </div>
+</article>	
 
 
   <footer class="footer">

@@ -12,12 +12,15 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 		if(isset($_POST['term']))
 		{
 
-			$orgid = mysqli_escape_string($conn, $_POST['orgid']);
-			$orgname = mysqli_escape_string($conn, $_POST['orgname']);
-			$orgtelno = mysqli_escape_string($conn, $_POST['orgtelno']);
-			$orgemail = mysqli_escape_string($conn, $_POST['orgemail']);
-			$orgaddress = mysqli_escape_string($conn, $_POST['orgaddress']);
-			$orgpassword = mysqli_escape_string($conn, $_POST['orgpassword']);
+			$today=date("Y-m-d");
+			$eventid='E'.date("m-d/").rand(0,9);
+			$eventname = mysqli_escape_string($conn, $_POST['eventname']);
+			$eventstate = mysqli_escape_string($conn, $_POST['eventstate']);
+			$eventlocation = mysqli_escape_string($conn, $_POST['eventlocation']);
+			$eventnumofpart = mysqli_escape_string($conn, $_POST['eventnumofpart']);
+			$eventdate = mysqli_escape_string($conn, $_POST['eventdate']);
+			$eventpic = mysqli_escape_string($conn, $_POST['eventpic']);
+			
 			
 
 			function validate($form_data)
@@ -26,20 +29,21 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 				return $form_data;
 			}
 
-			$orgid = validate($orgid);
-			$orgname = validate($orgname);
-			$orgtelno = validate($orgtelno);
-			$orgemail = validate($orgemail);
-			$orgaddress = validate($orgaddress);
-			$orgpassword = validate($orgpassword);
+			$eventid = validate($eventid);
+			$eventname = validate($eventname);
+			$eventstate = validate($eventstate);
+			$eventlocation = validate($eventlocation);
+			$eventnumofpart = validate($eventnumofpart);
+			$eventdate = validate($eventdate);
+			$eventpic = validate($eventpic);
 			
 
-			if(!empty($orgid) && !empty($orgname) && !empty($orgtelno) && !empty($orgemail) && !empty($orgaddress)  && !empty($orgpassword))
+			if(!empty($eventid) && !empty($eventname) && !empty($eventstate) && !empty($eventlocation) && !empty($eventnumofpart)  && !empty($eventdate)&& !empty($eventpic))
 			{
 
-				$pass = password_hash($orgpassword, PASSWORD_DEFAULT);
+				
 
-				$insert = "INSERT INTO `organizer`(`orgid`,`orgname`,`orgtelno`,`orgemail`,`orgaddress`,`orgpassword`) VALUES('$orgid','$orgname','$orgtelno','$orgemail','$orgaddress','$orgpassword')";
+				$insert = "INSERT INTO `event`(`eventid`,`eventname`,`eventstate`,`eventlocation`,`eventnumofpart`,`eventdate`,`eventpic`) VALUES('$eventid','$eventname','$eventstate','$eventlocation','$eventnumofpart','$eventdate','$eventpic')";
 
 				if(mysqli_query($conn, $insert))
 				{
@@ -69,10 +73,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 }
 
 ?>
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -96,31 +96,30 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/style.css">
-	
-	<!--css for login and signup-->
-	<meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Sign Up</title>
-
-    <!-- Font Icon -->
-    <link rel="stylesheet" href="fonts2/material-icon/css/material-design-iconic-font.min.css">
-
-    <!-- Main css -->
-    <link rel="stylesheet" href="css2/style.css">
-	<!--end css for login and signup-->
 
   </head>
   <body>
     
-  <nav class="navbar navbar-expand-lg navbar-light ftco_navbar bg-light ftco-navbar-dark" id="ftco-navbar">
-    <div class="container">
-      <a class="navbar-brand" href="index.php">FoodForAll</a>
-     
-    </div>
-  </nav>
+  <?php include 'orgnav.php'; ?>
   <!-- END nav -->
-  <article>
+  
+  <div class="block-31" style="position: relative;">
+    <div class="owl-carousel loop-block-31 ">
+      <div class="block-30 block-30-sm item" style="background-image: url('images/banner.jpg');" data-stellar-background-ratio="0.5">
+        <div class="container">
+          <div class="row align-items-center justify-content-center text-center">
+            <div class="col-md-7">
+              <h2 class="heading mb-5">Food For All</h2>
+              <p style="display: inline-block;color:white">We Care. We Share. We Love.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+   <article>
   <div class="block-31" style="position: relative;">
     <div class="owl-carousel loop-block-31 ">
 	  
@@ -132,32 +131,54 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
             <div class="container">
                 <div class="signup-content">
                     <div class="signup-form">
-                        <h2 class="form-title">SIGN UP</h2>
-						<h4 class="form-title">Come and Join Us As Our Event Organizer !</h4>
-                        <form method="POST" class="register-form" id="register-form">
+					<br><br>
+                        <legend><h2 class="form-title" align="center">HOST AN EVENT NOW !</h2></legend><br>
+						<br>
+						
+                        <form method="POST" class="register-form" id="register-form" align="center">
+                          
                             <div class="form-group">
-                                <label for="orgid"><i class="zmdi zmdi-account-box-o"></i></label>
-                                <input type="text" name="orgid" id="orgid" placeholder="Organizer ID"/>
+                                <label for="eventname">Event Name<i class="zmdi zmdi-account material-icons-name"></i></label>
+                                <input type="text" name="eventname" id="eventname" />
                             </div>
                             <div class="form-group">
-                                <label for="orgname"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                <input type="text" name="orgname" id="orgname" placeholder="Organization Name"/>
+                                <label for="eventstate">Event State<i class="zmdi zmdi-account-calendar"></i></label>
+                                <select name="eventstate" id="eventstate">
+								  <option value="kl">Kuala Lumpur</option>
+								  <option value="johor">Johor</option>
+								  <option value="kedah">Kedah</option>
+								  <option value="kelantan">Kelantan</option>
+								  <option value="melaka">Melaka</option>
+								  <option value="negeri">Negeri Sembilan</option>
+								  <option value="pahang">Pahang</option>
+								  <option value="perak">Perak</option>
+								  <option value="perlis">Perlis</option>
+								  <option value="penang">Penang</option>
+								  <option value="sabah">Sabah</option>
+								  <option value="sarawak">Sarawak</option>
+								  <option value="terengganu">Terengganu</option>
+								</select>
                             </div>
+							
                             <div class="form-group">
-                                <label for="orgtelno"><i class="zmdi zmdi-account-calendar"></i></label>
-                                <input type="text" name="orgtelno" id="orgtelno" placeholder="Contact Number"/>
+                                <label for="eventlocation">Event Location<i class="zmdi zmdi-sort-amount-desc"></i></label>
+                                <input type="text" name="eventlocation" id="eventlocation"/>
                             </div>
-                            <div class="form-group">
-                                <label for="orgemail"><i class="zmdi zmdi-sort-amount-desc"></i></label>
-                                <input type="text" name="orgemail" id="orgemail" placeholder="xxxx@gmail.com"/>
-                            </div>
+							
 							<div class="form-group">
-                                <label for="orgaddress"><i class="zmdi zmdi-view-stream"></i></label>
-                                <input type="text" name="orgaddress" id="orgaddress" placeholder="Organization Address"/>
+                                <label for="eventnumofpart">Number of Volunteers Needed<i class="zmdi zmdi-view-stream"></i></label>
+                                <input type="number" id="eventnumofpart" name="eventnumofpart" min="1" max="100" >
                             </div>
+							
 							<div class="form-group">
-                                <label for="orgpassword"><i class="zmdi zmdi-lock"></i></label>
-                                <input type="password" name="orgpassword" id="orgpassword" placeholder="*****"/>
+                                <label for="eventdate">Date of Event<i class="zmdi zmdi-lock"></i></label>
+                                <input type="date" name="eventdate" id="eventdate" />
+                            </div>
+							
+							
+							<div class="form-group">
+                                <label for="eventpic">Organization Representative In Charge<i class="zmdi zmdi-sort-amount-desc"></i></label>
+                                <input type="text" name="eventpic" id="eventpic" />
                             </div>
 						
                             <div class="form-group">
@@ -169,12 +190,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
                             </div>
                         </form>
                     </div>
-                    <div class="signup-image">
-                        <figure><img src="images2/signup-image.jpg" alt="sing up image"></figure>
-                        <a href="loginorg.php" class="signup-image-link">I have an account</a>
-						<a href="index.php" class="signup-image-link">Back To Homepage</a>
-
-                    </div>
+                   
                 </div>
             </div>
         </section>
@@ -185,12 +201,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
       
     </div>
 </article>	
-  </div>
-  <!-- JS -->
-			<script src="vendor2/jquery/jquery.min.js"></script>
-			<script src="js2/main.js"></script>
 
 
+  <footer class="footer">
+    <?php include 'footer.php'; ?>
+  </footer>
 
   <!-- loader -->
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>

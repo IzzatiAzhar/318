@@ -1,8 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<link rel="icon" type="image/png" href="/favicon.png"/>
-</head>
   <head>
     <title>FoodForAll &mdash; We Care</title>
     <meta charset="utf-8">
@@ -24,6 +21,47 @@
 
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/style.css">
+	
+	 <?php include 'headerorg.php'; ?>
+	 
+	<style>
+		#user {
+		  font-family: Arial, Helvetica, sans-serif;
+		  border-collapse: collapse;
+		  width: 100%;
+		}
+
+		#user td, #user th {
+		  border: 1px solid #ddd;
+		  padding: 8px;
+		}
+
+		#user tr:nth-child(even){background-color: #f2f2f2;}
+
+		#user tr:hover {background-color: #ddd;}
+
+		#user th {
+		  padding-top: 12px;
+		  padding-bottom: 12px;
+		  text-align: left;
+		  background-color: #00ff00;
+		  color: white;
+		}
+		.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+	</style>
+	
+	<script type="text/javascript">
+		function confirmDelete(orgid)
+		{
+			if(confirm('Your Data Will Be Deleted Permanently.You sure want to leave ?'))
+			{
+				window.location.href='deleteorg.php?orgid='+orgid;
+			}
+		}
+	</script>
 
   </head>
   <body>
@@ -35,10 +73,11 @@
     <div class="owl-carousel loop-block-31 ">
       <div class="block-30 block-30-sm item" style="background-image: url('images/banner.jpg');" data-stellar-background-ratio="0.5">
         <div class="container">
-          <div class="row align-items-center justify-content-center text-center">
-            <div class="col-md-7">
-              <h2 class="heading mb-5">Food For All</h2>
-              <p style="display: inline-block;color:white">We Care. We Share. We Love.</p>
+          <div class="row align-items-center justify-content-center">
+            <div class="col-md-7 text-center">
+              <h2 class="heading"><?php echo "Hi,  " .$login_name ;?></h2>
+		      
+
             </div>
           </div>
         </div>
@@ -46,12 +85,98 @@
       
     </div>
   </div>
+
+  <div class="site-section">
+    <div class="container">
+      <div class="row block-9">
+        <div class="col-md-6 pr-md-5">
+          <form action="updateprofiledetails.php" method="POST">
+            <article>
+		<h2 style="text-align:center">Profile</h2>
+		<article>
+		 
+		<?php
+		
+		$orgid = $login_id;
+		$orgname = $login_name;
+		
+		$conn = OpenCon();
+		
+		
+		
+		$sql = "select * from organizer where orgid = $orgid";
+				
+		$result = $conn->query($sql);
+		
+		
+		
+		if ($result->num_rows > 0){
+		//Ouput data of each row
+			while($row = $result->fetch_assoc()){
+				
+				$orgid = $row["orgid"];
+				$orgname = $row["orgname"];
+				$orgtelno = $row["orgtelno"];
+				$orgemail = $row["orgemail"];
+				$orgaddress = $row["orgaddress"];
+				$orgpassword = $row["orgpassword"];
+				
+				
+				echo "<table id=user class=center>";
+				echo "<tr>";
+					echo "<th>Name </th>";
+					echo "<td>$orgname</td>";
+				echo "</tr>";
+				echo "<tr>";
+					echo "<th>ID </th>";
+					echo "<td>$orgid</td>";
+				echo "</tr>";
+				echo "<tr>";
+					echo "<th>Contact Number </th>";
+					echo "<td>$orgtelno</td>";
+				echo "</tr>";
+				echo "<tr>";
+					echo "<th>Email </th>";
+					echo "<td>$orgemail</td>";
+				echo "</tr>";
+				echo "<tr>";
+					echo "<th>Address </th>";
+					echo "<td>$orgaddress</td>";
+				echo "</tr>";
+				
+				
+			}
+		}else
+			echo "Error in fetching data";
+		echo "</table>";
+		echo "<br>";
+		?><button onclick="window.location.href='updateprofileorgdetails.php?orgid=<?php echo $orgid ?>'">UPDATE</button>
+		 <button onclick="confirmDelete('<?php echo $orgid ?>')">DELETE</button><?php
+		
+	
+		
+		
+		CloseCon($conn);
+		
+		?>
+		
+		
+	</article>
+        
+        </div>
+
+       
+      </div>
+    </div>
+  </div>
+  		   
+
+
   
- 
-
-
+  
   <footer class="footer">
     <?php include 'footer.php'; ?>
+    
   </footer>
 
   <!-- loader -->

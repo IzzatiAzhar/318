@@ -37,6 +37,7 @@
           <li class="nav-item active"><a href="index.php" class="nav-link">Home</a></li>
           <li class="nav-item"><a href="userregister.php" class="nav-link">Join Us</a></li>
           <li class="nav-item"><a href="userlogin.php" class="nav-link">Log In</a></li>
+		  <li class="nav-item"><a href="developers.php" class="nav-link">Developers</a></li>
         </ul>
       </div>
     </div>
@@ -92,7 +93,7 @@
             <div class="icon"><span class="ion-ios-bulb"></span></div>
             <div class="media-body">
               <h3 class="heading">Our Mission</h3>
-              <p>We believe hat no one should ever be hungry. We support individuals regardless of age, disability, ethnic or religious group, and we do not tolerate any form of discrimination.Together, let's end hunger in for all in Malaysia !</p>
+              <p>We believe that no one should ever be hungry. We support individuals regardless of age, disability, ethnic or religious group, and we do not tolerate any form of discrimination.Together, let's end hunger in for all in Malaysia !</p>
               <p><a href="#" class="link-underline">Learn More</a></p>
             </div>
           </div>     
@@ -304,10 +305,21 @@
         <div class="col-md-6 pl-md-5">
           <span class="featured-text d-block mb-3"><b>#STOP THE SPREAD</b></span>
           <h2>Together we can stop the spread of Covid-19</h2>
-          <p class="mb-3">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-          <span class="fund-raised d-block mb-5">We have raised $100,000</span>
+          <p class="mb-3">Protect yourself and others around you by knowing the facts and taking appropriate precautions.<br>To prevent the spread of COVID-19: </p>
+		  <p class="mb-3" >
+						<ol style="color:white">
+								<li>Clean your hands often. Use soap and water, or an alcohol-based hand rub.</li>
+								<li>Maintain a safe distance from anyone who is coughing or sneezing.</li>
+								<li>Wear a mask when physical distancing is not possible.</li>
+								<li>Don’t touch your eyes, nose or mouth.</li>
+								<li>Stay home if you feel unwell.</li>
+						</ol>
+		  </p>
+		  
+          <span class="fund-raised d-block mb-5">Follow advice provided by your local health authority.</span>
 
-          <p><a href="#" class="btn btn-success btn-hover-white py-3 px-5">Read The Full Story</a></p>
+          <p><a href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019/question-and-answers-hub/q-a-detail/coronavirus-disease-covid-19#:~:text=symptoms" class="btn btn-success btn-hover-white py-3 px-5">More COVID-19 info from 
+		  <br>World Health Organization (WHO)</a></p>
         </div>
         
       </div>
