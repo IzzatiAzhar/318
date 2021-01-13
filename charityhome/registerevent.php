@@ -14,13 +14,11 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 
 			$today=date("Y-m-d");
 			$eventid='E'.date("m-d/").rand(0,9);
-			//$eventid = mysqli_escape_string($conn, $_POST['eventid']);
 			$eventname = mysqli_escape_string($conn, $_POST['eventname']);
 			$eventstate = mysqli_escape_string($conn, $_POST['eventstate']);
 			$eventlocation = mysqli_escape_string($conn, $_POST['eventlocation']);
 			$eventnumofpart = mysqli_escape_string($conn, $_POST['eventnumofpart']);
 			$eventdate = mysqli_escape_string($conn, $_POST['eventdate']);
-			//$eventtotaldonation = mysqli_escape_string($conn, $_POST['eventtotaldonation']);
 			$eventpic = mysqli_escape_string($conn, $_POST['eventpic']);
 			
 			
@@ -37,7 +35,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 			$eventlocation = validate($eventlocation);
 			$eventnumofpart = validate($eventnumofpart);
 			$eventdate = validate($eventdate);
-			//$eventtotaldonation = validate($eventtotaldonation);
 			$eventpic = validate($eventpic);
 			
 

@@ -1,5 +1,3 @@
-
-	
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -24,9 +22,11 @@
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/style.css">
 
+
   </head>
   <body>
-    
+    <?php include 'headerorg.php'; ?>
+	
   <?php include 'orgnav.php'; ?>
   <!-- END nav -->
   
@@ -36,8 +36,7 @@
         <div class="container">
           <div class="row align-items-center justify-content-center text-center">
             <div class="col-md-7">
-              <h2 class="heading mb-5">Food For All</h2>
-              <p style="display: inline-block;color:white">We Care. We Share. We Love.</p>
+              <h2 class="heading mb-5">Current Events</h2>
             </div>
           </div>
         </div>
@@ -46,103 +45,127 @@
     </div>
   </div>
   
-   <article>
-  <div class="block-31" style="position: relative;">
-    <div class="owl-carousel loop-block-31 ">
-	  
-	  
-    <div class="main">
-	<?php
-	
-	$conn = mysqli_connect("localhost","root","","ffa") or die("Database Not Connected");
-	
-	//get page number
-	$page=0;
-	
-	//set variable
-	if(isset($_GET["page"])==true)
-	{
-		$page=$_GET["page"];
-	}
-	
-	else 
-	{
-		$page=0;
-	}
-	
-	//algo for pagination in sql
-	if($page==""|| $page=="1")
-	{
-		$page1=0;
-	}
-	else
-	{
-		$page1=($page*4)-4;
-	}
-	
-		
-	$sql="select * from event limit $page1,4";
-	$result=$conn->query($sql);
-	
-	echo"<table>";
-		echo"<tr>";
-			echo"<th>Name</th>";
-			echo"<th>State</th>";
-			echo"<th>Location</th>";
-			echo"<th>Date</th>";
-			echo"<th>Organization Representative</th>";
-		echo"</tr>";
-		
-		if($result->num_rows>0)
-			{
-				//output data of each rows
-				while($row=$result->fetch_assoc())
-				{
-					
-					$eventname=$row["eventname"];
-					$eventstate=$row["eventstate"];
-					$eventlocation=$row["eventlocation"];
-					$eventnumofpart=$row["eventnumofpart"];
-					$eventdate=$row["eventdate"];
-					$eventpic=$row["eventpic"];
-					
-					echo"</tr>";
-						echo"<td>$eventname</td>";
-						echo"<td>$eventstate</td>";
-						echo"<td>$eventlocation</td>";
-						echo"<td>$eventnumofpart</td>";
-						echo"<td>$eventdate</td>";
-						echo"<td>$eventpic</td>";
-					echo"</tr>";
-				}
-			}
-		else 
-					echo "Error in fetching data";
-		echo"</table>";
-		
-		//count number of record
-		$sql2="select count(*) FROM event";
-		$result=$conn->query($sql2);
-		$row=$result->fetch_row();
-		$count=ceil($row[0]/4);
-		
-		for($pageno=1;$pageno<=$count;$pageno++)
-		{
-			?><a href="listevents.php?page=<?php echo $pageno; ?>" style="text-decoration:none"> <?php echo $pageno. "";?></a><?php
-		}
-	
-	?>
- 
+  <div class="site-section section-counter">
+    <div class="container">
+      <div class="row">
+		<article>
+					<table class="table">
+								<thead class="thead-dark">
+									<tr>
+										<th>Event ID</th>
+										<th>Event Name</th>
+										<th>State </th>
+										<th>Location</th>
+										<th>Number of Participant</th>
+										<th>Date Event</th>
+										<th>Total Donation (RM) </th>
+										<th>Person-in-charge</th>
+									</tr>
+					            </thead>
+						
+						
+						<?php
+							$conn = mysqli_connect("localhost","root","","ffa") or die("Database Not Connected");
+							
+							//get page number
+							$page=0;
+							
+							//set variable
+							if(isset($_GET["page"])==true)
+							{
+								$page=$_GET["page"];
+							}
+							
+							else 
+							{
+								$page=0;
+							}
+							
+							//algo for pagination in sql
+							if($page==""|| $page=="1")
+							{
+								$page1=0;
+							}
+							else
+							{
+								$page1=($page*4)-4;
+							}
+							
+							
+							$sql="select * from event limit $page1,4";
+							$result=$conn->query($sql);
+								  
+								 
+								  if($result->num_rows > 0)
+								  {
+											if($result->num_rows>0)
+											//output data of each row
+											{
+											while($row=$result->fetch_assoc())
+											{
+												$eventid = $row["eventid"];
+												$eventname = $row["eventname"];
+												$eventstate = $row["eventstate"];
+												$eventlocation = $row["eventlocation"];
+												$eventnumofpart = $row["eventnumofpart"];
+												$eventdate = $row["eventdate"];
+												$eventtotaldonation = $row["eventtotaldonation"];
+												$eventpic = $row["eventpic"];
+												
+												
+												echo "<tr>";
+												
+													echo "<td>$eventid</td>";
+													echo "<td>$eventname</td>";
+													echo "<td>$eventstate</td>";
+													echo "<td>$eventlocation</td>";
+													echo "<td>$eventnumofpart</td>";
+													echo "<td>$eventdate</td>";
+													echo "<td>$eventtotaldonation</td>";
+													echo "<td>$eventpic</td>";
+													
+													
+												echo "</tr>";
+											}
+										}
 
-        
-
+										
+									echo "</table>";
+									
+									
+							//count number of record
+							if($result->num_rows>0)
+							{
+							$sql2="select count(*) FROM event";
+							$result=$conn->query($sql2);
+							$row=$result->fetch_row();
+							$count=ceil($row[0]/4);
+							
+							for($pageno=1;$pageno<=$count;$pageno++)
+							{
+								?><a href="listevents.php?page=<?php echo $pageno; ?>" style="text-decoration:none"> <?php echo $pageno. "";?></a><?php
+							}
+						}
+						}
+						
+						CloseCon($conn);
+								?>
+							
+								<table class="table">
+									<tr>
+											<td colspan="2" align="right">
+												<input type="button" value="Back" onclick="history.back()" />
+											</td>
+									</tr>
+								</table>	
+								
+		</article> 
+      </div>
     </div>
-      
-    </div>
-</article>	
+  </div>
 
 
-  <footer class="footer">
+<footer class="footer">
     <?php include 'footer.php'; ?>
   </footer>
 
