@@ -35,7 +35,7 @@
         <div class="container">
           <div class="row align-items-center justify-content-center text-center">
             <div class="col-md-7">
-              <h2 class="heading mb-5">The Details Of The Events</h2>
+              <h2 class="heading mb-5">Join/ Donate</h2>
             </div>
           </div>
         </div>
@@ -44,151 +44,70 @@
     </div>
   </div>
   
-  <div class="site-section section-counter">
+  <div class="site-section">
     <div class="container">
-      <div class="row">
-		<article>
-						<table class="table">
-								<thead class="thead-dark">
-									<tr>
-										<th>Event ID</th>
-										<th>Event Name</th>
-										<th>State </th>
-										<th>Location</th>
-										<th>Number of Participant</th>
-										<th>Date Event</th>
-										<th>Total Donation (RM) </th>
-										<th>Person-in-charge</th>
-									</tr>
-					        </thead>
-						
-						
-						<?php
-							$searching=$_GET["searchevents"];
-							$conn=OpenCon();
-							
-							//get page number
-							$page=0;
-							
-							//set variable
-							if(isset($_GET["page"])==true)
-							{
-								$page=$_GET["page"];
-							}
-							else
-							{
-								$page=0;
-							}
-							
-							//algo for pagination in sql
-							if($page=="" || $page=="1")
-							{
-								$page1=0;
-							}
-							
-							else
-							{
-								$page1=($page*7)-7;
-							}
-							
-							$sql = "SELECT * FROM `event` WHERE `eventid` LIKE '%$searching%'
-									or `eventname` like '%$searching%'
-									or `eventstate` like '%$searching%'
-									or `eventlocation` like '%$searching%'
-									or `eventdate` like '%$searching%'
-									or `eventpic` like '%$searching%'
-									limit $page1,7";
-								  
-								  $result=$conn->query($sql);
-								 
-								  if($result->num_rows > 0)
-								  {
-									 
-									  //echo"<table>";
-										//echo "<tr>";
-										//echo "<th>Product Name</th>";
-										//echo "<th>Product ID</th>";
-										//echo "<th>Date Manufacturer</th>";
-										//echo "<th>Price (RM)</th>";
-										//echo "</tr>";
-										
-										if($result->num_rows>0)
-										//output data of each row
-										{
-											while($row=$result->fetch_assoc())
-											{
-												$eventid = $row["eventid"];
-												$eventname = $row["eventname"];
-												$eventstate = $row["eventstate"];
-												$eventlocation = $row["eventlocation"];
-												$eventnumofpart = $row["eventnumofpart"];
-												$eventdate = $row["eventdate"];
-												$eventtotaldonation = $row["eventtotaldonation"];
-												$eventpic = $row["eventpic"];
-												
-												
-												echo "<tr>";
-												
-													echo "<td>$eventid</td>";
-													echo "<td>$eventname</td>";
-													echo "<td>$eventstate</td>";
-													echo "<td>$eventlocation</td>";
-													echo "<td>$eventnumofpart</td>";
-													echo "<td>$eventdate</td>";
-													echo "<td>$eventtotaldonation</td>";
-													echo "<td>$eventpic</td>";
-													echo "<td>" ?><button onclick="window.location.href='approveorder.php?orderid=<?php echo $orderid ?>'">APPROVE</button><?php "</td>";
-													
-												echo "</tr>";
-											}
-										}
+      <div class="row block-9">
+        <div class="col-md-6 pr-md-5">
+			<article>
+			<h2 style="text-align:center">Please Fill in the form to join te event</h2><br>
+			<form action="joineventsaction.php" id="updateform" method ="POST">
+			<?php
+			
+			$conn = OpenCon();
+			
+			$eventid = $_GET["eventid"];
+			$partid = $login_id;
+			$regid = rand();
+			
+			
+			$sql ="select * from participant where partid = $partid";
+			
+			$result = $conn->query($sql);
+			
+			if($result->num_rows > 0){
+			//Output data of each row
+				while($row = $result->fetch_assoc()){
+					
+					
+						echo "<table id=user>";
+							echo "<tr>";
+								echo "<th>Registration ID</th>";
+								echo "<td>"?><input type="text" name="regid" value="<?php echo $regid;?>" readonly><?php "</td>" ;
+							echo "</tr>";
+							echo "<tr>";
+								echo "<th>User ID </th>";
+								echo "<td>"?><input type="text" name="partid" value="<?php echo $partid;?>" readonly><?php "</td>" ;
+							echo "</tr>";
+							echo "<tr>";
+								echo "<th>Event ID </th>";
+								echo "<td>"?><input type="text" name="eventid" value="<?php echo $eventid;?>" readonly><?php "</td>" ;
+							echo "</tr>";
+							echo "<tr>";
+								echo "<th>Date  </th>";
+								echo "<td>"?><input type="date" name="datejoin" required><?php "</td>" ;
+							echo "</tr>";
+						echo "</table>";
+				}
+			}else{
+				echo "Data cannot be displayed";
+			}
+			CloseCon($conn);
+			?>
+			
+			<table>
+				<tr>
+					<td colspan="2" align="center">
+						<input type="submit" value="Submit" />
+						<input type="button" value="Cancel"  onclick="history.back()" />
+					</td>
+				</tr>
+			</table>
+				
+		</article>
+        
+        </div>
 
-										
-									echo "</table>";
-									
-									
-						//count number of record
-						if($result->num_rows>0)
-						{
-							$sql2="select count(*)
-								   FROM `event` WHERE `eventid` LIKE '%$searching%'
-									or `eventname` like '%$searching%'
-									or `eventstate` like '%$searching%'
-									or `eventlocation` like '%$searching%'
-									or `eventdate` like '%$searching%'
-									or `eventpic` like '%$searching%'";
-								 
-							$result=$conn->query($sql2);
-							$row=$result->fetch_row();
-							$count=ceil($row[0]/7);
-							
-							for($pageno=1;$pageno<=$count;$pageno++)
-							{
-								?><a href="searcheventsaction.php?page=<?php echo $pageno; ?>&searchevents=<?php echo $searching; ?>"
-								style="text-decoration:none"> <?php echo $pageno. "";?></a><?php
-							}
-						}
-						
-								  }
-								  
-						else
-						{
-						echo "<ul align='left'> <font color=red size='4pt'>Sorry, Data could not be found</font></ul>";
-						}
-								  
-						
-							CloseCon($conn);
-							
-							?>
-								<table class="table">
-									<tr>
-										<td></td>
-											<td colspan="2" align="right">
-												<input type="button" value="Back" onclick="history.back()" />
-											</td>
-									</tr>
-								</table>	
-		</article> 
+       
       </div>
     </div>
   </div>
