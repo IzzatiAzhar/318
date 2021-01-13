@@ -184,6 +184,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
     </div>
       
     </div>
+</article>	
   </div>
   <!-- JS -->
 			<script src="vendor2/jquery/jquery.min.js"></script>

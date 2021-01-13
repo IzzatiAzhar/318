@@ -12,13 +12,15 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 		if(isset($_POST['term']))
 		{
 
-			$eventid = mysqli_escape_string($conn, $_POST['eventid']);
+			$today=date("Y-m-d");
+			$eventid='E'.date("m-d/").rand(0,9);
+			//$eventid = mysqli_escape_string($conn, $_POST['eventid']);
 			$eventname = mysqli_escape_string($conn, $_POST['eventname']);
 			$eventstate = mysqli_escape_string($conn, $_POST['eventstate']);
 			$eventlocation = mysqli_escape_string($conn, $_POST['eventlocation']);
 			$eventnumofpart = mysqli_escape_string($conn, $_POST['eventnumofpart']);
 			$eventdate = mysqli_escape_string($conn, $_POST['eventdate']);
-			$eventtotaldonation = mysqli_escape_string($conn, $_POST['eventtotaldonation']);
+			//$eventtotaldonation = mysqli_escape_string($conn, $_POST['eventtotaldonation']);
 			$eventpic = mysqli_escape_string($conn, $_POST['eventpic']);
 			
 			
@@ -35,16 +37,16 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 			$eventlocation = validate($eventlocation);
 			$eventnumofpart = validate($eventnumofpart);
 			$eventdate = validate($eventdate);
-			$eventtotaldonation = validate($eventtotaldonation);
+			//$eventtotaldonation = validate($eventtotaldonation);
 			$eventpic = validate($eventpic);
 			
 
-			if(!empty($eventid) && !empty($eventname) && !empty($eventstate) && !empty($eventlocation) && !empty($eventnumofpart)  && !empty($eventdate)&& !empty($eventtotaldonation)&& !empty($eventpic))
+			if(!empty($eventid) && !empty($eventname) && !empty($eventstate) && !empty($eventlocation) && !empty($eventnumofpart)  && !empty($eventdate)&& !empty($eventpic))
 			{
 
 				
 
-				$insert = "INSERT INTO `event`(`eventid`,`eventname`,`eventstate`,`eventlocation`,`eventnumofpart`,`eventdate`,`eventtotaldonation`,`eventpic`) VALUES('$eventid','$eventname','$eventstate','$eventlocation','$eventnumofpart','$eventdate','$eventtotaldonation',,'$eventpic')";
+				$insert = "INSERT INTO `event`(`eventid`,`eventname`,`eventstate`,`eventlocation`,`eventnumofpart`,`eventdate`,`eventpic`) VALUES('$eventid','$eventname','$eventstate','$eventlocation','$eventnumofpart','$eventdate','$eventpic')";
 
 				if(mysqli_query($conn, $insert))
 				{
@@ -132,19 +134,18 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
             <div class="container">
                 <div class="signup-content">
                     <div class="signup-form">
-                        <h2 class="form-title">NEW EVENT</h2>
+					<br><br>
+                        <legend><h2 class="form-title" align="center">HOST AN EVENT NOW !</h2></legend><br>
+						<br>
 						
-                        <form method="POST" class="register-form" id="register-form">
+                        <form method="POST" class="register-form" id="register-form" align="center">
+                          
                             <div class="form-group">
-                                <label for="eventid"><i class="zmdi zmdi-account-box-o"></i></label>
-                                <input type="text" name="eventid" id="eventid placeholder="Event ID"/>
+                                <label for="eventname">Event Name<i class="zmdi zmdi-account material-icons-name"></i></label>
+                                <input type="text" name="eventname" id="eventname" />
                             </div>
                             <div class="form-group">
-                                <label for="eventname"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                <input type="text" name="eventname" id="eventname" placeholder="Event Name"/>
-                            </div>
-                            <div class="form-group">
-                                <label for="eventstate"><i class="zmdi zmdi-account-calendar"></i></label>
+                                <label for="eventstate">Event State<i class="zmdi zmdi-account-calendar"></i></label>
                                 <select name="eventstate" id="eventstate">
 								  <option value="kl">Kuala Lumpur</option>
 								  <option value="johor">Johor</option>
@@ -163,28 +164,24 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
                             </div>
 							
                             <div class="form-group">
-                                <label for="eventlocation"><i class="zmdi zmdi-sort-amount-desc"></i></label>
-                                <input type="text" name="eventlocation" id="eventlocation" placeholder="Location"/>
+                                <label for="eventlocation">Event Location<i class="zmdi zmdi-sort-amount-desc"></i></label>
+                                <input type="text" name="eventlocation" id="eventlocation"/>
                             </div>
 							
 							<div class="form-group">
-                                <label for="eventnumofpart"><i class="zmdi zmdi-view-stream"></i></label>
-                                <input type="number" id="eventnumofpart" name="eventnumofpart" min="1" max="100">
+                                <label for="eventnumofpart">Number of Volunteers Needed<i class="zmdi zmdi-view-stream"></i></label>
+                                <input type="number" id="eventnumofpart" name="eventnumofpart" min="1" max="100" >
                             </div>
 							
 							<div class="form-group">
-                                <label for="eventdate"><i class="zmdi zmdi-lock"></i></label>
+                                <label for="eventdate">Date of Event<i class="zmdi zmdi-lock"></i></label>
                                 <input type="date" name="eventdate" id="eventdate" />
                             </div>
 							
-							<div class="form-group">
-                                <label for="eventtotaldonation"><i class="zmdi zmdi-view-stream"></i></label>
-                                <input type="number" id="eventtotaldonation" name="eventtotaldonation" min="1" max="">
-                            </div>
 							
 							<div class="form-group">
-                                <label for="eventpic"><i class="zmdi zmdi-sort-amount-desc"></i></label>
-                                <input type="text" name="eventpic" id="eventpic" placeholder="Event Handler"/>
+                                <label for="eventpic">Organization Representative In Charge<i class="zmdi zmdi-sort-amount-desc"></i></label>
+                                <input type="text" name="eventpic" id="eventpic" />
                             </div>
 						
                             <div class="form-group">

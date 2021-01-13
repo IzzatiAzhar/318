@@ -9,10 +9,10 @@
       <div class="collapse navbar-collapse" id="ftco-nav">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active"><a href="orghome.php" class="nav-link">Home</a></li>
-          <li class="nav-item"><a href="orgprofile.php" class="nav-link">Profile</a></li>
+          <li class="nav-item"><a href="profileorg.php" class="nav-link">Profile</a></li>
           <li class="nav-item"><a href="listevents.php" class="nav-link">Current Events</a></li>
 		  <li class="nav-item"><a href="registerevent.php" class="nav-link">New Event</a></li>
-          <li class="nav-item"><a href="logoutorg.php" class="nav-link">Logout</a></li>
+          <li class="nav-item"><a href="index.php" class="nav-link">Logout</a></li>
         </ul>
       </div>
     </div>
