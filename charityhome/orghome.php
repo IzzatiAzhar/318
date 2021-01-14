@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<link rel="icon" type="image/png" href="/favicon.png"/>
+<link rel="icon" type="image/png" href="images/favicon.png"/>
 </head>
   <head>
     <title>FoodForAll &mdash; We Care</title>

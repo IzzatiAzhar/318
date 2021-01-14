@@ -80,6 +80,13 @@ html {
 .button:hover {
   background-color: #555;
 }
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
 </style>
   
   
@@ -134,26 +141,28 @@ html {
     <div class="row">
   <div class="column">
     <div class="card">
-      <img src="/w3images/team1.jpg" alt="Jane" style="width:100%">
+	<br>
+      <img src="images/nasuha.jpeg" alt="Nasuha Asri" style="width:40%"  class="center">
       <div class="container">
-        <h2>Nasuha Binti Asri</h2>
-        <p class="title">CEO & Founder</p>
-        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-        <p>example@example.com</p>
-        <p><button class="button">Contact</button></p>
+	  <br>
+        <h2 style="color:black;">Nasuha Binti Asri</h2>
+        <p style="color:black;" class="title">Developer 1</p>
+        <p style="color:black;">Student ID: 2018256718</p>
+        <p style="color:black;">example@example.com</p>
       </div>
     </div>
   </div>
 
   <div class="column">
     <div class="card">
-      <img src="/w3images/team2.jpg" alt="Mike" style="width:100%">
+	<br>
+      <img src="images/ezzaty.jpeg" alt="Mike" style="width:40%" class="center">
       <div class="container">
-        <h2>Siti Nurezzaty Binti Mohd Rafek</h2>
-        <p class="title">Art Director</p>
-        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-        <p>example@example.com</p>
-        <p><button class="button">Contact</button></p>
+	  <br>
+        <h2 style="color:black;">Siti Nurezzaty Binti Mohd Rafek</h2>
+        <p style="color:black;"class="title">Developer 2</p>
+        <p style="color:black;">Student ID: 2018445776</p>
+        <p style="color:black;">example@example.com</p>
       </div>
     </div>
   </div>
@@ -167,26 +176,28 @@ html {
   
   <div class="column" margin="auto">
     <div class="card">
-      <img src="/w3images/team3.jpg" alt="John" style="width:100%">
+	<br>
+      <img src="images/izzati.jpeg" alt="John" style="width:40%" class="center">
       <div class="container">
-        <h2>Nur Izzati Binti Mohd Azhar</h2>
-        <p class="title">Designer</p>
-        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-        <p>example@example.com</p>
-        <p><button class="button">Contact</button></p>
+	  <br>
+        <h2 style="color:black;">Nur Izzati Binti Mohd Azhar</h2>
+        <p style="color:black;" class="title">Developer 3</p>
+        <p style="color:black;">Student ID: 2018678518</p>
+        <p style="color:black;">example@example.com</p>
       </div>
     </div>
   </div>
   
    <div class="column">
     <div class="card">
-      <img src="/w3images/team3.jpg" alt="John" style="width:100%">
+	<br>
+      <img src="images/syahirah.jpeg" alt="John" style="width:40%" class="center">
       <div class="container">
-        <h2>Nur Syahirah Amirah Binti Ariffin</h2>
-        <p class="title">Designer</p>
-        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-        <p>example@example.com</p>
-        <p><button class="button">Contact</button></p>
+	  <br>
+        <h2 style="color:black;">Nur Syahirah Amirah Binti Ariffin</h2>
+        <p style="color:black;"class="title">Developer 4</p>
+        <p style="color:black;">Student ID: 2018270758</p>
+        <p style="color:black;">nursyahirahamirahariffin@gmail.com</p>
       </div>
     </div>
   </div>
