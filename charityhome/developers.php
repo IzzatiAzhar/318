@@ -148,7 +148,7 @@ html {
         <h2 style="color:black;">Nasuha Binti Asri</h2>
         <p style="color:black;" class="title">Developer 1</p>
         <p style="color:black;">Student ID: 2018256718</p>
-        <p style="color:black;">example@example.com</p>
+        <p style="color:black;">nasuhasri00@gmail.com</p>
       </div>
     </div>
   </div>
@@ -162,7 +162,7 @@ html {
         <h2 style="color:black;">Siti Nurezzaty Binti Mohd Rafek</h2>
         <p style="color:black;"class="title">Developer 2</p>
         <p style="color:black;">Student ID: 2018445776</p>
-        <p style="color:black;">example@example.com</p>
+        <p style="color:black;">sitinurezzaty95@gmail.com</p>
       </div>
     </div>
   </div>
@@ -183,7 +183,7 @@ html {
         <h2 style="color:black;">Nur Izzati Binti Mohd Azhar</h2>
         <p style="color:black;" class="title">Developer 3</p>
         <p style="color:black;">Student ID: 2018678518</p>
-        <p style="color:black;">example@example.com</p>
+        <p style="color:black;">izzatiazhar@gmail.com</p>
       </div>
     </div>
   </div>

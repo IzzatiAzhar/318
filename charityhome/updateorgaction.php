@@ -44,24 +44,10 @@
 		  padding-top: 12px;
 		  padding-bottom: 12px;
 		  text-align: left;
-		  background-color: #FFE033;
+		  background-color: #BC8F8F;
 		  color: white;
 		}
-		.center {
-  margin-left: auto;
-  margin-right: auto;
-}
 	</style>
-	
-	<script type="text/javascript">
-		function confirmDelete(orgid)
-		{
-			if(confirm('This Account  Will Be Deleted Permanently.You sure want to leave ?'))
-			{
-				window.location.href='deleteorg.php?orgid='+orgid;
-			}
-		}
-	</script>
 
   </head>
   <body>
@@ -90,78 +76,96 @@
     <div class="container">
       <div class="row block-9">
         <div class="col-md-6 pr-md-5">
-          <form action="updateorgprofile.php" method="POST">
-            <article>
-		<h2 style="text-align:center">Profile</h2>
-		<article>
-		 
-		<?php
-		
-		$orgid = $login_id;
-		$orgname = $login_name;
-		
-		$conn = OpenCon();
-		
-		
-		
-		$sql = "select * from organizer where orgid = $orgid";
+			<article>
+				<h2 style="text-align:center">Your Profile Has Been Updated.</h2><br>
 				
-		$result = $conn->query($sql);
-		
-		
-		
-		if ($result->num_rows > 0){
-		//Ouput data of each row
-			while($row = $result->fetch_assoc()){
+				<?php
 				
-				$orgid = $row["orgid"];
-				$orgname = $row["orgname"];
-				$orgtelno = $row["orgtelno"];
-				$orgemail = $row["orgemail"];
-				$orgaddress = $row["orgaddress"];
-				$orgpassword = $row["orgpassword"];
+				$orgid = $_POST["orgid"];
+				$orgname = $_POST["orgname"];
+				$orgtelno = $_POST["orgtelno"];
+				$orgemail = $_POST["orgemail"];
+				$orgaddress = $_POST["orgaddress"];
+				$orgpassword = $_POST["orgpassword"];
+				
+				$conn = OpenCon();
+				
+				$sql = "update organizer
+						set orgtelno = '$orgtelno',
+							orgemail = '$orgemail',
+							orgaddress = '$orgaddress',
+							orgpassword = '$orgpassword',
+						where orgid = $orgid";
+				
+				$result = $conn->query($sql);
+				
+				if($result == true){
+				//echo "Record updated successfully \n";
+				
+				//Display all data that has been inserted
+				
+				$sql2 = "select * from organizer where orgid = $orgid";
+				
+				$result2= $conn->query($sql2);
+				
+				if($result2->num_rows > 0){
+				//Output data of each row
+					while($row = $result2->fetch_assoc()){
+						
+						$orgid = $row["orgid"];
+						$orgname = $row["orgname"];
+						$orgtelno = $row["orgtelno"];
+						$orgemail = $row["orgemail"];
+						$orgaddress = $row["orgaddress"];
+						$orgpassword = $row["orgpassword"];
+						
+						
+						echo "<table id=user>";
+						echo "<tr>";
+							echo "<th>Name </th>";
+							echo "<td>$orgname</td>";
+						echo "</tr>";
+						echo "<tr>";
+							echo "<th>ID </th>";
+							echo "<td>$orgid</td>";
+						echo "</tr>";
+						
+						echo "<tr>";
+							echo "<th>Contact Number </th>";
+							echo "<td>$orgtelno</td>";
+						echo "</tr>";
+						echo "<tr>";
+							echo "<th>Email </th>";
+							echo "<td>$orgemail</td>";
+						echo "</tr>";
+						echo "<tr>";
+							echo "<th>Address </th>";
+							echo "<td>$orgaddress</td>";
+						echo "</tr>";
+						echo "<tr>";
+							echo "<th>Updated Password </th>";
+							echo "<td>$orgpassword</td>";
+						echo "</tr>";
+					}
+					}
+				} else {
+					echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+				}
+				
+				CloseCon($conn);
+				
+				?>
+				<table>
+					<tr>
+						<td colspan="2" align="center">
+						<input type="button" value="Home" onclick="window.location.href='orghome.php'" />
+					</tr>
+				</table> 
 				
 				
-				echo "<table id=user class=center>";
-				echo "<tr>";
-					echo "<th>Name </th>";
-					echo "<td>$orgname</td>";
-				echo "</tr>";
-				echo "<tr>";
-					echo "<th>ID </th>";
-					echo "<td>$orgid</td>";
-				echo "</tr>";
-				echo "<tr>";
-					echo "<th>Contact Number </th>";
-					echo "<td>$orgtelno</td>";
-				echo "</tr>";
-				echo "<tr>";
-					echo "<th>Email </th>";
-					echo "<td>$orgemail</td>";
-				echo "</tr>";
-				echo "<tr>";
-					echo "<th>Address </th>";
-					echo "<td>$orgaddress</td>";
-				echo "</tr>";
 				
 				
-			}
-		}else
-			echo "Error in fetching data";
-		echo "</table>";
-		echo "<br>";
-		?><button onclick="window.location.href='updateorgprofile.php?orgid=<?php echo $orgid ?>'">UPDATE</button>
-		 <button onclick="confirmDelete('<?php echo $orgid ?>')">DELETE</button><?php
-		
-	
-		
-		
-		CloseCon($conn);
-		
-		?>
-		
-		
-	</article>
+			</article>
         
         </div>
 
