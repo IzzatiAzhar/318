@@ -44,7 +44,7 @@
 		  padding-top: 12px;
 		  padding-bottom: 12px;
 		  text-align: left;
-		  background-color: #BC8F8F;
+		  background-color: #BDB768;
 		  color: white;
 		}
 	</style>
@@ -169,8 +169,10 @@
 				?>
 				<table>
 					<tr>
+					<br>
 						<td colspan="2" align="center">
-						<input type="button" value="Home" onclick="window.location.href='homepage.php'" />
+						<input class="btn btn-primary px-3 py-2" type="button" value="Home" onclick="window.location.href='participanthome.php'" />
+						<input  class="btn btn-primary px-3 py-2"  type="button" value="Back" onclick="window.location.href='profile.php'" />
 					</tr>
 				</table> 
 				

@@ -22,6 +22,23 @@
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/style.css">
 
+	<script type="text/javascript">
+	  function confirmJoin(eventid)
+	  {
+		 if(confirm('Join This Events?'))
+		 {
+		    window.location.href='joinevents.php?eventid='+eventid;
+		 }
+	   }
+	    function confirmDonate(eventid)
+	  {
+		 if(confirm('Donate To This Events?'))
+		 {
+		    window.location.href='donateevents.php?eventid='+eventid;
+		 }
+	   }
+  </script>
+
   </head>
   <body>
     <?php include 'header.php'; ?>
@@ -58,12 +75,12 @@
           <div class="person-donate text-center">
 		  <!-- Event 1 -->
 			<div class="text-box">
+			
 					<?php
-						/* remove -> include 'conn.php'; bcs
-						we have put connection inside header page */
+					
 						$conn = OpenCon();
 
-						/**Value is supplierid coming from supplierloginaction.php**/
+						//$eventid = "E001";
 						$partid = $_SESSION['login_user'];
 				
 						$sql = "SELECT `eventname`,`eventid` FROM `event` where `eventid` = 'E001'";
@@ -74,7 +91,7 @@
 												
 							while($row = $result->fetch_assoc())
 							{                              
-									//echo "<br>" . $row["totalorder"] . "<br>";
+									
 									$eventname = $row["eventname"];
 									$eventid = $row["eventid"];
 							}
@@ -83,14 +100,36 @@
 							echo "Error in fetching data";
 						}
 						
+						$sql2 = "SELECT SUM(`amtdonation`) AS totaldonation
+								FROM `donation` 
+								where `eventid` = 'E001'";
+						
+						$result2 = $conn->query($sql2);
+						
+						  if($result2-> num_rows > 0) {
+							//output data of each row
+							while($row = $result2->fetch_assoc()){
+								
+									$donate = $row["totaldonation"];
+									//echo $donate;
+							}
+						}
+
+						
 						CloseCon($conn);			
 					?>
+					
 					<img src="images/kbk.png" alt="Image placeholder" class="img-fluid">
 						<div class="donate-info">
-						  <h2>#KITAPRIHATIN</h2>
+						  <h2>#KITAPRIHATIN</h2><br>
+						  <p class="main-text">Total Donation</p>
+						  <p class="main-text"><?php echo "RM ", $donate ?></p>
 						  <span class="time d-block mb-3">Click the event for more details</span>
 						  <p><span class="text-success"></span><br> <em>for </em> <?php echo "<a href=kitabantukita.php>$eventid - $eventname Events</a>" ?></p>
+						   <button class="btn btn-primary px-3 py-2" value="Print" onclick="confirmJoin('<?php echo $eventid ?>')">JOIN</button>
+						   <button class="btn btn-primary px-3 py-2" value="Print" onclick="confirmDonate('<?php echo $eventid ?>')">DONATE</button>
 						</div>
+						
 			</div>
 				
           </div>    
@@ -101,11 +140,10 @@
 		  <!-- Event 2 -->
 			<div class="text-box">
 					<?php
-						/* remove -> include 'conn.php'; bcs
-						we have put connection inside header page */
+						
 						$conn = OpenCon();
 
-						/**Value is supplierid coming from supplierloginaction.php**/
+						
 						$partid = $_SESSION['login_user'];
 				
 						$sql = "SELECT `eventname`,`eventid` FROM `event` where `eventid` = 'E002'";
@@ -116,7 +154,7 @@
 												
 							while($row = $result->fetch_assoc())
 							{                              
-									//echo "<br>" . $row["totalorder"] . "<br>";
+									
 									$eventname = $row["eventname"];
 									$eventid = $row["eventid"];
 							}
@@ -125,13 +163,32 @@
 							echo "Error in fetching data";
 						}
 						
+						$sql2= "SELECT SUM(`amtdonation`) AS totaldonation
+								FROM `donation` 
+								where `eventid` = 'E002'";
+						
+						$result2 = $conn->query($sql2);
+						
+						  if($result2-> num_rows > 0) {
+							//output data of each row
+							while($row = $result2->fetch_assoc()){
+								
+									$donate = $row["totaldonation"];
+									//echo $donate;
+							}
+						}
+						
 						CloseCon($conn);			
 					?>
 					 <img src="images/stls.png" alt="Image placeholder" class="img-fluid">
 						<div class="donate-info">
-						  <h2>#WeCare</h2>
+						  <h2>#WeCare</h2><br>
+						   <p class="main-text">Total Donation</p>
+						   <p class="main-text"><?php echo "RM ", $donate ?></p>
 						  <span class="time d-block mb-3">Click the event for more details</span>
 						  <p><span class="text-success"></span><br> <em>for </em><?php echo "<a href=sharethelove.php>$eventid - $eventname Events</a>" ?></p>
+							<button class="btn btn-primary px-3 py-2" value="Print" onclick="confirmJoin('<?php echo $eventid ?>')">JOIN</button>
+						   <button class="btn btn-primary px-3 py-2" value="Print" onclick="confirmDonate('<?php echo $eventid ?>')">DONATE</button>
 						</div>
             </div>
           </div>    
@@ -142,11 +199,10 @@
 			<!-- Event 3 -->
 			<div class="text-box">
 				<?php
-					/* remove -> include 'conn.php'; bcs
-					we have put connection inside header page */
+					
 					$conn = OpenCon();
 
-					/**Value is supplierid coming from supplierloginaction.php**/
+					
 					$partid = $_SESSION['login_user'];
 			
 					$sql = "SELECT `eventname`,`eventid` FROM `event` where `eventid` = 'E003'";
@@ -157,7 +213,7 @@
 											
 						while($row = $result->fetch_assoc())
 						{                              
-								//echo "<br>" . $row["totalorder"] . "<br>";
+								
 								$eventname = $row["eventname"];
 								$eventid = $row["eventid"];
 						}
@@ -166,13 +222,32 @@
 						echo "Error in fetching data";
 					}
 					
+					$sql2= "SELECT SUM(`amtdonation`) AS totaldonation
+								FROM `donation` 
+								where `eventid` = 'E003'";
+						
+						$result2 = $conn->query($sql2);
+						
+						  if($result2-> num_rows > 0) {
+							//output data of each row
+							while($row = $result2->fetch_assoc()){
+								
+									$donate = $row["totaldonation"];
+									//echo $donate;
+							}
+						}
+					
 					CloseCon($conn);			
 				?>
 				<img src="images/stlj.png" alt="Image placeholder" class="img-fluid">
 				<div class="donate-info">
-				  <h2>#WeLove</h2>
+				  <h2>#WeLove</h2><br>
+				  <p class="main-text">Total Donation</p>
+				  <p class="main-text"><?php echo "RM ", $donate ?></p>
 				  <span class="time d-block mb-3">Click the event for more details</span>
 				  <p><span class="text-success"></span><br> <em>for </em><?php echo "<a href=sharethelove.php>$eventid - $eventname Events</a>" ?></p>
+				  <button class="btn btn-primary px-3 py-2" value="Print" onclick="confirmJoin('<?php echo $eventid ?>')">JOIN</button>
+				   <button class="btn btn-primary px-3 py-2" value="Print" onclick="confirmDonate('<?php echo $eventid ?>')">DONATE</button>
 				</div>
             </div>
           </div>    
@@ -183,11 +258,10 @@
 			<!-- Event 4 -->
 			<div class="text-box">
 				<?php
-					/* remove -> include 'conn.php'; bcs
-					we have put connection inside header page */
+					
 					$conn = OpenCon();
 
-					/**Value is supplierid coming from supplierloginaction.php**/
+					
 					$partid = $_SESSION['login_user'];
 			
 					$sql = "SELECT `eventname`,`eventid` FROM `event` where `eventid` = 'E004'";
@@ -198,7 +272,7 @@
 											
 						while($row = $result->fetch_assoc())
 						{                              
-								//echo "<br>" . $row["totalorder"] . "<br>";
+								
 								$eventname = $row["eventname"];
 								$eventid = $row["eventid"];
 						}
@@ -206,14 +280,32 @@
 					else {
 						echo "Error in fetching data";
 					}
+					$sql2= "SELECT SUM(`amtdonation`) AS totaldonation
+								FROM `donation` 
+								where `eventid` = 'E004'";
+						
+						$result2 = $conn->query($sql2);
+						
+						  if($result2-> num_rows > 0) {
+							//output data of each row
+							while($row = $result2->fetch_assoc()){
+								
+									$donate = $row["totaldonation"];
+									//echo $donate;
+							}
+						}
 					
 					CloseCon($conn);			
 				?>
 				<img src="images/stlm.png" alt="Image placeholder" class="img-fluid">
 					<div class="donate-info">
-					  <h2>#WeHelp</h2>
+					  <h2>#WeHelp</h2><br>
+					  <p class="main-text">Total Donation</p>
+					  <p class="main-text"><?php echo "RM ", $donate ?></p>
 					  <span class="time d-block mb-3">Click the event for more details</span>
 					  <p><span class="text-success"></span><br> <em>for </em><?php echo "<a href=sharethelove.php>$eventid - $eventname Events</a>" ?></p>
+					  <button class="btn btn-primary px-3 py-2" value="Print" onclick="confirmJoin('<?php echo $eventid ?>')">JOIN</button>
+					   <button class="btn btn-primary px-3 py-2" value="Print" onclick="confirmDonate('<?php echo $eventid ?>')">DONATE</button>
 					</div>
             </div>
           </div>    
@@ -225,11 +317,10 @@
 			<!-- Event 5 -->
 			<div class="text-box">
 				<?php
-					/* remove -> include 'conn.php'; bcs
-					we have put connection inside header page */
+					
 					$conn = OpenCon();
 
-					/**Value is supplierid coming from supplierloginaction.php**/
+					
 					$partid = $_SESSION['login_user'];
 			
 					$sql = "SELECT `eventname`,`eventid` FROM `event` where `eventid` = 'E005'";
@@ -240,7 +331,7 @@
 											
 						while($row = $result->fetch_assoc())
 						{                              
-								//echo "<br>" . $row["totalorder"] . "<br>";
+								
 								$eventname = $row["eventname"];
 								$eventid = $row["eventid"];
 						}
@@ -249,13 +340,32 @@
 						echo "Error in fetching data";
 					}
 					
+					$sql2= "SELECT SUM(`amtdonation`) AS totaldonation
+								FROM `donation` 
+								where `eventid` = 'E005'";
+						
+						$result2 = $conn->query($sql2);
+						
+						  if($result2-> num_rows > 0) {
+							//output data of each row
+							while($row = $result2->fetch_assoc()){
+								
+									$donate = $row["totaldonation"];
+									//echo $donate;
+							}
+						}
+					
 					CloseCon($conn);			
 				?>
 				<img src="images/stlkl.png" alt="Image placeholder" class="img-fluid">
 					<div class="donate-info">
-					  <h2>#WeConcern</h2>
+					  <h2>#WeConcern</h2><br>
+					  <p class="main-text">Total Donation</p>
+					  <p class="main-text"><?php echo "RM ", $donate ?></p>
 					  <span class="time d-block mb-3">Click the event for more details</span>
 					  <p><span class="text-success"></span><br> <em>for </em><?php echo "<a href=sharethelove.php>$eventid - $eventname Events</a>" ?></p>
+					  <button class="btn btn-primary px-3 py-2" value="Print" onclick="confirmJoin('<?php echo $eventid ?>')">JOIN</button>
+					  <button class="btn btn-primary px-3 py-2" value="Print" onclick="confirmDonate('<?php echo $eventid ?>')">DONATE</button>
 					</div>
 			</div>    
           </div>
@@ -266,11 +376,10 @@
 		  <!-- Event 6 -->
 			<div class="text-box">
 				<?php
-					/* remove -> include 'conn.php'; bcs
-					we have put connection inside header page */
+					
 					$conn = OpenCon();
 
-					/**Value is supplierid coming from supplierloginaction.php**/
+					
 					$partid = $_SESSION['login_user'];
 			
 					$sql = "SELECT `eventname`,`eventid` FROM `event` where `eventid` = 'E006'";
@@ -281,7 +390,7 @@
 											
 						while($row = $result->fetch_assoc())
 						{                              
-								//echo "<br>" . $row["totalorder"] . "<br>";
+								
 								$eventname = $row["eventname"];
 								$eventid = $row["eventid"];
 						}
@@ -290,13 +399,32 @@
 						echo "Error in fetching data";
 					}
 					
+					$sql2= "SELECT SUM(`amtdonation`) AS totaldonation
+								FROM `donation` 
+								where `eventid` = 'E006'";
+						
+						$result2 = $conn->query($sql2);
+						
+						  if($result2-> num_rows > 0) {
+							//output data of each row
+							while($row = $result2->fetch_assoc()){
+								
+									$donate = $row["totaldonation"];
+									//echo $donate;
+							}
+						}
+					
 					CloseCon($conn);			
 				?>
 				<img src="images/pscc.png" alt="Image placeholder" class="img-fluid">
 					<div class="donate-info">
-					  <h2>Together We Help</h2>
+					  <h2>Together We Help</h2><br>
+					  <p class="main-text">Total Donation</p>
+					  <p class="main-text"><?php echo "RM ", $donate ?></p>
 					  <span class="time d-block mb-3">Click the event for more details</span>
 					  <p><span class="text-success"></span><br> <em>for </em><?php echo "<a href=pitstopcommunity.php>$eventid - $eventname Events</a>" ?></p>
+					  <button class="btn btn-primary px-3 py-2" value="Print" onclick="confirmJoin('<?php echo $eventid ?>')">JOIN</button>
+					   <button class="btn btn-primary px-3 py-2" value="Print" onclick="confirmDonate('<?php echo $eventid ?>')">DONATE</button>
 					</div>
 			</div>
           </div>    
@@ -307,11 +435,10 @@
 		  <!-- Event 7 -->
 			<div class="text-box">
 				<?php
-					/* remove -> include 'conn.php'; bcs
-					we have put connection inside header page */
+					
 					$conn = OpenCon();
 
-					/**Value is supplierid coming from supplierloginaction.php**/
+					
 					$partid = $_SESSION['login_user'];
 			
 					$sql = "SELECT `eventname`,`eventid` FROM `event` where `eventid` = 'E007'";
@@ -322,7 +449,7 @@
 											
 						while($row = $result->fetch_assoc())
 						{                              
-								//echo "<br>" . $row["totalorder"] . "<br>";
+								
 								$eventname = $row["eventname"];
 								$eventid = $row["eventid"];
 						}
@@ -331,13 +458,32 @@
 						echo "Error in fetching data";
 					}
 					
+					$sql2= "SELECT SUM(`amtdonation`) AS totaldonation
+								FROM `donation` 
+								where `eventid` = 'E007'";
+						
+						$result2 = $conn->query($sql2);
+						
+						  if($result2-> num_rows > 0) {
+							//output data of each row
+							while($row = $result2->fetch_assoc()){
+								
+									$donate = $row["totaldonation"];
+									//echo $donate;
+							}
+						}
+					
 					CloseCon($conn);			
 				?>
 				<img src="images/tlfp.png" alt="Image placeholder" class="img-fluid">
 					<div class="donate-info">
-					  <h2>Save The World</h2>
+					  <h2>Save The World</h2><br>
+					  <p class="main-text">Total Donation</p>
+					  <p class="main-text"><?php echo "RM ", $donate ?></p>
 					  <span class="time d-block mb-3">Click the event for more details</span>
 					   <p><span class="text-success"></span><br> <em>for </em><?php echo "<a href=lostfoodproject.php>$eventid - $eventname Events</a>" ?></p>
+					  <button class="btn btn-primary px-3 py-2" value="Print" onclick="confirmJoin('<?php echo $eventid ?>')">JOIN</button>
+					  <button class="btn btn-primary px-3 py-2" value="Print" onclick="confirmDonate('<?php echo $eventid ?>')">DONATE</button>
 					</div>
 			</div>
           </div>    
@@ -348,11 +494,10 @@
 		  <!-- Event 8 -->
 			<div class="text-box">
 				<?php
-					/* remove -> include 'conn.php'; bcs
-					we have put connection inside header page */
+					
 					$conn = OpenCon();
 
-					/**Value is supplierid coming from supplierloginaction.php**/
+					
 					$partid = $_SESSION['login_user'];
 			
 					$sql = "SELECT `eventname`,`eventid` FROM `event` where `eventid` = 'E008'";
@@ -363,7 +508,7 @@
 											
 						while($row = $result->fetch_assoc())
 						{                              
-								//echo "<br>" . $row["totalorder"] . "<br>";
+								
 								$eventname = $row["eventname"];
 								$eventid = $row["eventid"];
 						}
@@ -372,13 +517,32 @@
 						echo "Error in fetching data";
 					}
 					
+					$sql2= "SELECT SUM(`amtdonation`) AS totaldonation
+								FROM `donation` 
+								where `eventid` = 'E008'";
+						
+						$result2 = $conn->query($sql2);
+						
+						  if($result2-> num_rows > 0) {
+							//output data of each row
+							while($row = $result2->fetch_assoc()){
+								
+									$donate = $row["totaldonation"];
+									//echo $donate;
+							}
+						}
+					
 					CloseCon($conn);			
 				?>
 				<img src="images/fmkl.png" alt="Image placeholder" class="img-fluid">
 					<div class="donate-info">
-					  <h2>Come and Get It</h2>
+					  <h2>Come and Get It</h2><br>
+					  <p class="main-text">Total Donation</p>
+					  <p class="main-text"><?php echo "RM ", $donate ?></p>
 					  <span class="time d-block mb-3">Click the event for more details</span>
 					  <p><span class="text-success"></span><br> <em>for </em><?php echo "<a href=freemealskl.php>$eventid - $eventname Events</a>" ?></p>
+					  <button class="btn btn-primary px-3 py-2" value="Print" onclick="confirmJoin('<?php echo $eventid ?>')">JOIN</button>
+					  <button class="btn btn-primary px-3 py-2" value="Print" onclick="confirmDonate('<?php echo $eventid ?>')">DONATE</button>
 					</div>
 			</div>
           </div>    

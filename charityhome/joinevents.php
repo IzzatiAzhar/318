@@ -21,6 +21,31 @@
 
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/style.css">
+	
+	<style>
+		#user {
+		  font-family: Arial, Helvetica, sans-serif;
+		  border-collapse: collapse;
+		  width: 100%;
+		}
+
+		#user td, #user th {
+		  border: 1px solid #ddd;
+		  padding: 8px;
+		}
+
+		#user tr:nth-child(even){background-color: #f2f2f2;}
+
+		#user tr:hover {background-color: #ddd;}
+
+		#user th {
+		  padding-top: 12px;
+		  padding-bottom: 12px;
+		  text-align: left;
+		  background-color: #BDB768;
+		  color: white;
+		}
+	</style>
 
   </head>
   <body>
@@ -35,7 +60,7 @@
         <div class="container">
           <div class="row align-items-center justify-content-center text-center">
             <div class="col-md-7">
-              <h2 class="heading mb-5">Join/ Donate</h2>
+              <h2 class="heading mb-5">Join This Event</h2>
             </div>
           </div>
         </div>
@@ -49,7 +74,7 @@
       <div class="row block-9">
         <div class="col-md-6 pr-md-5">
 			<article>
-			<h2 style="text-align:center">Please Fill in the form to join te event</h2><br>
+			<h2 style="text-align:center">Fill in the form to join the event</h2><br>
 			<form action="joineventsaction.php" id="updateform" method ="POST">
 			<?php
 			
@@ -57,7 +82,7 @@
 			
 			$eventid = $_GET["eventid"];
 			$partid = $login_id;
-			$regid = rand();
+			$regid = date("Y") .rand(1000,9999);
 			
 			
 			$sql ="select * from participant where partid = $partid";
@@ -97,8 +122,9 @@
 			<table>
 				<tr>
 					<td colspan="2" align="center">
-						<input type="submit" value="Submit" />
-						<input type="button" value="Cancel"  onclick="history.back()" />
+					<br>
+						<input class="btn btn-primary px-3 py-2" type="submit" value="Submit" />
+						<input class="btn btn-primary px-3 py-2" type="button" value="Cancel"  onclick="history.back()" />
 					</td>
 				</tr>
 			</table>

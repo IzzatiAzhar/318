@@ -44,7 +44,7 @@
 		  padding-top: 12px;
 		  padding-bottom: 12px;
 		  text-align: left;
-		  background-color: #BC8F8F;
+		  background-color: #BDB768;
 		  color: white;
 		}
 	</style>
@@ -153,8 +153,9 @@
 			<table>
 				<tr>
 					<td colspan="2" align="center">
-						<input type="submit" value="Submit" />
-						<input type="button" value="Cancel"  onclick="history.back()" />
+					<br>
+						<input class="btn btn-primary px-3 py-2" type="submit" value="Submit" />
+						<input class="btn btn-primary px-3 py-2" type="button" value="Cancel"  onclick="history.back()" />
 					</td>
 				</tr>
 			</table>

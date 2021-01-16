@@ -30,6 +30,13 @@
 		    window.location.href='joinevents.php?eventid='+eventid;
 		 }
 	   }
+	    function confirmDonate(eventid)
+	  {
+		 if(confirm('Donate To This Events?'))
+		 {
+		    window.location.href='donateevents.php?eventid='+eventid;
+		 }
+	   }
   </script>
   </head>
   <body>
@@ -58,7 +65,7 @@
       <div class="row">
 		<article>
 						<table class="table">
-								<thead class="thead-dark">
+								<thead class="thead-light">
 									<tr>
 										<th>Event ID</th>
 										<th>Event Name</th>
@@ -66,7 +73,6 @@
 										<th>Location</th>
 										<th>Number of Participant</th>
 										<th>Date Event</th>
-										<th>Total Donation (RM) </th>
 										<th>Person-in-charge</th>
 										<th>Join/Donate</th>
 									</tr>
@@ -108,6 +114,8 @@
 									or `eventdate` like '%$searching%'
 									or `eventpic` like '%$searching%'
 									limit $page1,7";
+									
+									
 								  
 								  $result=$conn->query($sql);
 								 
@@ -125,7 +133,6 @@
 												$eventlocation = $row["eventlocation"];
 												$eventnumofpart = $row["eventnumofpart"];
 												$eventdate = $row["eventdate"];
-												$eventtotaldonation = $row["eventtotaldonation"];
 												$eventpic = $row["eventpic"];
 												
 												
@@ -137,9 +144,9 @@
 													echo "<td>$eventlocation</td>";
 													echo "<td>$eventnumofpart</td>";
 													echo "<td>$eventdate</td>";
-													echo "<td>$eventtotaldonation</td>";
 													echo "<td>$eventpic</td>";
-													 echo "<td>" ?><button value="Print" onclick="confirmJoin('<?php echo $eventid ?>')">JOIN</button><?php "</td>";
+													echo "<td>" ?><button class="btn btn-primary px-3 py-2" value="Print" onclick="confirmJoin('<?php echo $eventid ?>')">JOIN</button><?php 
+																?><button class="btn btn-primary px-3 py-2" value="Print" onclick="confirmDonate('<?php echo $eventid ?>')">DONATE</button><?php "</td>";
 													
 												echo "</tr>";
 											}
@@ -186,7 +193,7 @@
 									<tr>
 										<td></td>
 											<td colspan="2" align="right">
-												<input type="button" value="Back" onclick="history.back()" />
+												<input  class="btn btn-primary px-3 py-2"  type="button" value="Back" onclick="history.back()" />
 											</td>
 									</tr>
 								</table>	

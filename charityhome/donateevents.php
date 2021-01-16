@@ -22,8 +22,6 @@
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/style.css">
 	
-	 <?php include 'header.php'; ?>
-	 
 	<style>
 		#user {
 		  font-family: Arial, Helvetica, sans-serif;
@@ -48,21 +46,11 @@
 		  color: white;
 		}
 	</style>
-	
-	<script type="text/javascript">
-		function confirmDelete(partid)
-		{
-			if(confirm('Your Data Will Be Deleted Permanently.You sure want to leave ?'))
-			{
-				window.location.href='deleteparticipant.php?partid='+partid;
-			}
-			
-		}
-	</script>
 
   </head>
   <body>
-    
+    <?php include 'header.php'; ?>
+	
   <?php include 'navigation.php'; ?>
   <!-- END nav -->
   
@@ -70,11 +58,9 @@
     <div class="owl-carousel loop-block-31 ">
       <div class="block-30 block-30-sm item" style="background-image: url('images/banner.jpg');" data-stellar-background-ratio="0.5">
         <div class="container">
-          <div class="row align-items-center justify-content-center">
-            <div class="col-md-7 text-center">
-              <h2 class="heading"><?php echo "Hi,  " .$login_name ;?></h2>
-		      
-
+          <div class="row align-items-center justify-content-center text-center">
+            <div class="col-md-7">
+              <h2 class="heading mb-5">Donate</h2>
             </div>
           </div>
         </div>
@@ -82,98 +68,69 @@
       
     </div>
   </div>
-
+  
   <div class="site-section">
     <div class="container">
       <div class="row block-9">
         <div class="col-md-6 pr-md-5">
-          <form action="updateprofiledetails.php" method="POST">
-            <article>
-		<h2 style="text-align:center">Profile</h2>
-		<article>
-		 
-		<?php
-		
-		$partid = $login_id;
-		$partname = $login_name;
-		
-		$conn = OpenCon();
-		
-		
-		
-		$sql = "select * from participant where partid = $partid";
-				
-		$result = $conn->query($sql);
-		
-		
-		
-		if ($result->num_rows > 0){
-		//Ouput data of each row
-			while($row = $result->fetch_assoc()){
-				
-				$partid = $row["partid"];
-				$partname = $row["partname"];
-				$partage = $row["partage"];
-				$partstate = $row["partstate"];
-				$partoccupation = $row["partoccupation"];
-				$parttelno = $row["parttelno"];
-				$partemail = $row["partemail"];
-				$partaddress = $row["partaddress"];
-				
-				
-				echo "<table id=user>";
-				echo "<tr>";
-					echo "<th>Name </th>";
-					echo "<td>$partname</td>";
-				echo "</tr>";
-				echo "<tr>";
-					echo "<th>ID </th>";
-					echo "<td>$partid</td>";
-				echo "</tr>";
-				echo "<tr>";
-					echo "<th>Age </th>";
-					echo "<td>$partage</td>";
-				echo "</tr>";
-				echo "<tr>";
-					echo "<th>State </th>";
-					echo "<td>$partstate</td>";
-				echo "</tr>";
-				echo "<tr>";
-					echo "<th>Occupation </th>";
-					echo "<td>$partoccupation</td>";
-				echo "</tr>";
-				echo "<tr>";
-					echo "<th>Contact Number </th>";
-					echo "<td>$parttelno</td>";
-				echo "</tr>";
-				echo "<tr>";
-					echo "<th>Email </th>";
-					echo "<td>$partemail</td>";
-				echo "</tr>";
-				echo "<tr>";
-					echo "<th>Address </th>";
-					echo "<td>$partaddress</td>";
-				echo "</tr>";
-				
-				
+			<article>
+			<h2 style="text-align:center">Please Fill in the form to donate the event</h2><br>
+			<form action="donateeventsaction.php" id="form" method ="POST">
+			<?php
+			
+			$conn = OpenCon();
+			
+			$eventid = $_GET["eventid"];
+			$partid = $login_id;
+			$donateid = date("Y") .rand(100,999);
+			
+			
+			$sql ="select * from participant where partid = $partid";
+			
+			$result = $conn->query($sql);
+			
+			if($result->num_rows > 0){
+			//Output data of each row
+				while($row = $result->fetch_assoc()){
+					
+					
+						echo "<table id=user>";
+							echo "<tr>";
+								echo "<th>Donate ID</th>";
+								echo "<td>"?><input type="text" name="donateid" value="<?php echo $donateid;?>" readonly><?php "</td>" ;
+							echo "</tr>";
+							echo "<tr>";
+								echo "<th>User ID </th>";
+								echo "<td>"?><input type="text" name="partid" value="<?php echo $partid;?>" readonly><?php "</td>" ;
+							echo "</tr>";
+							echo "<tr>";
+								echo "<th>Event ID </th>";
+								echo "<td>"?><input type="text" name="eventid" value="<?php echo $eventid;?>" readonly><?php "</td>" ;
+							echo "</tr>";
+							echo "<tr>";
+								echo "<th>Amount Donation (RM)  </th>";
+								echo "<td>"?><input type="number_format" name="amtdonation" required><?php "</td>" ;
+							echo "</tr>";
+						echo "</table>";
+				}
+			}else{
+				echo "Data cannot be displayed";
 			}
-		}else
-			echo "Error in fetching data";
-		echo "</table>";
-		echo "<br>";
-		?><button type="submit" class="btn btn-primary px-3 py-2">UPDATE</button>
-		 <button class="btn btn-primary px-3 py-2" onclick="confirmDelete('<?php echo $partid ?>')">REMOVE MYSELF</button><?php
-		
-	
-		
-		
-		CloseCon($conn);
-		
-		?>
-		
-		
-	</article>
-	</form>
+			CloseCon($conn);
+			?>
+			
+			<table>
+				<tr>
+					<td colspan="2" align="center">
+					<br>
+						<input  class="btn btn-primary px-3 py-2" type="submit" value="Submit" />
+						
+						<input   class="btn btn-primary px-3 py-2" type="button" value="Cancel"  onclick="history.back()" />
+					</td>
+				</tr>
+			</table>
+				
+		</article>
         
         </div>
 
@@ -181,14 +138,10 @@
       </div>
     </div>
   </div>
-  		   
 
 
-  
-  
-  <footer class="footer">
+<footer class="footer">
     <?php include 'footer.php'; ?>
-    
   </footer>
 
   <!-- loader -->

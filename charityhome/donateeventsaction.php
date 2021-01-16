@@ -48,17 +48,6 @@
 		  color: white;
 		}
 	</style>
-	
-	<script type="text/javascript">
-		function confirmDelete(partid)
-		{
-			if(confirm('Your Data Will Be Deleted Permanently.You sure want to leave ?'))
-			{
-				window.location.href='deleteparticipant.php?partid='+partid;
-			}
-			
-		}
-	</script>
 
   </head>
   <body>
@@ -68,7 +57,7 @@
   
   <div class="block-31" style="position: relative;">
     <div class="owl-carousel loop-block-31 ">
-      <div class="block-30 block-30-sm item" style="background-image: url('images/banner.jpg');" data-stellar-background-ratio="0.5">
+      <div class="block-30 block-30-sm item" style="background-image: url('images/bg_2.jpg');" data-stellar-background-ratio="0.5">
         <div class="container">
           <div class="row align-items-center justify-content-center">
             <div class="col-md-7 text-center">
@@ -87,93 +76,91 @@
     <div class="container">
       <div class="row block-9">
         <div class="col-md-6 pr-md-5">
-          <form action="updateprofiledetails.php" method="POST">
-            <article>
-		<h2 style="text-align:center">Profile</h2>
-		<article>
-		 
-		<?php
-		
-		$partid = $login_id;
-		$partname = $login_name;
-		
-		$conn = OpenCon();
-		
-		
-		
-		$sql = "select * from participant where partid = $partid";
+			<article>
+				<h2 style="text-align:center">Your Data Has Been Stored.</h2><br>
 				
-		$result = $conn->query($sql);
-		
-		
-		
-		if ($result->num_rows > 0){
-		//Ouput data of each row
-			while($row = $result->fetch_assoc()){
+				<?php
+				//$eventid=$_GET["eventid"];
 				
-				$partid = $row["partid"];
-				$partname = $row["partname"];
-				$partage = $row["partage"];
-				$partstate = $row["partstate"];
-				$partoccupation = $row["partoccupation"];
-				$parttelno = $row["parttelno"];
-				$partemail = $row["partemail"];
-				$partaddress = $row["partaddress"];
+				$donateid = $_POST["donateid"];
+				$partid = $login_id;
+				$eventid = $_POST["eventid"];
+				$amtdonation = $_POST["amtdonation"];
+				
+				$conn = OpenCon();
 				
 				
-				echo "<table id=user>";
-				echo "<tr>";
-					echo "<th>Name </th>";
-					echo "<td>$partname</td>";
-				echo "</tr>";
-				echo "<tr>";
-					echo "<th>ID </th>";
-					echo "<td>$partid</td>";
-				echo "</tr>";
-				echo "<tr>";
-					echo "<th>Age </th>";
-					echo "<td>$partage</td>";
-				echo "</tr>";
-				echo "<tr>";
-					echo "<th>State </th>";
-					echo "<td>$partstate</td>";
-				echo "</tr>";
-				echo "<tr>";
-					echo "<th>Occupation </th>";
-					echo "<td>$partoccupation</td>";
-				echo "</tr>";
-				echo "<tr>";
-					echo "<th>Contact Number </th>";
-					echo "<td>$parttelno</td>";
-				echo "</tr>";
-				echo "<tr>";
-					echo "<th>Email </th>";
-					echo "<td>$partemail</td>";
-				echo "</tr>";
-				echo "<tr>";
-					echo "<th>Address </th>";
-					echo "<td>$partaddress</td>";
-				echo "</tr>";
+				$sql = "INSERT INTO `donation` (donateid, partid, eventid, amtdonation)
+						VALUES ('$donateid', '$partid', '$eventid', '$amtdonation')";
+				
+				$result = $conn->query($sql);
 				
 				
-			}
-		}else
-			echo "Error in fetching data";
-		echo "</table>";
-		echo "<br>";
-		?><button type="submit" class="btn btn-primary px-3 py-2">UPDATE</button>
-		 <button class="btn btn-primary px-3 py-2" onclick="confirmDelete('<?php echo $partid ?>')">REMOVE MYSELF</button><?php
-		
-	
-		
-		
-		CloseCon($conn);
-		
-		?>
-		
-		
-	</article>
-	</form>
+				if($result == true){
+				//echo "Record updated successfully \n";
+				
+				//Display all data that has been inserted
+				
+				$sql2 = "select * from donation d, participant p, event e
+				where d.donateid = $donateid
+				and d.partid = p.partid
+				and d.eventid = e.eventid";
+				
+				$result2= $conn->query($sql2);
+				
+				if($result2->num_rows > 0){
+				//Output data of each row
+					while($row = $result2->fetch_assoc()){
+						
+						//$partid = $row["partid"];
+						//$partid = $row["partid"];
+						
+						
+						
+						$donateid = $row["donateid"];
+						$partid = $row["partid"];
+						$eventid = $row["eventid"];
+						$amtdonation = $row["amtdonation"];
+						
+						echo "<table id=user>";
+						echo "<tr>";
+							echo "<th>Donate ID </th>";
+							echo "<td>$donateid</td>";
+						echo "</tr>";
+						echo "<tr>";
+							echo "<th>USer ID </th>";
+							echo "<td>$partid</td>";
+						echo "</tr>";
+						echo "<tr>";
+							echo "<th>Event ID </th>";
+							echo "<td>$eventid</td>";
+						echo "</tr>";
+						echo "<tr>";
+							echo "<th>Amount Donation (RM) </th>";
+							echo "<td>$amtdonation</td>";
+						echo "</tr>";
+					}
+				}
+				}else {
+					echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+				}
+				
+
+				CloseCon($conn);
+				
+				?>
+				<table>
+					<tr>
+					<br>
+						<td colspan="2" align="center">
+						<input  class="btn btn-primary px-3 py-2"  type="button" value="Home" onclick="window.location.href='participanthome.php'" />
+					</tr>
+				</table> 
+				
+				
+				
+				
+			</article>
         
         </div>
 

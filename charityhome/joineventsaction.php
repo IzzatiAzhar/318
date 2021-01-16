@@ -48,17 +48,6 @@
 		  color: white;
 		}
 	</style>
-	
-	<script type="text/javascript">
-		function confirmDelete(partid)
-		{
-			if(confirm('Your Data Will Be Deleted Permanently.You sure want to leave ?'))
-			{
-				window.location.href='deleteparticipant.php?partid='+partid;
-			}
-			
-		}
-	</script>
 
   </head>
   <body>
@@ -68,7 +57,7 @@
   
   <div class="block-31" style="position: relative;">
     <div class="owl-carousel loop-block-31 ">
-      <div class="block-30 block-30-sm item" style="background-image: url('images/banner.jpg');" data-stellar-background-ratio="0.5">
+      <div class="block-30 block-30-sm item" style="background-image: url('images/bg_2.jpg');" data-stellar-background-ratio="0.5">
         <div class="container">
           <div class="row align-items-center justify-content-center">
             <div class="col-md-7 text-center">
@@ -87,93 +76,117 @@
     <div class="container">
       <div class="row block-9">
         <div class="col-md-6 pr-md-5">
-          <form action="updateprofiledetails.php" method="POST">
-            <article>
-		<h2 style="text-align:center">Profile</h2>
-		<article>
-		 
-		<?php
-		
-		$partid = $login_id;
-		$partname = $login_name;
-		
-		$conn = OpenCon();
-		
-		
-		
-		$sql = "select * from participant where partid = $partid";
+			<article>
+				<h2 style="text-align:center">Your data Has Been stored.</h2><br>
 				
-		$result = $conn->query($sql);
-		
-		
-		
-		if ($result->num_rows > 0){
-		//Ouput data of each row
-			while($row = $result->fetch_assoc()){
+				<?php
+				//$eventid=$_GET["eventid"];
 				
-				$partid = $row["partid"];
-				$partname = $row["partname"];
-				$partage = $row["partage"];
-				$partstate = $row["partstate"];
-				$partoccupation = $row["partoccupation"];
-				$parttelno = $row["parttelno"];
-				$partemail = $row["partemail"];
-				$partaddress = $row["partaddress"];
+				$regid = $_POST["regid"];
+				$partid = $login_id;
+				$eventid = $_POST["eventid"];
+				$datejoin = $_POST["datejoin"];
+				
+				$conn = OpenCon();
+				
+				$sql = "INSERT INTO `registration` (regid, partid, eventid, datejoin)
+						VALUES ('$regid', '$partid', '$eventid', '$datejoin')";
+						
+				$result = $conn->query($sql);
+				
+				if($result == true){
+					$sql1 = "select * from registration r, participant p, event e
+									where r.regid = $regid
+									and r.partid = p.partid
+									and r.eventid = e.eventid";
+					
+					$result1 = $conn->query($sql1);
+					
+						if($result1->num_rows > 0){
+							//echo '<script>console.log('.json_encode("sql1 baru success tak?") . ')</script>';
+							while($row = $result1->fetch_assoc()){
+								$eventid = $row["eventid"];
+								
+								//echo '<script>console.log('.json_encode("sql success tak?") . ')</script>';
+								//echo "$eventid" ;
+								$sql2 = "update `event` e
+											set `eventnumofpart` = (select count(e.eventid) as numofpart 
+													from `registration` r, `event`e
+													where r.eventid = e.eventid
+													and r.eventid = '$eventid')
+											where e.eventid = '$eventid'";
+											
+								
+								$result2 = $conn->query($sql2);
+								//sql 2 tak keluar
+								if($result == true){
+									//echo "$eventid" ;
+									//echo '<script>console.log('.json_encode("sql2 success tak?") . ')</script>';
+
+									$sql3 = "select * from registration r, participant p, event e
+												where r.regid = $regid
+												and r.partid = p.partid
+												and r.eventid = e.eventid";
+									//echo "$eventid" ;
+									$result3 = $conn->query($sql3);
+									if($result3->num_rows > 0){
+										while($row = $result3->fetch_assoc()){
+									
+									
+										$partid = $row["partid"];
+										//$partid = $row["partid"];
+										
+										$regid = $row["regid"];
+										$partid = $row["partid"];
+										$eventid = $row["eventid"];
+										$datejoin = $row["datejoin"];
+										
+										echo "<table id=user>";
+										echo "<tr>";
+											echo "<th>Registration ID </th>";
+											echo "<td>$regid</td>";
+										echo "</tr>";
+										echo "<tr>";
+											echo "<th>User ID </th>";
+											echo "<td>$partid</td>";
+										echo "</tr>";
+										echo "<tr>";
+											echo "<th>Event ID </th>";
+											echo "<td>$eventid</td>";
+										echo "</tr>";
+										echo "<tr>";
+											echo "<th>Date  </th>";
+											echo "<td>$datejoin</td>";
+										echo "</tr>";
+										}
+									}
+								}
+							}
+						
+					
+						}	
+				}else {
+					echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+				}
 				
 				
-				echo "<table id=user>";
-				echo "<tr>";
-					echo "<th>Name </th>";
-					echo "<td>$partname</td>";
-				echo "</tr>";
-				echo "<tr>";
-					echo "<th>ID </th>";
-					echo "<td>$partid</td>";
-				echo "</tr>";
-				echo "<tr>";
-					echo "<th>Age </th>";
-					echo "<td>$partage</td>";
-				echo "</tr>";
-				echo "<tr>";
-					echo "<th>State </th>";
-					echo "<td>$partstate</td>";
-				echo "</tr>";
-				echo "<tr>";
-					echo "<th>Occupation </th>";
-					echo "<td>$partoccupation</td>";
-				echo "</tr>";
-				echo "<tr>";
-					echo "<th>Contact Number </th>";
-					echo "<td>$parttelno</td>";
-				echo "</tr>";
-				echo "<tr>";
-					echo "<th>Email </th>";
-					echo "<td>$partemail</td>";
-				echo "</tr>";
-				echo "<tr>";
-					echo "<th>Address </th>";
-					echo "<td>$partaddress</td>";
-				echo "</tr>";
+				
+				CloseCon($conn);
+				
+				?>
+				<table>
+					<tr>
+					<br>
+						<td colspan="2" align="center">
+						
+						<input   class="btn btn-primary px-3 py-2"  type="button" value="Home" onclick="window.location.href='participanthome.php'" />
+					</tr>
+				</table> 
 				
 				
-			}
-		}else
-			echo "Error in fetching data";
-		echo "</table>";
-		echo "<br>";
-		?><button type="submit" class="btn btn-primary px-3 py-2">UPDATE</button>
-		 <button class="btn btn-primary px-3 py-2" onclick="confirmDelete('<?php echo $partid ?>')">REMOVE MYSELF</button><?php
-		
-	
-		
-		
-		CloseCon($conn);
-		
-		?>
-		
-		
-	</article>
-	</form>
+				
+				
+			</article>
         
         </div>
 
