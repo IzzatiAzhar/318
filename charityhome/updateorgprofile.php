@@ -47,21 +47,7 @@
 		  background-color: #FFE033;
 		  color: white;
 		}
-		.center {
-  margin-left: auto;
-  margin-right: auto;
-}
 	</style>
-	
-	<script type="text/javascript">
-		function confirmDelete(orgid)
-		{
-			if(confirm('This Account  Will Be Deleted Permanently.You sure want to leave ?'))
-			{
-				window.location.href='deleteorg.php?orgid='+orgid;
-			}
-		}
-	</script>
 
   </head>
   <body>
@@ -90,78 +76,81 @@
     <div class="container">
       <div class="row block-9">
         <div class="col-md-6 pr-md-5">
-          <form action="updateorgprofile.php" method="POST">
-            <article>
-		<h2 style="text-align:center">Profile</h2>
-		<article>
-		 
-		<?php
-		
-		$orgid = $login_id;
-		$orgname = $login_name;
-		
-		$conn = OpenCon();
-		
-		
-		
-		$sql = "select * from organizer where orgid = $orgid";
-				
-		$result = $conn->query($sql);
-		
-		
-		
-		if ($result->num_rows > 0){
-		//Ouput data of each row
-			while($row = $result->fetch_assoc()){
-				
-				$orgid = $row["orgid"];
-				$orgname = $row["orgname"];
-				$orgtelno = $row["orgtelno"];
-				$orgemail = $row["orgemail"];
-				$orgaddress = $row["orgaddress"];
-				$orgpassword = $row["orgpassword"];
-				
-				
-				echo "<table id=user class=center>";
-				echo "<tr>";
-					echo "<th>Name </th>";
-					echo "<td>$orgname</td>";
-				echo "</tr>";
-				echo "<tr>";
-					echo "<th>ID </th>";
-					echo "<td>$orgid</td>";
-				echo "</tr>";
-				echo "<tr>";
-					echo "<th>Contact Number </th>";
-					echo "<td>$orgtelno</td>";
-				echo "</tr>";
-				echo "<tr>";
-					echo "<th>Email </th>";
-					echo "<td>$orgemail</td>";
-				echo "</tr>";
-				echo "<tr>";
-					echo "<th>Address </th>";
-					echo "<td>$orgaddress</td>";
-				echo "</tr>";
-				
-				
+			<article>
+			<h2 style="text-align:center">Updating Profile</h2><br>
+			<h4 style="text-align:center">Please update your profile accordingly. Thank you</h4><br>
+			<form action="updateorgaction.php" id="updateform" method ="POST">
+			<?php
+			
+			$conn = OpenCon();
+			
+			//$regid = $_GET["regid"];
+			$orgid = $login_id;
+			$orgname = $login_name;
+			
+			
+			$sql = "select * from organizer where orgid = $orgid";
+					
+			$result = $conn->query($sql);
+			
+			if($result->num_rows > 0){
+			//Output data of each row
+				while($row = $result->fetch_assoc()){
+					
+					$orgid = $row["orgid"];
+					$orgname = $row["orgname"];
+					$orgtelno = $row["orgtelno"];
+					$orgemail = $row["orgemail"];
+					$orgaddress = $row["orgaddress"];
+					$orgpassword = $row["orgpassword"];
+					
+					
+					
+						echo "<table id=user>";
+							echo "<tr>";
+								echo "<th>User ID</th>";
+								echo "<td>"?><input type="text" name="orgid" value="<?php echo $orgid;?>" readonly><?php "</td>" ;
+							echo "</tr>";
+							echo "<tr>";
+								echo "<th>Name</th>";
+								echo "<td>"?><input type="text" name="orgname" value="<?php echo $orgname;?>" readonly><?php "</td>" ;
+							echo "</tr>";
+							echo "<tr>";
+								echo "<th>Contact Nummber </th>";
+								echo "<td>"?><input type="text" name="orgtelno" value="<?php echo $orgtelno;?>" required><?php "</td>" ;
+							echo "</tr>";
+							echo "<tr>";
+								echo "<th>Email </th>";
+								echo "<td>"?><input type="text" name="orgemail" value="<?php echo $orgemail;?>" required><?php "</td>" ;
+							echo "</tr>";
+							echo "<tr>";
+								echo "<th>Address </th>";
+								echo "<td>"?><input type="text" name="orgaddress" value="<?php echo $orgaddress;?>" required><?php "</td>" ;
+							echo "</tr>";
+							echo "<tr>";
+								echo "<th>Password </th>";
+								echo "<td>"?><input type="text" name="orgpassword" value="<?php echo $orgpassword;?>" required><?php "</td>" ;
+							echo "</tr>";
+							
+							
+						echo "</table>";
+				}
+			}else{
+				echo "Data cannot be displayed";
 			}
-		}else
-			echo "Error in fetching data";
-		echo "</table>";
-		echo "<br>";
-		?><button onclick="window.location.href='updateorgprofile.php?orgid=<?php echo $orgid ?>'">UPDATE</button>
-		 <button onclick="confirmDelete('<?php echo $orgid ?>')">DELETE</button><?php
-		
-	
-		
-		
-		CloseCon($conn);
-		
-		?>
-		
-		
-	</article>
+			CloseCon($conn);
+			?>
+			
+			<table>
+				<tr>
+					<td colspan="2" align="center">
+						<input type="submit" value="Submit" />
+						<input type="button" value="Cancel"  onclick="history.back()" />
+					</td>
+				</tr>
+			</table>
+				
+		</article>
         
         </div>
 
