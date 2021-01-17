@@ -18,7 +18,9 @@
 		}
 	}
 	else{
-		header("location:participantlogin.php");
+		 
+		//header("location:participantlogin.php");
+		
 		die();
 	}
 	
