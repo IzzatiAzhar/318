@@ -10,11 +10,7 @@
           <li class="nav-item active"><a href="participanthome.php" class="nav-link">Home</a></li>
           <li class="nav-item"><a href="profile.php" class="nav-link">Profile</a></li>
           <li class="nav-item"><a href="searchevents.php" class="nav-link">Search Events</a></li>
-
           <li class="nav-item"><a href="participantlogout.php" class="nav-link">Logout</a></li>
-
-          <li class="nav-item"><a href="index.php" class="nav-link">Logout</a></li>
-
         </ul>
       </div>
     </div>

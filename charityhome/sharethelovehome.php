@@ -24,7 +24,7 @@
 
   </head>
   <body>
-    
+   
   <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
     <div class="container">
       <a class="navbar-brand" href="index.php">FoodForAll</a>
@@ -50,7 +50,7 @@
         <div class="container">
           <div class="row align-items-center justify-content-center text-center">
             <div class="col-md-7">
-              <h2 class="heading mb-5">Food For All Login Category</h2>
+              <h2 class="heading mb-5">Share The Love Event Details</h2>
             </div>
           </div>
         </div>
@@ -59,48 +59,93 @@
     </div>
   </div>
   
-  <div class="site-section section-counter">
+  <div class="site-section">
     <div class="container">
-      <div class="row">
-        <div class="col-md-6 pr-5">
-          <div class="block-48">
-              <span class="block-48-text-1">Members Login</span>
-            </div>
+      <div class="row align-items-center mb-5">
+
+        <div class="col-md-7 order-md-2 mb-5 mb-md-0">
+          <img src="images/a5.jpg" alt="" class="img-fluid">
         </div>
-      </div>
+
+        <div class="col-md-5 pr-md-5 mb-5 order-md-1">
+          <div class="block-41">
+            <div class="block-41-subheading d-flex">
+              <div class="block-41-number">01</div>
+            </div>
+            <h2 class="block-41-heading mb-3">Spread The Love</h2>
+            <div class="block-41-text">
+              <p>Share the love events distribute healthy meals and clean water 4
+					nights a week, provide free haircuts and basic medical aid. 
+					Other than that, we offering basic needs by provide clients with laundry facilities and counselling.
+					</p>
+			</div>
+          </div>
+        </div>
+        
+      </div> <!-- .row -->
+
+      <div class="row align-items-center mb-5">
+        <div class="col-md-7 mb-5 mb-md-0">
+          <img src="images/share the love- homeless.png" alt="" class="img-fluid">
+        </div>
+
+        <div class="col-md-5 pl-md-5 mb-5">
+          <div class="block-41">
+            <div class="block-41-subheading d-flex">
+              <div class="block-41-number">02</div>
+            </div>
+            <h2 class="block-41-heading mb-3">#KitaPrihatin</h2>
+            <div class="block-41-text">
+              <p>To address the personal issues that lead to a person becoming
+					homeless, perceptions need to change. People do not become
+					homeless because they are lazy and want to live off handouts.
+					Many fall into homelessness because they have insufficient income
+					to meet the rising costs of living.
+				</p>
+            </div>
+          </div>
+        </div>
+        
+      </div> <!-- .row -->
+	  
+	   <div class="row align-items-center mb-5">
+
+        <div class="col-md-7 order-md-2 mb-5 mb-md-0">
+          <img src="images/cause of the homeless stl.png" alt="" class="img-fluid">
+        </div>
+
+        <div class="col-md-5 pr-md-5 mb-5 order-md-1">
+          <div class="block-41">
+            <div class="block-41-subheading d-flex">
+              <div class="block-41-number">03</div>
+            </div>
+            <h2 class="block-41-heading mb-3">Show Your Concern</h2>
+            <div class="block-41-text">
+              <p> There is also a percentage of
+					homeless who face difficulty in entering the work force because
+					they are neither able-bodied nor able-minded. These homeless
+					persons are particularly vulnerable due to their health problems, as
+					well as the social discrimination they face from society. If the
+					society’s perception of homelessness changes, there might be
+					more inclination to help homeless people get back on their feet.
+				</p>
+			</div>
+          </div>
+        </div>
+        
+      </div> <!-- .row -->
+		<div align="center">
+			<input  class="btn btn-primary px-3 py-2"  type="button" value="Back" onclick="history.back()" />
+			<br>
+		</div>
     </div>
   </div>
 
-  <div class="site-section border-top">
-    <div class="container">
-      <div class="row">
+ 
 
-
-        <div class="col-md-4">
-          <div class="media block-6">
-            <div class="icon"><span class="ion-ios-contacts"></span></div>
-            <div class="media-body">
-              <h3 class="heading">Organizer</h3>
-              <p>Food For All Organization</p>
-              <p><a href="loginorg.php" class="link-underline">Sign In Here</a></p>
-            </div>
-          </div> 
-        </div>
-		 <div class="col-md-4">
-          <div class="media block-6">
-            <div class="icon"><span class="ion-ios-contacts"></span></div>
-            <div class="media-body">
-              <h3 class="heading">Volunteers / Participants</h3>
-              <p><a href="participantlogin.php" class="link-underline">Sign In Here</a></p>
-            </div>
-          </div> 
-        </div>
-
-      </div>
-    </div>
-  </div> <!-- .site-section -->
-
-
+  <footer class="footer">
+    <?php include 'footer.php'; ?>
+  </footer>
 
   <!-- loader -->
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
@@ -116,7 +161,6 @@
   <script src="js/owl.carousel.min.js"></script>
   <script src="js/jquery.magnific-popup.min.js"></script>
   <script src="js/bootstrap-datepicker.js"></script>
-
   <script src="js/jquery.fancybox.min.js"></script>
   
   <script src="js/aos.js"></script>

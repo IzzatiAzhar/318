@@ -21,6 +21,7 @@
 
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/style.css">
+	
 
   </head>
   <body>
@@ -78,7 +79,6 @@
 		  
           <p class="lead">Globally, more than 820 million people struggle with hunger every day. In Malaysia 3,000 tonnes of edible food is thrown away each day which is enough to provide 10 million meals. </p>
           <p class="mb-4">We are committed to reduce waste and feeding the less fortunate. By the platform that we created, our charity partners are able to provide about of 33,000 meals a week for thousands of Malaysian’s living on or below the poverty line.</p>
-          <p class="mb-0"><a href="#" class="btn btn-primary px-3 py-2">Learn More</a></p>
         </div>
       </div>
     </div>
@@ -94,8 +94,8 @@
             <div class="media-body">
               <h3 class="heading">Our Mission</h3>
               <p>We believe that no one should ever be hungry. We support individuals regardless of age, disability, ethnic or religious group, and we do not tolerate any form of discrimination.Together, let's end hunger in for all in Malaysia !</p>
-              <p><a href="#" class="link-underline">Learn More</a></p>
-            </div>
+            <br>
+			</div>
           </div>     
         </div>
 
@@ -105,8 +105,8 @@
             <div class="media-body">
               <h3 class="heading">Make Donations</h3>
               <p>Donation of  money keep the Food For All project running. Donate and help us to feed thousands of people everyday.</p>
-              <p><a href="#" class="link-underline">Learn More</a></p>
-            </div>
+            <br>
+			</div>
           </div>  
         </div>
 
@@ -116,7 +116,7 @@
             <div class="media-body">
               <h3 class="heading">We Need Volunteers, Join Us !</h3>
               <p>It doesn’t take a big commitment to make a big impact. We have an ever-growing dedicated team of food distributing heroes.</p>
-              <p><a href="#" class="link-underline">Learn More</a></p>
+              <p><a href="registerparticipant.php" class="link-underline">Sign Up Here</a></p>
             </div>
           </div> 
         </div>
@@ -124,176 +124,67 @@
       </div>
     </div>
   </div> <!-- .site-section -->
-
-
-
   
-
-  <div class="site-section fund-raisers bg-light">
-    <div class="container">
-      <div class="row mb-3 justify-content-center">
-        <div class="col-md-8 text-center">
-          <h2>Latest Fundraisers</h2>
-          <p class="lead">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <p><a href="#" class="link-underline">View All Fundraisers</a></p>
-        </div>
-      </div>
-    </div>
-
-    <div class="container-fluid">
-
-      <!-- <div class="row"> -->
-        
-        <div class="col-md-12 block-11">
-          <div class="nonloop-block-11 owl-carousel">
-
-            <div class="card fundraise-item">
-              <a href="#"><img class="card-img-top" src="images/img_1.jpg" alt="Image placeholder"></a>
-              <div class="card-body">
-                <h3 class="card-title"><a href="#">Water Is Life. Clean Water In Urban Area</a></h3>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <span class="donation-time mb-3 d-block">Last donation 1w ago</span>
-                <div class="progress custom-progress-success">
-                  <div class="progress-bar bg-primary" role="progressbar" style="width: 28%" aria-valuenow="28" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-                <span class="fund-raised d-block">$12,000 raised of $30,000</span>
-              </div>
-            </div>
-
-            
-            <div class="card fundraise-item">
-              <a href="#"><img class="card-img-top" src="images/img_7.jpg" alt="Image placeholder"></a>
-              <div class="card-body">
-                <h3 class="card-title"><a href="#">Need Shelter for Children in Africa</a></h3>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <span class="donation-time mb-3 d-block">Last donation 1w ago</span>
-                <div class="progress custom-progress-success">
-                  <div class="progress-bar bg-primary" role="progressbar" style="width: 28%" aria-valuenow="28" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-                <span class="fund-raised d-block">$12,000 raised of $30,000</span>
-              </div>
-            </div>
-            
-            <div class="card fundraise-item">
-              <a href="#"><img class="card-img-top" src="images/img_3.jpg" alt="Image placeholder"></a>
-              <div class="card-body">
-                <h3 class="card-title"><a href="#">Children Needs Education</a></h3>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <span class="donation-time mb-3 d-block">Last donation 1w ago</span>
-                <div class="progress custom-progress-success">
-                  <div class="progress-bar bg-primary" role="progressbar" style="width: 28%" aria-valuenow="28" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-                <span class="fund-raised d-block">$12,000 raised of $30,000</span>
-              </div>
-            </div>
-
-
-            <div class="card fundraise-item">
-              <a href="#"><img class="card-img-top" src="images/img_4.jpg" alt="Image placeholder"></a>
-              <div class="card-body">
-                <h3 class="card-title"><a href="#">Refugees Needs Food</a></h3>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <span class="donation-time mb-3 d-block">Last donation 1w ago</span>
-                <div class="progress custom-progress-success">
-                  <div class="progress-bar bg-primary" role="progressbar" style="width: 28%" aria-valuenow="28" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-                <span class="fund-raised d-block">$12,000 raised of $30,000</span>
-              </div>
-            </div>
-
-            
-            <div class="card fundraise-item">
-              <a href="#"><img class="card-img-top" src="images/img_6.jpg" alt="Image placeholder"></a>
-              <div class="card-body">
-                <h3 class="card-title"><a href="#">Voluteer </a></h3>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <span class="donation-time mb-3 d-block">Last donation 1w ago</span>
-                <div class="progress custom-progress-success">
-                  <div class="progress-bar bg-primary" role="progressbar" style="width: 28%" aria-valuenow="28" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-                <span class="fund-raised d-block">$12,000 raised of $30,000</span>
-              </div>
-            </div>
-            
-            <div class="card fundraise-item">
-              <a href="#"><img class="card-img-top" src="images/img_3.jpg" alt="Image placeholder"></a>
-              <div class="card-body">
-                <h3 class="card-title"><a href="#">Children Needs Food</a></h3>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <span class="donation-time mb-3 d-block">Last donation 1w ago</span>
-                <div class="progress custom-progress-success">
-                  <div class="progress-bar bg-primary" role="progressbar" style="width: 28%" aria-valuenow="28" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-                <span class="fund-raised d-block">$12,000 raised of $30,000</span>
-              </div>
-            </div>
-           
-          </div>
-        </div>
-      <!-- </div> -->
-    </div>
-  </div> <!-- .section -->
-
-
   <div class="site-section fund-raisers">
     <div class="container">
       <div class="row mb-3 justify-content-center">
         <div class="col-md-8 text-center">
-          <h2>Latest Donations</h2>
-          <p class="lead">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <p class="mb-5"><a href="#" class="link-underline">View All Donations</a></p>
+          <h2>Better To Give Than To Receive</h2>
+          <p class="lead">No act of kindness, no matter how small, is ever wasted.</p>
         </div>
       </div>
 
       <div class="row">
         <div class="col-md-6 col-lg-3 mb-5">
           <div class="person-donate text-center">
-            <img src="images/person_1.jpg" alt="Image placeholder" class="img-fluid">
+			
+            <img src="images/kbk.png" alt="Image placeholder" class="img-fluid">
             <div class="donate-info">
-              <h2>Jorge Smith</h2>
-              <span class="time d-block mb-3">Donated Just now</span>
-              <p>Donated <span class="text-success">$252</span> <br> <em>for</em> <a href="#" class="link-underline fundraise-item">Water Is Life. Clean Water In Urban Area</a></p>
+              <h2>#KITAPRIHATIN</h2>
+              <span class="time d-block mb-3">Click the event for more details</span>
+				<p><span class="text-success"></span><br> <a href="kbkhome.php" class="mb-3 img-wrap">#KitaBantuKita Event</a></p>
             </div>
           </div>    
         </div>
 
         <div class="col-md-6 col-lg-3 mb-5">
           <div class="person-donate text-center">
-            <img src="images/person_2.jpg" alt="Image placeholder" class="img-fluid">
+            <img src="images/stls.png" alt="Image placeholder" class="img-fluid">
             <div class="donate-info">
-              <h2>Christine Charles</h2>
-              <span class="time d-block mb-3">Donated 1 hour ago</span>
-              <p>Donated <span class="text-success">$400</span> <br> <em>for</em> <a href="#" class="link-underline fundraise-item">Children Needs Education</a></p>
+              <h2>#WeCare</h2>
+              <span class="time d-block mb-3">Click the event for more details</span>
+				<p><span class="text-success"></span><br>  <a href="sharethelovehome.php" class="mb-3 img-wrap">Share The Love Events</a></p>
+
+		   </div>
+          </div>    
+        </div>
+
+        <div class="col-md-6 col-lg-3 mb-5">
+          <div class="person-donate text-center">
+            <img src="images/pscc.png" alt="Image placeholder" class="img-fluid">
+            <div class="donate-info">
+              <h2>Together We Help</h2>
+              <span class="time d-block mb-3">Click the event for more details</span>
+				<p><span class="text-success"></span><br>  <a href="pitstopcommunityhome.php" class="mb-3 img-wrap">Pit Stop Community Cafe</a></p>
             </div>
           </div>    
         </div>
 
         <div class="col-md-6 col-lg-3 mb-5">
           <div class="person-donate text-center">
-            <img src="images/person_3.jpg" alt="Image placeholder" class="img-fluid">
+            <img src="images/tlfp.png" alt="Image placeholder" class="img-fluid">
             <div class="donate-info">
-              <h2>Albert Sluyter</h2>
-              <span class="time d-block mb-3">Donated 4 hours ago</span>
-              <p>Donated <span class="text-success">$1,200</span> <br> <em>for</em> <a href="#" class="link-underline fundraise-item">Need Shelter for Children in Africa</a></p>
-            </div>
-          </div>    
-        </div>
-
-        <div class="col-md-6 col-lg-3 mb-5">
-          <div class="person-donate text-center">
-            <img src="images/person_4.jpg" alt="Image placeholder" class="img-fluid">
-            <div class="donate-info">
-              <h2>Andrew Holloway</h2>
-              <span class="time d-block mb-3">Donated 9 hours ago</span>
-              <p>Donated <span class="text-success">$100</span> <br> <em>for</em> <a href="#" class="link-underline fundraise-item">Water Is Life. Clean Water In Urban Area</a></p>
+              <h2>Save The World</h2>
+              <span class="time d-block mb-3">Click the event for more details</span>
+				<p><span class="text-success"></span><br>  <a href="lostfoodprojecthome.php" class="mb-3 img-wrap">The Lost Food Project</a></p>
             </div>
           </div>    
         </div>
       </div>
     </div>
   </div> <!-- .section -->
-
-  <div class="featured-section overlay-color-2" style="background-image: url('images/bg_3.jpg');">
+  
+    <div class="featured-section overlay-color-2" style="background-image: url('images/bg_3.jpg');">
     
     <div class="container">
       <div class="row">
@@ -327,170 +218,12 @@
 
   </div> <!-- .featured-donate -->
 
-  <div class="site-section bg-light">
-    <div class="container">
-      <div class="row mb-5">
-        <div class="col-md-12">
-          <h2>Latest News</h2>
-        </div>
-      </div>
 
-      <div class="row">
-        <div class="col-12 col-sm-6 col-md-6 col-lg-4 mb-4 mb-lg-0">
-          <div class="post-entry">
-            <a href="#" class="mb-3 img-wrap">
-              <img src="images/img_4.jpg" alt="Image placeholder" class="img-fluid">
-            </a>
-            <h3><a href="#">Be A Volunteer Today</a></h3>
-            <span class="date mb-4 d-block text-muted">July 26, 2018</span>
-            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.</p>
-            <p><a href="#" class="link-underline">Read More</a></p>
-          </div>
-        </div>
-        <div class="col-12 col-sm-6 col-md-6 col-lg-4 mb-4 mb-lg-0">
-          <div class="post-entry">
-            <a href="#" class="mb-3 img-wrap">
-              <img src="images/img_5.jpg" alt="Image placeholder" class="img-fluid">
-            </a>
-            <h3><a href="#">You May Save The Life of A Child</a></h3>
-            <span class="date mb-4 d-block text-muted">July 26, 2018</span>
-            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.</p>
-            <p><a href="#" class="link-underline">Read More</a></p>
-          </div>
-        </div>
-        <div class="col-12 col-sm-6 col-md-6 col-lg-4 mb-4 mb-lg-0">
-          <div class="post-entry">
-            <a href="#" class="mb-3 img-wrap">
-              <img src="images/img_6.jpg" alt="Image placeholder" class="img-fluid">
-            </a>
-            <h3><a href="#">Children That Needs Care</a></h3>
-            <span class="date mb-4 d-block text-muted">July 26, 2018</span>
-            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia.</p>
-            <p><a href="#" class="link-underline">Read More</a></p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div> <!-- .section -->
 
-  <div class="featured-section overlay-color-2" style="background-image: url('images/bg_2.jpg');">
-    
-    <div class="container">
-      <div class="row">
-
-        <div class="col-md-6 mb-5 mb-md-0">
-          <img src="images/bg_2.jpg" alt="Image placeholder" class="img-fluid">
-        </div>
-
-        <div class="col-md-6 pl-md-5">
-
-          <div class="form-volunteer">
-            
-            <h2>Be A Volunteer Today</h2>
-            <form action="#" method="post">
-              <div class="form-group">
-                <!-- <label for="name">Name</label> -->
-                <input type="text" class="form-control py-2" id="name" placeholder="Enter your name">
-              </div>
-              <div class="form-group">
-                <!-- <label for="email">Email</label> -->
-                <input type="text" class="form-control py-2" id="email" placeholder="Enter your email">
-              </div>
-              <div class="form-group">
-                <!-- <label for="v_message">Email</label> -->
-                <textarea name="v_message" id="" cols="30" rows="3" class="form-control py-2" placeholder="Write your message"></textarea>
-                <!-- <input type="text" class="form-control py-2" id="email"> -->
-              </div>
-              <div class="form-group">
-                <input type="submit" class="btn btn-white px-5 py-2" value="Send">
-              </div>
-            </form>
-          </div>
-        </div>
-        
-      </div>
-    </div>
-
-  </div> <!-- .featured-donate -->
 
   <footer class="footer">
-    <div class="container">
-      <div class="row mb-5">
-        <div class="col-md-6 col-lg-4">
-          <h3 class="heading-section">About Us</h3>
-          <p class="lead">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
-          <p class="mb-5">Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-          <p><a href="#" class="link-underline">Read  More</a></p>
-        </div>
-        <div class="col-md-6 col-lg-4">
-          <h3 class="heading-section">Recent Blog</h3>
-          <div class="block-21 d-flex mb-4">
-            <figure class="mr-3">
-              <img src="images/img_1.jpg" alt="" class="img-fluid">
-            </figure>
-            <div class="text">
-              <h3 class="heading"><a href="#">Water Is Life. Clean Water In Urban Area</a></h3>
-              <div class="meta">
-                <div><a href="#"><span class="icon-calendar"></span> July 29, 2018</a></div>
-                <div><a href="#"><span class="icon-person"></span> Admin</a></div>
-                <div><a href="#"><span class="icon-chat"></span> 19</a></div>
-              </div>
-            </div>
-          </div>
-
-          <div class="block-21 d-flex mb-4">
-            <figure class="mr-3">
-              <img src="images/img_2.jpg" alt="" class="img-fluid">
-            </figure>
-            <div class="text">
-              <h3 class="heading"><a href="#">Life Is Short So Be Kind</a></h3>
-              <div class="meta">
-                <div><a href="#"><span class="icon-calendar"></span> July 29, 2018</a></div>
-                <div><a href="#"><span class="icon-person"></span> Admin</a></div>
-                <div><a href="#"><span class="icon-chat"></span> 19</a></div>
-              </div>
-            </div>
-          </div>
-
-          <div class="block-21 d-flex mb-4">
-            <figure class="mr-3">
-              <img src="images/img_4.jpg" alt="" class="img-fluid">
-            </figure>
-            <div class="text">
-              <h3 class="heading"><a href="#">Unfortunate Children Need Your Love</a></h3>
-              <div class="meta">
-                <div><a href="#"><span class="icon-calendar"></span> July 29, 2018</a></div>
-                <div><a href="#"><span class="icon-person"></span> Admin</a></div>
-                <div><a href="#"><span class="icon-chat"></span> 19</a></div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4">
-          <div class="block-23">
-            <h3 class="heading-section">Get Connected</h3>
-              <ul>
-                <li><span class="icon icon-map-marker"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
-                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+2 392 3929 210</span></a></li>
-                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@yourdomain.com</span></a></li>
-              </ul>
-            </div>
-        </div>
-        
-        
-      </div>
-      <div class="row pt-5">
-        <div class="col-md-12 text-center">
-          
-            <p>
-            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="ion-ios-heart text-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" >Colorlib</a>
-            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-            </p>
-          
-        </div>
-      </div>
-    </div>
+    <?php include 'footer.php'; ?>
+    
   </footer>
 
   <!-- loader -->
