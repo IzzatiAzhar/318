@@ -69,11 +69,11 @@
     </div>
   </div>
   
-  <div class="site-section">
+   <div class="site-section">
     <div class="container">
       <div class="row block-9">
         <div class="col-md-6 pr-md-5">
-			<article>
+          <article>
 			<h2 style="text-align:center">Fill in the form to join the event</h2><br>
 			<form action="joineventsaction.php" id="updateform" method ="POST">
 			<?php
@@ -133,7 +133,7 @@
         
         </div>
 
-       
+        <div class="col-md-6" ><img src="images/a11.jpg"></div>
       </div>
     </div>
   </div>

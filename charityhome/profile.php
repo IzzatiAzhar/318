@@ -83,6 +83,8 @@
     </div>
   </div>
 
+  
+  
   <div class="site-section">
     <div class="container">
       <div class="row block-9">
@@ -177,7 +179,7 @@
         
         </div>
 
-       
+        <div class="col-md-6" ><img src="images/a9.png"></div>
       </div>
     </div>
   </div>

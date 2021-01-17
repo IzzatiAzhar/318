@@ -57,7 +57,7 @@
   
   <div class="block-31" style="position: relative;">
     <div class="owl-carousel loop-block-31 ">
-      <div class="block-30 block-30-sm item" style="background-image: url('images/bg_2.jpg');" data-stellar-background-ratio="0.5">
+      <div class="block-30 block-30-sm item" style="background-image: url('images/banner.jpg');" data-stellar-background-ratio="0.5">
         <div class="container">
           <div class="row align-items-center justify-content-center">
             <div class="col-md-7 text-center">
@@ -72,11 +72,14 @@
     </div>
   </div>
 
+ 
+  
+  
   <div class="site-section">
     <div class="container">
       <div class="row block-9">
         <div class="col-md-6 pr-md-5">
-			<article>
+          <article>
 				<h2 style="text-align:center">Your data Has Been stored.</h2><br>
 				
 				<?php
@@ -190,7 +193,7 @@
         
         </div>
 
-       
+        <div class="col-md-6" ><img src="images/a11.jpg"></div>
       </div>
     </div>
   </div>
