@@ -62,7 +62,7 @@
 						<a href="index.php" class="signup-image-link">Back To Homepage</a>
                     </div>
 
-                    <div class="signin-form">
+                     <div class="signin-form">
                         <h2 class="form-title">Organizer Sign In</h2>
                         <form method="POST" class="register-form" id="login-form" action="loginorgaction.php">
                             <?php if (isset($_GET['error'])) { ?>

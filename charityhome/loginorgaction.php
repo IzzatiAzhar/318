@@ -50,48 +50,71 @@
     <div class="owl-carousel loop-block-31 ">
 	  
 	  
-    <div class="main">
+<div class="main">
 <article> 
-						 <?php 
-							  include 'conn.php';
-
-							  $conn=OpenCon();
-							  session_start();
-							  
-							  $orgid=$_POST["orgid"];
-							  $orgpassword=$_POST["orgpassword"];
-
-							  $sql="SELECT * FROM `organizer` o WHERE orgid=$orgid and orgpassword='$orgpassword'";
-							  
-							  $result=$conn->query($sql);
-							  //output data
-							  if($result->num_rows > 0)
-							  {													  
-								   while($row=$result->fetch_assoc())
-								   {
-										$_SESSION['login_user']=$orgid;
-										
-										header("location:orghome.php");
-								   }
-							  }
-							  
-							 
-							 else if(isset($_SESSION["error"]))
-							 {
-								$error = $_SESSION["error"];
-								echo "<span>$error</span>";
-							}
-									
-								
-								   
-							  
-							  CloseCon($conn);
-						 ?>
 						 
-						 <?php
-						 unset($_SESSION["error"]);
-						 ?>
+        <article> 
+            <?php 
+            include "conn.php";
+            $conn = OpenCon();
+            session_start(); 
+
+            if (isset($_POST['orgid']) && isset($_POST['orgpassword'])) {
+
+              function validate($data){
+                  $data = trim($data);
+                $data = stripslashes($data);
+                $data = htmlspecialchars($data);
+                return $data;
+              }
+
+              $organizerID = validate($_POST['orgid']);
+              $organizerPassword = validate($_POST['orgpassword']);
+
+              if (empty($organizerID)) 
+              {
+                header("Location: loginorg.php?error=User name is needed");
+                  exit();
+              }
+              else if(empty($organizerPassword))
+              {
+                    header("Location: loginorg.php?error=Password is needed");
+                  exit();
+              }
+              else
+              {
+                $sql = "SELECT * FROM organizer WHERE orgid = $organizerID AND orgpassword = '$organizerPassword'";
+
+                $result = $conn->query($sql);
+
+                if($result->num_rows>0)
+                {
+                  while($row=$result->fetch_assoc())
+                        {
+                    $_SESSION['login_user'] = $organizerID;		
+                    header("location: orghome.php");
+                        exit();
+                        }
+                }
+                else
+                {
+                  header("Location: loginorg.php?error=Wrong username or password");
+                      exit();
+                }
+              }
+              
+            }
+            else
+            {
+              header("Location: loginorg.php");
+              exit();
+            }
+
+              CloseCon($conn);
+            ?>
 				 </article>
+
+        
 
         
 
