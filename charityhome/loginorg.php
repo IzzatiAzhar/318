@@ -65,6 +65,9 @@
                     <div class="signin-form">
                         <h2 class="form-title">Organizer Sign In</h2>
                         <form method="POST" class="register-form" id="login-form" action="loginorgaction.php">
+                            <?php if (isset($_GET['error'])) { ?>
+     		                    <p class="error"><?php echo $_GET['error']; ?></p>
+     	                    <?php } ?>
                             <div class="form-group">
                                 <label for="orgid"><i class="zmdi zmdi-account material-icons-name"></i></label>
                                 <input type="text" name="orgid" id="orgid" placeholder="Your Organizer ID"/>
