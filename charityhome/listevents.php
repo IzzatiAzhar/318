@@ -60,6 +60,7 @@
 										<th>Date Event</th>
 										<th>Total Donation (RM) </th>
 										<th>Person-in-charge</th>
+										<th>Participant</th>
 									</tr>
 					            </thead>
 						
@@ -103,6 +104,8 @@
 											{
 											while($row=$result->fetch_assoc())
 											{
+												
+								
 												$eventid = $row["eventid"];
 												$eventname = $row["eventname"];
 												$eventstate = $row["eventstate"];
@@ -111,6 +114,17 @@
 												$eventdate = $row["eventdate"];
 												$eventtotaldonation = $row["eventtotaldonation"];
 												$eventpic = $row["eventpic"];
+												//echo '<script>console.log('.json_encode("sql success tak?") . ')</script>';
+												//echo "$eventid" ;
+												$sql2 = "update `event` e
+															set `eventnumofpart` = (select count(e.eventid) as numofpart 
+																	from `registration` r, `event`e
+																	where r.eventid = e.eventid
+																	and r.eventid = '$eventid')
+															where e.eventid = '$eventid'";
+															
+								
+								$result2 = $conn->query($sql2);
 												
 												
 												echo "<tr>";
@@ -123,6 +137,7 @@
 													echo "<td>$eventdate</td>";
 													echo "<td>$eventtotaldonation</td>";
 													echo "<td>$eventpic</td>";
+													echo"<td><a href=displayparticipant.php?eventid=$eventid>Show Participant</a></td>";
 													
 													
 												echo "</tr>";

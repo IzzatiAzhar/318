@@ -80,7 +80,7 @@
       <div class="row block-9">
         <div class="col-md-6 pr-md-5">
           <article>
-				<h2 style="text-align:center">Your data Has Been stored.</h2><br>
+				<h2 style="text-align:center">Thank you for volunteering with us!</h2><br>
 				
 				<?php
 				//$eventid=$_GET["eventid"];

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -22,88 +21,110 @@
 
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/style.css">
-	
-	<!--css for login and signup-->
-	<meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Sign In</title>
 
-    <!-- Font Icon -->
-    <link rel="stylesheet" href="fonts2/material-icon/css/material-design-iconic-font.min.css">
-
-    <!-- Main css -->
-    <link rel="stylesheet" href="css2/style.css">
-	<!--end css for login and signup-->
 
   </head>
   <body>
-    
-  <nav class="navbar navbar-expand-lg navbar-light ftco_navbar bg-light ftco-navbar-dark" id="ftco-navbar">
-    <div class="container">
-      <a class="navbar-brand" href="index.php">FoodForAll</a>
-    </div>
-  </nav>
+    <?php include 'headerorg.php'; ?>
+	
+  <?php include 'orgnav.php'; ?>
   <!-- END nav -->
-  <article>
+  
   <div class="block-31" style="position: relative;">
     <div class="owl-carousel loop-block-31 ">
-	  
-	  
-    <div class="main">
-<article> 
-						 <?php 
-							  include 'conn.php';
-
-							  $conn=OpenCon();
-							  session_start();
-							  
-							  $orgid=$_POST["orgid"];
-							  $orgpassword=$_POST["orgpassword"];
-
-							  $sql="SELECT * FROM `organizer` o WHERE orgid=$orgid and orgpassword='$orgpassword'";
-							  
-							  $result=$conn->query($sql);
-							  //output data
-							  if($result->num_rows > 0)
-							  {													  
-								   while($row=$result->fetch_assoc())
-								   {
-										$_SESSION['login_user']=$orgid;
-										
-										header("location:orghome.php");
-								   }
-							  }
-							  
-							 
-							 else if(isset($_SESSION["error"]))
-							 {
-								$error = $_SESSION["error"];
-								echo "<span>$error</span>";
-							}
-									
-								
-								   
-							  
-							  CloseCon($conn);
-						 ?>
-						 
-						 <?php
-						 unset($_SESSION["error"]);
-						 ?>
-				 </article>
-
-        
-
-    </div>
+      <div class="block-30 block-30-sm item" style="background-image: url('images/home.jpg');" data-stellar-background-ratio="0.5">
+        <div class="container">
+          <div class="row align-items-center justify-content-center text-center">
+            <div class="col-md-7">
+              <h2 class="heading mb-5">List of Participants</h2>
+            </div>
+          </div>
+        </div>
+      </div>
       
     </div>
   </div>
-  <!-- JS -->
-			<script src="vendor2/jquery/jquery.min.js"></script>
-			<script src="js2/main.js"></script>
+  
+  <div class="site-section section-counter">
+    <div class="container">
+      <div class="row">
+		<article>
+					<table class="table">
+								<thead class="thead-dark">
+									<tr>
+										
+										<th>Participant Name</th>
+										<th>Participant Contact Number </th>
+										<th>Participant Email</th>
+										
+									</tr>
+					            </thead>
+						
+						
+						<?php
+							$conn = mysqli_connect("localhost","root","","ffa") or die("Database Not Connected");
+							$eventid=$_GET["eventid"];
+
+							
+							
+							$sql="select * from  registration 
+									where eventid = '$eventid'";
+									
+									
+							$result=$conn->query($sql);
+								  
+								 
+								  if($result->num_rows > 0)
+								  {
+											if($result->num_rows>0)
+											//output data of each row
+											{
+											while($row=$result->fetch_assoc())
+											{
+												
+												$partname = $row["partname"];
+												$parttelno = $row["parttelno"];
+											    $partemail = $row["partemail"];
+												
+												
+												echo "<tr>";
+												
+													echo "<td>$partname</td>";
+													echo "<td>$parttelno</td>";
+													echo "<td>$partemail</td>";
+											
+												echo "</tr>";
+											}
+										}
+
+										
+									echo "</table>";
+									
+									
+							
+						}
+						
+						
+						CloseCon($conn);
+								?>
+							
+								<table class="table">
+									<tr>
+											<td colspan="2" align="right">
+												<input type="button" value="Back" onclick="history.back()" />
+											</td>
+									</tr>
+								</table>	
+								
+		</article> 
+      </div>
+    </div>
+  </div>
 
 
+<footer class="footer">
+    <?php include 'footer.php'; ?>
+  </footer>
 
   <!-- loader -->
   <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>

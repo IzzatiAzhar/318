@@ -5,6 +5,7 @@
 	
 	 /**Value is user id coming from loginparticipantaction.php**/
 	$user_check = $_SESSION['login_user'];
+	$error = "username/password incorrect";
 	
 	$sql = "select * from organizer where orgid = $user_check";
 	
@@ -18,8 +19,8 @@
 		}
 	}
 	else{
-		header("location:loginorg.php");
-		die();
+		$_SESSION["error"] = $error;
+		header("location: loginorg.php"); //send user back to the login page.
 	}
 	
 	CloseCon($conn1);

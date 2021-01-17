@@ -17,7 +17,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 			$eventname = mysqli_escape_string($conn, $_POST['eventname']);
 			$eventstate = mysqli_escape_string($conn, $_POST['eventstate']);
 			$eventlocation = mysqli_escape_string($conn, $_POST['eventlocation']);
-			$eventnumofpart = mysqli_escape_string($conn, $_POST['eventnumofpart']);
 			$eventdate = mysqli_escape_string($conn, $_POST['eventdate']);
 			$eventpic = mysqli_escape_string($conn, $_POST['eventpic']);
 			
@@ -33,17 +32,16 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 			$eventname = validate($eventname);
 			$eventstate = validate($eventstate);
 			$eventlocation = validate($eventlocation);
-			$eventnumofpart = validate($eventnumofpart);
 			$eventdate = validate($eventdate);
 			$eventpic = validate($eventpic);
 			
 
-			if(!empty($eventid) && !empty($eventname) && !empty($eventstate) && !empty($eventlocation) && !empty($eventnumofpart)  && !empty($eventdate)&& !empty($eventpic))
+			if(!empty($eventid) && !empty($eventname) && !empty($eventstate) && !empty($eventlocation) && !empty($eventdate)&& !empty($eventpic))
 			{
 
 				
 
-				$insert = "INSERT INTO `event`(`eventid`,`eventname`,`eventstate`,`eventlocation`,`eventnumofpart`,`eventdate`,`eventpic`) VALUES('$eventid','$eventname','$eventstate','$eventlocation','$eventnumofpart','$eventdate','$eventpic')";
+				$insert = "INSERT INTO `event`(`eventid`,`eventname`,`eventstate`,`eventlocation`,`eventdate`,`eventpic`) VALUES('$eventid','$eventname','$eventstate','$eventlocation','$eventdate','$eventpic')";
 
 				if(mysqli_query($conn, $insert))
 				{
@@ -165,10 +163,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
                                 <input type="text" name="eventlocation" id="eventlocation"/>
                             </div>
 							
-							<div class="form-group">
-                                <label for="eventnumofpart">Number of Volunteers Needed<i class="zmdi zmdi-view-stream"></i></label>
-                                <input type="number" id="eventnumofpart" name="eventnumofpart" min="1" max="100" >
-                            </div>
+							
 							
 							<div class="form-group">
                                 <label for="eventdate">Date of Event<i class="zmdi zmdi-lock"></i></label>

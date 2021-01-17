@@ -46,7 +46,468 @@
       
     </div>
   </div>
-  
+   <div class="site-section fund-raisers">
+    <div class="container">
+      <div class="row mb-3 justify-content-center">
+        <div class="col-md-8 text-center">
+          <h2>FOOD FOR ALL</h2>
+          <p class="lead">We are committed to reduce waste and feeding the less fortunate. By the platform that we created, our charity partners are able to provide about of 33,000 meals a week for thousands of Malaysian’s living on or below the poverty line.</p>
+		  
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6 col-lg-3 mb-5">
+          <div class="person-donate text-center">
+		  <!-- Event 1 -->
+			<div class="text-box">
+			
+					<?php
+					
+						include 'conn.php';
+
+							  $conn=OpenCon();
+							  session_start();
+							
+
+						
+						$orgid = $_SESSION['login_user'];
+				
+						$sql = "SELECT `eventname`,`eventid` FROM `event` where `eventid` = 'E001'";
+						$result = $conn->query($sql);
+				
+						if ($result->num_rows > 0) {
+							//output data of each row
+												
+							while($row = $result->fetch_assoc())
+							{                              
+									
+									$eventname = $row["eventname"];
+									$eventid = $row["eventid"];
+							}
+						}
+						else {
+							echo "Error in fetching data";
+						}
+						
+						$sql2 = "SELECT SUM(`amtdonation`) AS totaldonation
+								FROM `donation` 
+								where `eventid` = 'E001'";
+						
+						$result2 = $conn->query($sql2);
+						
+						  if($result2-> num_rows > 0) {
+							//output data of each row
+							while($row = $result2->fetch_assoc()){
+								
+									$donate = $row["totaldonation"];
+							}
+						}
+
+						
+						CloseCon($conn);			
+					?>
+					
+					<img src="images/kbk.png" alt="Image placeholder" class="img-fluid">
+						<div class="donate-info">
+						  <h2>#KITAPRIHATIN</h2><br>
+						  <p class="main-text">Total Donation</p>
+						  <p class="main-text"><?php echo "RM ", $donate ?></p>
+						  
+						  
+						</div>
+						
+			</div>
+				
+          </div>    
+        </div>
+
+        <div class="col-md-6 col-lg-3 mb-5">
+          <div class="person-donate text-center">
+		  <!-- Event 2 -->
+			<div class="text-box">
+					<?php
+						
+						$conn = OpenCon();
+
+						
+						$orgid = $_SESSION['login_user'];
+				
+						$sql = "SELECT `eventname`,`eventid` FROM `event` where `eventid` = 'E002'";
+						$result = $conn->query($sql);
+				
+						if ($result->num_rows > 0) {
+							//output data of each row
+												
+							while($row = $result->fetch_assoc())
+							{                              
+									
+									$eventname = $row["eventname"];
+									$eventid = $row["eventid"];
+							}
+						}
+						else {
+							echo "Error in fetching data";
+						}
+						
+						$sql2= "SELECT SUM(`amtdonation`) AS totaldonation
+								FROM `donation` 
+								where `eventid` = 'E002'";
+						
+						$result2 = $conn->query($sql2);
+						
+						  if($result2-> num_rows > 0) {
+							//output data of each row
+							while($row = $result2->fetch_assoc()){
+								
+									$donate = $row["totaldonation"];
+							}
+						}
+						
+						CloseCon($conn);			
+					?>
+					 <img src="images/stls.png" alt="Image placeholder" class="img-fluid">
+						<div class="donate-info">
+						  <h2>#WeCare</h2><br>
+						   <p class="main-text">Total Donation</p>
+						   <p class="main-text"><?php echo "RM ", $donate ?></p>
+						  
+						</div>
+            </div>
+          </div>    
+        </div>
+
+        <div class="col-md-6 col-lg-3 mb-5">
+          <div class="person-donate text-center">
+			<!-- Event 3 -->
+			<div class="text-box">
+				<?php
+					
+					$conn = OpenCon();
+
+					
+					$orgid = $_SESSION['login_user'];
+			
+					$sql = "SELECT `eventname`,`eventid` FROM `event` where `eventid` = 'E003'";
+					$result = $conn->query($sql);
+			
+					if ($result->num_rows > 0) {
+						//output data of each row
+											
+						while($row = $result->fetch_assoc())
+						{                              
+								
+								$eventname = $row["eventname"];
+								$eventid = $row["eventid"];
+						}
+					}
+					else {
+						echo "Error in fetching data";
+					}
+					
+					$sql2= "SELECT SUM(`amtdonation`) AS totaldonation
+								FROM `donation` 
+								where `eventid` = 'E003'";
+						
+						$result2 = $conn->query($sql2);
+						
+						  if($result2-> num_rows > 0) {
+							//output data of each row
+							while($row = $result2->fetch_assoc()){
+								
+									$donate = $row["totaldonation"];
+							}
+						}
+					
+					CloseCon($conn);			
+				?>
+				<img src="images/stlj.png" alt="Image placeholder" class="img-fluid">
+				<div class="donate-info">
+				  <h2>#WeLove</h2><br>
+				  <p class="main-text">Total Donation</p>
+				  <p class="main-text"><?php echo "RM ", $donate ?></p>
+				</div>
+            </div>
+          </div>    
+        </div>
+
+        <div class="col-md-6 col-lg-3 mb-5">
+          <div class="person-donate text-center">
+			<!-- Event 4 -->
+			<div class="text-box">
+				<?php
+					
+					$conn = OpenCon();
+
+					
+					$orgid = $_SESSION['login_user'];
+			
+					$sql = "SELECT `eventname`,`eventid` FROM `event` where `eventid` = 'E004'";
+					$result = $conn->query($sql);
+			
+					if ($result->num_rows > 0) {
+						//output data of each row
+											
+						while($row = $result->fetch_assoc())
+						{                              
+								
+								$eventname = $row["eventname"];
+								$eventid = $row["eventid"];
+						}
+					}
+					else {
+						echo "Error in fetching data";
+					}
+					$sql2= "SELECT SUM(`amtdonation`) AS totaldonation
+								FROM `donation` 
+								where `eventid` = 'E004'";
+						
+						$result2 = $conn->query($sql2);
+						
+						  if($result2-> num_rows > 0) {
+							//output data of each row
+							while($row = $result2->fetch_assoc()){
+								
+									$donate = $row["totaldonation"];
+									
+							}
+						}
+					
+					CloseCon($conn);			
+				?>
+				<img src="images/stlm.png" alt="Image placeholder" class="img-fluid">
+					<div class="donate-info">
+					  <h2>#WeHelp</h2><br>
+					  <p class="main-text">Total Donation</p>
+					  <p class="main-text"><?php echo "RM ", $donate ?></p>
+					</div>
+            </div>
+          </div>    
+        </div>
+
+
+        <div class="col-md-6 col-lg-3 mb-5">
+          <div class="person-donate text-center">
+			<!-- Event 5 -->
+			<div class="text-box">
+				<?php
+					
+					$conn = OpenCon();
+
+					
+					$orgid = $_SESSION['login_user'];
+			
+					$sql = "SELECT `eventname`,`eventid` FROM `event` where `eventid` = 'E005'";
+					$result = $conn->query($sql);
+			
+					if ($result->num_rows > 0) {
+						//output data of each row
+											
+						while($row = $result->fetch_assoc())
+						{                              
+								
+								$eventname = $row["eventname"];
+								$eventid = $row["eventid"];
+						}
+					}
+					else {
+						echo "Error in fetching data";
+					}
+					
+					$sql2= "SELECT SUM(`amtdonation`) AS totaldonation
+								FROM `donation` 
+								where `eventid` = 'E005'";
+						
+						$result2 = $conn->query($sql2);
+						
+						  if($result2-> num_rows > 0) {
+							//output data of each row
+							while($row = $result2->fetch_assoc()){
+								
+									$donate = $row["totaldonation"];
+							}
+						}
+					
+					CloseCon($conn);			
+				?>
+				<img src="images/stlkl.png" alt="Image placeholder" class="img-fluid">
+					<div class="donate-info">
+					  <h2>#WeConcern</h2><br>
+					  <p class="main-text">Total Donation</p>
+					  <p class="main-text"><?php echo "RM ", $donate ?></p>
+					</div>
+			</div>    
+          </div>
+		</div>
+
+        <div class="col-md-6 col-lg-3 mb-5">
+          <div class="person-donate text-center">
+		  <!-- Event 6 -->
+			<div class="text-box">
+				<?php
+					
+					$conn = OpenCon();
+
+					
+					$partid = $_SESSION['login_user'];
+			
+					$sql = "SELECT `eventname`,`eventid` FROM `event` where `eventid` = 'E006'";
+					$result = $conn->query($sql);
+			
+					if ($result->num_rows > 0) {
+						//output data of each row
+											
+						while($row = $result->fetch_assoc())
+						{                              
+								
+								$eventname = $row["eventname"];
+								$eventid = $row["eventid"];
+						}
+					}
+					else {
+						echo "Error in fetching data";
+					}
+					
+					$sql2= "SELECT SUM(`amtdonation`) AS totaldonation
+								FROM `donation` 
+								where `eventid` = 'E006'";
+						
+						$result2 = $conn->query($sql2);
+						
+						  if($result2-> num_rows > 0) {
+							//output data of each row
+							while($row = $result2->fetch_assoc()){
+								
+									$donate = $row["totaldonation"];
+									//echo $donate;
+							}
+						}
+					
+					CloseCon($conn);			
+				?>
+				<img src="images/pscc.png" alt="Image placeholder" class="img-fluid">
+					<div class="donate-info">
+					  <h2>Together We Help</h2><br>
+					  <p class="main-text">Total Donation</p>
+					  <p class="main-text"><?php echo "RM ", $donate ?></p>
+					</div>
+			</div>
+          </div>    
+        </div>
+
+        <div class="col-md-6 col-lg-3 mb-5">
+          <div class="person-donate text-center">
+		  <!-- Event 7 -->
+			<div class="text-box">
+				<?php
+					
+					$conn = OpenCon();
+
+					
+					$partid = $_SESSION['login_user'];
+			
+					$sql = "SELECT `eventname`,`eventid` FROM `event` where `eventid` = 'E007'";
+					$result = $conn->query($sql);
+			
+					if ($result->num_rows > 0) {
+						//output data of each row
+											
+						while($row = $result->fetch_assoc())
+						{                              
+								
+								$eventname = $row["eventname"];
+								$eventid = $row["eventid"];
+						}
+					}
+					else {
+						echo "Error in fetching data";
+					}
+					
+					$sql2= "SELECT SUM(`amtdonation`) AS totaldonation
+								FROM `donation` 
+								where `eventid` = 'E007'";
+						
+						$result2 = $conn->query($sql2);
+						
+						  if($result2-> num_rows > 0) {
+							//output data of each row
+							while($row = $result2->fetch_assoc()){
+								
+									$donate = $row["totaldonation"];
+									//echo $donate;
+							}
+						}
+					
+					CloseCon($conn);			
+				?>
+				<img src="images/tlfp.png" alt="Image placeholder" class="img-fluid">
+					<div class="donate-info">
+					  <h2>Save The World</h2><br>
+					  <p class="main-text">Total Donation</p>
+					  <p class="main-text"><?php echo "RM ", $donate ?></p>
+					</div>
+			</div>
+          </div>    
+        </div>
+
+        <div class="col-md-6 col-lg-3 mb-5">
+          <div class="person-donate text-center">
+		  <!-- Event 8 -->
+			<div class="text-box">
+				<?php
+					
+					$conn = OpenCon();
+
+					
+					$partid = $_SESSION['login_user'];
+			
+					$sql = "SELECT `eventname`,`eventid` FROM `event` where `eventid` = 'E008'";
+					$result = $conn->query($sql);
+			
+					if ($result->num_rows > 0) {
+						//output data of each row
+											
+						while($row = $result->fetch_assoc())
+						{                              
+								
+								$eventname = $row["eventname"];
+								$eventid = $row["eventid"];
+						}
+					}
+					else {
+						echo "Error in fetching data";
+					}
+					
+					$sql2= "SELECT SUM(`amtdonation`) AS totaldonation
+								FROM `donation` 
+								where `eventid` = 'E008'";
+						
+						$result2 = $conn->query($sql2);
+						
+						  if($result2-> num_rows > 0) {
+							//output data of each row
+							while($row = $result2->fetch_assoc()){
+								
+									$donate = $row["totaldonation"];
+									//echo $donate;
+							}
+						}
+					
+					CloseCon($conn);			
+				?>
+				<img src="images/fmkl.png" alt="Image placeholder" class="img-fluid">
+					<div class="donate-info">
+					  <h2>Come and Get It</h2><br>
+					  <p class="main-text">Total Donation</p>
+					  <p class="main-text"><?php echo "RM ", $donate ?></p>
+					</div>
+			</div>
+          </div>    
+        </div>
+
+      </div>
+    </div>
+  </div> <!-- .section -->
  
 
 
