@@ -1,33 +1,76 @@
-
-	<nav>
-	<?php include 'orgnav.php';?>
-	</nav>
-
+<?php
 	
-	<h2 style="text-align:center">EVENT REGISTRATION FORM</h2>
-	<form action="registereventaction.php" id="form" method="POST">
-	<?php
-		
-		$conn = mysqli_connect("localhost","root","","ffa") or die("Database Not Connected");
-		$sql1="select * from organizer where orgid=$orgid";
-		$result1=$conn->query($sql1);
-		
-		if($result1->num_rows > 0)
+$conn = mysqli_connect("localhost","root","","ffa") or die("Database Not Connected");
+
+
+if($_SERVER['REQUEST_METHOD'] == 'POST')
+{
+
+	if(isset($_POST['submit']))
+	{
+
+		if(isset($_POST['term']))
 		{
-			while($row=$result1->fetch_assoc())
+			$orgid = $login_id;
+			$today=date("Y-m-d")
+			$eventid='E'.date("m-d/").rand(0,9);
+			$eventname = mysqli_escape_string($conn, $_POST['eventname']);
+			$eventstate = mysqli_escape_string($conn, $_POST['eventstate']);
+			$eventlocation = mysqli_escape_string($conn, $_POST['eventlocation']);
+			$eventdate = mysqli_escape_string($conn, $_POST['eventdate']);
+			$eventpic = mysqli_escape_string($conn, $_POST['eventpic']);
+			
+			
+
+			function validate($form_data)
 			{
-				$orgid=$row["orgid"];
+				$form_data = trim( stripcslashes( htmlspecialchars($form_data) ) );
+				return $form_data;
 			}
+
+			$orgid = validate($orgid);
+			$eventid = validate($eventid);
+			$eventname = validate($eventname);
+			$eventstate = validate($eventstate);
+			$eventlocation = validate($eventlocation);
+			$eventdate = validate($eventdate);
+			$eventpic = validate($eventpic);
+			
+
+			if(!empty($orgid) &&!empty($eventid) && !empty($eventname) && !empty($eventstate) && !empty($eventlocation) && !empty($eventdate)&& !empty($eventpic))
+			{
+
+				
+
+				$insert = "INSERT INTO `event`(`orgid`,`eventid`,`eventname`,`eventstate`,`eventlocation`,`eventdate`,`eventpic`) VALUES('$orgid','$eventid','$eventname','$eventstate','$eventlocation','$eventdate','$eventpic')";
+
+				if(mysqli_query($conn, $insert))
+				{
+					echo "<script type='text/javascript'>alert('Registered successfully!')</script>";
+					
+					
+				}
+				else
+				{
+					echo "<script type='text/javascript'>alert('Failed!')</script>";
+				}
+
+			}
+			else
+			{
+				echo "<script type='text/javascript'>alert('Empty field found!')</script>";
+			}
+
 		}
-		
 		else
 		{
-			echo "Data cannot be displayed";
+			echo "<script type='text/javascript'>alert('Please check term and condition!')</script>";
 		}
-		
-	$sql2="select * from event";
-	$result2=$conn->query($sql2);
-	
+
+	}
+
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
