@@ -84,7 +84,6 @@
 			
 			$conn = OpenCon();
 			
-			//$regid = $_GET["regid"];
 			$orgid = $login_id;
 			$orgname = $login_name;
 			

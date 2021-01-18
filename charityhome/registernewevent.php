@@ -12,15 +12,13 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 		if(isset($_POST['term']))
 		{
 			$orgid = $login_id;
-			$today=date("Y-m-d")
+			$today=date("Y-m-d");
 			$eventid='E'.date("m-d/").rand(0,9);
 			$eventname = mysqli_escape_string($conn, $_POST['eventname']);
 			$eventstate = mysqli_escape_string($conn, $_POST['eventstate']);
 			$eventlocation = mysqli_escape_string($conn, $_POST['eventlocation']);
 			$eventdate = mysqli_escape_string($conn, $_POST['eventdate']);
 			$eventpic = mysqli_escape_string($conn, $_POST['eventpic']);
-			
-			
 
 			function validate($form_data)
 			{
@@ -72,6 +70,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 }
 
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -131,10 +130,10 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
                 <div class="signup-content">
                     <div class="signup-form">
 					<br><br>
-                        <legend><h2 class="form-title" align="center">HOST AN EVENT NOW !</h2></legend><br>
+                        <legend><h2 class="form-title" align="left">HOST AN EVENT NOW !</h2></legend><br>
 						<br>
 						
-                        <form method="POST" class="register-form" id="register-form" align="center">
+                        <form method="POST" class="register-form" id="register-form" align="left">
                           
                             <div class="form-group">
                                 <label for="eventname">Event Name<i class="zmdi zmdi-account material-icons-name"></i></label>

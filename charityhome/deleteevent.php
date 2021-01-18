@@ -24,44 +24,7 @@
 	
 	 <?php include 'headerorg.php'; ?>
 	 
-	<style>
-		#user {
-		  font-family: Arial, Helvetica, sans-serif;
-		  border-collapse: collapse;
-		  width: 100%;
-		}
-
-		#user td, #user th {
-		  border: 1px solid #ddd;
-		  padding: 8px;
-		}
-
-		#user tr:nth-child(even){background-color: #f2f2f2;}
-
-		#user tr:hover {background-color: #ddd;}
-
-		#user th {
-		  padding-top: 12px;
-		  padding-bottom: 12px;
-		  text-align: left;
-		  background-color: #FFE033;
-		  color: white;
-		}
-		.center {
-  margin-left: auto;
-  margin-right: auto;
-}
-	</style>
 	
-	<script type="text/javascript">
-		function confirmDelete(orgid)
-		{
-			if(confirm('This Account  Will Be Deleted Permanently.You sure want to leave ?'))
-			{
-				window.location.href='deleteorg.php?orgid='+orgid;
-			}
-		}
-	</script>
 
   </head>
   <body>
@@ -71,7 +34,7 @@
   
   <div class="block-31" style="position: relative;">
     <div class="owl-carousel loop-block-31 ">
-      <div class="block-30 block-30-sm item" style="background-image: url('images/home.jpg');" data-stellar-background-ratio="0.5">
+      <div class="block-30 block-30-sm item" style="background-image: url('images/bg_2.jpg');" data-stellar-background-ratio="0.5">
         <div class="container">
           <div class="row align-items-center justify-content-center">
             <div class="col-md-7 text-center">
@@ -90,75 +53,25 @@
     <div class="container">
       <div class="row block-9">
         <div class="col-md-6 pr-md-5">
-          <form action="updateorgprofile.php" method="POST">
-            <article>
-		<h2 style="text-align:center">Profile</h2>
 		<article>
-		 
+		<h2 style="text-align:center">Delete Event</h2>
 		<?php
 		
-		$orgid = $login_id;
-		$orgname = $login_name;
+		$eventid = $_GET["eventid"];
 		
 		$conn = OpenCon();
 		
+		$sql = "delete from event where eventid = $eventid";
 		
-		
-		$sql = "select * from organizer where orgid = $orgid";
-				
 		$result = $conn->query($sql);
 		
-		
-		
-		if ($result->num_rows > 0){
-		//Ouput data of each row
-			while($row = $result->fetch_assoc()){
-				
-				$orgid = $row["orgid"];
-				$orgname = $row["orgname"];
-				$orgtelno = $row["orgtelno"];
-				$orgemail = $row["orgemail"];
-				$orgaddress = $row["orgaddress"];
-				$orgpassword = $row["orgpassword"];
-				
-				
-				echo "<table id=user class=center>";
-				echo "<tr>";
-					echo "<th>Name </th>";
-					echo "<td>$orgname</td>";
-				echo "</tr>";
-				echo "<tr>";
-					echo "<th>ID </th>";
-					echo "<td>$orgid</td>";
-				echo "</tr>";
-				echo "<tr>";
-					echo "<th>Contact Number </th>";
-					echo "<td>$orgtelno</td>";
-				echo "</tr>";
-				echo "<tr>";
-					echo "<th>Email </th>";
-					echo "<td>$orgemail</td>";
-				echo "</tr>";
-				echo "<tr>";
-					echo "<th>Address </th>";
-					echo "<td>$orgaddress</td>";
-				echo "</tr>";
-				
-				
-			}
-		}else
-			echo "Error in fetching data";
-		echo "</table>";
-		echo "<br>";
-		?><button onclick="window.location.href='updateorgprofile.php?orgid=<?php echo $orgid ?>'">UPDATE</button>
-		 <?php
-		
-	
-		
-		
-		CloseCon($conn);
-		
-		?>
+		if(! $result){
+			die('Could not delete data: ' . mysqli_error());
+		}else {
+				echo "Data has been deleted";
+		}
+		//header("Location:index.php");
+	?>	
 		
 		
 	</article>
