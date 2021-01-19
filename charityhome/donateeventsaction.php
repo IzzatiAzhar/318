@@ -92,10 +92,20 @@
 				
 				$sql = "INSERT INTO `donation` (donateid, partid, eventid, amtdonation)
 						VALUES ('$donateid', '$partid', '$eventid', '$amtdonation')";
+						
+				$sqlupdate="Update event e
+								Set e.eventtotaldonation = $amtdonation
+								From event e, donation d
+								Where e.eventid = d.eventid
+								And e.eventID = '$eventid'";
 				
 				$result = $conn->query($sql);
+				$resultupdate=$conn->query($sqlupdate);
 				
-				
+				if($resultupdate==true)
+				{
+					echo "Record success";
+				}
 				if($result == true){
 				//echo "Record updated successfully \n";
 				
