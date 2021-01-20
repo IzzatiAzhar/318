@@ -81,17 +81,26 @@
             <div class="icon"><span class="ion-ios-contacts"></span></div>
             <div class="media-body">
               <h3 class="heading">Organizer</h3>
-              <p>Food For All Organization</p>
               <p><a href="loginorg.php" class="link-underline">Sign In Here</a></p>
             </div>
           </div> 
         </div>
-		 <div class="col-md-4">
+		<div class="col-md-4">
           <div class="media block-6">
             <div class="icon"><span class="ion-ios-contacts"></span></div>
             <div class="media-body">
-              <h3 class="heading">Volunteers / Participants</h3>
+              <h3 class="heading">Volunteers</h3>
               <p><a href="participantlogin.php" class="link-underline">Sign In Here</a></p>
+            </div>
+          </div> 
+        </div>
+		<div class="col-md-4">
+          <div class="media block-6">
+            <div class="icon"><span class="ion-ios-contacts"></span></div>
+            <div class="media-body">
+              <h3 class="heading">Admin</h3>
+              <p>Food For All Organization</p>
+              <p><a href="adminlogin.php" class="link-underline">Sign In Here</a></p>
             </div>
           </div> 
         </div>

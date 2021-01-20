@@ -21,9 +21,7 @@
 
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/style.css">
-	
-	 <?php include 'header.php'; ?>
-	 
+
 	<style>
 		#user {
 		  font-family: Arial, Helvetica, sans-serif;
@@ -48,22 +46,40 @@
 		  color: white;
 		}
 	</style>
+	
 
   </head>
   <body>
-    
-  <?php include 'navigation.php'; ?>
-  <!-- END nav -->
+    <?php include 'adminheader.php'; ?>
   
+  
+  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+    <div class="container">
+      <a class="navbar-brand" href="adminhome.php">FoodForAll</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="oi oi-menu"></span> Menu
+      </button>
+
+      <div class="collapse navbar-collapse" id="ftco-nav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active"><a href="adminhome.php" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="adminallevents.php" class="nav-link">All Events</a></li>
+          <li class="nav-item"><a href="adminallorganizers.php" class="nav-link">All Organizers</a></li>
+          <li class="nav-item"><a href="adminlogout.php" class="nav-link">Logout</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- END nav --> 
+ 
   <div class="block-31" style="position: relative;">
     <div class="owl-carousel loop-block-31 ">
       <div class="block-30 block-30-sm item" style="background-image: url('images/banner.jpg');" data-stellar-background-ratio="0.5">
         <div class="container">
-          <div class="row align-items-center justify-content-center">
-            <div class="col-md-7 text-center">
-              <h2 class="heading"><?php echo "Hi,  " .$login_name ;?></h2>
-		      
-
+          <div class="row align-items-center justify-content-center text-center">
+            <div class="col-md-7">
+              <h2 class="heading mb-5">Food For All</h2>
+			  <p style="display: inline-block;color:white">We Care. We Share. We Love.</p>
             </div>
           </div>
         </div>
@@ -71,130 +87,95 @@
       
     </div>
   </div>
-
-  <div class="site-section">
+  
+  <div class="site-section fund-raisers">
+    <div class="container">
+      <div class="row mb-3 justify-content-center">
+        <div class="col-md-8 text-center">
+          <h2>FOOD FOR ALL</h2>
+          <p class="lead">We are committed to reduce waste and feeding the less fortunate. By the platform that we created, our charity partners are able to provide about of 33,000 meals a week for thousands of Malaysian’s living on or below the poverty line.</p>
+		  
+        </div>
+      </div>
+	  <div class="site-section">
     <div class="container">
       <div class="row block-9">
         <div class="col-md-6 pr-md-5">
-          <article>
-				<h2 style="text-align:center">Your Profile Has Been Updated.</h2><br>
+          <form action="updateadmindetails.php" method="POST">
+            <article>
+		<h2 style="text-align:center">Food For All Profile</h2>
+		<article>
+		 
+		<?php
+		
+		$adminid = $login_id;
+		
+		$conn = OpenCon();
+		
+		
+		
+		$sql = "select * from `admin` where `adminid` = '$adminid'";
 				
-				<?php
+		$result = $conn->query($sql);
+		
+		
+		
+		if ($result->num_rows > 0){
+		//Ouput data of each row
+			while($row = $result->fetch_assoc()){
 				
-				$partid = $_POST["partid"];
-				$partname = $_POST["partname"];
-				$partage = $_POST["partage"];
-				$partstate = $_POST["partstate"];
-				$partoccupation = $_POST["partoccupation"];
-				$parttelno = $_POST["parttelno"];
-				$partemail = $_POST["partemail"];
-				$partaddress = $_POST["partaddress"];
-				
-				$conn = OpenCon();
-				
-				$sql = "update participant
-						set partage = '$partage',
-							partstate = '$partstate',
-							partoccupation = '$partoccupation',
-							parttelno = '$parttelno',
-							partemail = '$partemail',
-							partaddress = '$partaddress'
-						where partid = $partid";
-				
-				$result = $conn->query($sql);
-				
-				if($result == true){
-				//echo "Record updated successfully \n";
-				
-				//Display all data that has been inserted
-				
-				$sql2 = "select * from participant where partid = $partid";
-				
-				$result2= $conn->query($sql2);
-				
-				if($result2->num_rows > 0){
-				//Output data of each row
-					while($row = $result2->fetch_assoc()){
-						
-						$partid = $row["partid"];
-						$partname = $row["partname"];
-						$partage = $row["partage"];
-						$partstate = $row["partstate"];
-						$partoccupation = $row["partoccupation"];
-						$parttelno = $row["parttelno"];
-						$partemail = $row["partemail"];
-						$partaddress = $row["partaddress"];
-						
-						echo "<table id=user>";
-						echo "<tr>";
-							echo "<th>Name </th>";
-							echo "<td>$partname</td>";
-						echo "</tr>";
-						echo "<tr>";
-							echo "<th>ID </th>";
-							echo "<td>$partid</td>";
-						echo "</tr>";
-						echo "<tr>";
-							echo "<th>Age </th>";
-							echo "<td>$partage</td>";
-						echo "</tr>";
-						echo "<tr>";
-							echo "<th>State </th>";
-							echo "<td>$partstate</td>";
-						echo "</tr>";
-						echo "<tr>";
-							echo "<th>Occupation </th>";
-							echo "<td>$partoccupation</td>";
-						echo "</tr>";
-						echo "<tr>";
-							echo "<th>Contact Number </th>";
-							echo "<td>$parttelno</td>";
-						echo "</tr>";
-						echo "<tr>";
-							echo "<th>Email </th>";
-							echo "<td>$partemail</td>";
-						echo "</tr>";
-						echo "<tr>";
-							echo "<th>Address </th>";
-							echo "<td>$partaddress</td>";
-						echo "</tr>";
-					}
-					}
-				} else {
-					echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-				}
-				
-				CloseCon($conn);
-				
-				?>
-				<table>
-					<tr>
-					<br>
-						<td colspan="2" align="center">
-						<input class="btn btn-primary px-3 py-2" type="button" value="Home" onclick="window.location.href='participanthome.php'" />
-						<input  class="btn btn-primary px-3 py-2"  type="button" value="Back" onclick="window.location.href='profile.php'" />
-					</tr>
-				</table> 
+				$adminid = $row["adminid"];
+				$adminemail = $row["adminemail"];
+				$admintelno = $row["admintelno"];
 				
 				
+				echo "<table id=user>";
+				echo "<tr>";
+					echo "<th>Admin ID </th>";
+					echo "<td>$adminid</td>";
+				echo "</tr>";
+				echo "<tr>";
+					echo "<th>Email </th>";
+					echo "<td>$adminemail</td>";
+				echo "</tr>";
+				echo "<tr>";
+					echo "<th>Contact Number </th>";
+					echo "<td>$admintelno</td>";
+				echo "</tr>";
 				
 				
-			</article>
+			}
+		}else
+			echo "Error in fetching data";
+		echo "</table>";
+		echo "<br>";
+		?><button type="submit" class="btn btn-primary px-3 py-2">UPDATE</button><?php
+		
+	
+		
+		
+		CloseCon($conn);
+		
+		?>
+		
+		
+	</article>
+	</form>
         
         </div>
 
-        <div class="col-md-6" ><img src="images/a10.png"></div>
+        <div class="col-md-6" ><img src="images/a9.png"></div>
       </div>
     </div>
   </div>
-  		   
+
+    </div>
+  </div> <!-- .section -->
 
 
-  
-  
+
   <footer class="footer">
     <?php include 'footer.php'; ?>
-    
   </footer>
 
   <!-- loader -->

@@ -14,7 +14,7 @@
             <h3 class="heading-section">Get Connected</h3>
               <ul>
                 <li><span class="icon icon-map-marker"></span><span class="text">No. 78, Jalan 1/27 TSB, Sungai Buloh Selangor</span></li>
-                <li><span class="icon icon-phone"></span><span class="text">03-60344986</span></a></li>
+                <li><span class="icon icon-phone"></span><span class="text">03-42633599</span></a></li>
                 <li><span class="icon icon-envelope"></span><span class="text">ffa@gmail.com</span></a></li>
               </ul>
             </div>
