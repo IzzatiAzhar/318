@@ -11,6 +11,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
 
 		if(isset($_POST['term']))
 		{
+			include 'sessionorg.php';
 			$orgid = $login_id;
 			$today=date("Y-m-d");
 			$eventid='E'.date("m-d/").rand(0,9);
