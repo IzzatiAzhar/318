@@ -100,12 +100,12 @@ html {
   
   <div class="block-31" style="position: relative;">
     <div class="owl-carousel loop-block-31 ">
-      <div class="block-30 block-30-sm item" style="background-image: url('images/banner.jpg');" data-stellar-background-ratio="0.5">
+      <div class="block-30 block-30-sm item" style="background-image: url('images/about.png');" data-stellar-background-ratio="0.5">
         <div class="container">
           <div class="row align-items-center justify-content-center text-center">
             <div class="col-md-7">
-              <h2 class="heading mb-5">Food For All</h2>
-			  <p style="display: inline-block;color:white">We Care. We Share. We Love.</p>
+              <!--<h2 class="heading mb-5">Food For All</h2>
+			  <p style="display: inline-block;color:white">We Care. We Share. We Love.</p>-->
             </div>
           </div>
         </div>
@@ -121,75 +121,9 @@ html {
    
 
 
-  <div class="featured-section overlay-color-2" style="background-image: url('images/bg_3.jpg');">
+  <div class="featured-section overlay-color-2" style="background-image: url('images/about.png');">
     
-    <div class="row">
-  <div class="column">
-    <div class="card">
-	<br>
-      <img src="images/nasuha.jpeg" alt="Nasuha Asri" style="width:40%"  class="center">
-      <div class="container">
-	  <br>
-        <h2 style="color:black;">Nasuha Binti Asri</h2>
-        <p style="color:black;" class="title">Developer 1</p>
-        <p style="color:black;">Student ID: 2018256718</p>
-        <p style="color:black;">nasuhasri00@gmail.com</p>
-      </div>
-    </div>
   </div>
-
-  <div class="column">
-    <div class="card">
-	<br>
-      <img src="images/ezzaty.jpeg" alt="Mike" style="width:40%" class="center">
-      <div class="container">
-	  <br>
-        <h2 style="color:black;">Siti Nurezzaty Binti Mohd Rafek</h2>
-        <p style="color:black;"class="title">Developer 2</p>
-        <p style="color:black;">Student ID: 2018445776</p>
-        <p style="color:black;">sitinurezzaty95@gmail.com</p>
-      </div>
-    </div>
-  </div>
-  </div>
-  
-  <br>
-  <br>
-  <br>
-  <div class="row">
- 
-  
-  <div class="column" margin="auto">
-    <div class="card">
-	<br>
-      <img src="images/izzati.jpeg" alt="John" style="width:40%" class="center">
-      <div class="container">
-	  <br>
-        <h2 style="color:black;">Nur Izzati Binti Mohd Azhar</h2>
-        <p style="color:black;" class="title">Developer 3</p>
-        <p style="color:black;">Student ID: 2018678518</p>
-        <p style="color:black;">izzatiazhar@gmail.com</p>
-      </div>
-    </div>
-  </div>
-  
-   <div class="column">
-    <div class="card">
-	<br>
-      <img src="images/syahirah.jpeg" alt="John" style="width:40%" class="center">
-      <div class="container">
-	  <br>
-        <h2 style="color:black;">Nur Syahirah Amirah Binti Ariffin</h2>
-        <p style="color:black;"class="title">Developer 4</p>
-        <p style="color:black;">Student ID: 2018270758</p>
-        <p style="color:black;">nursyahirahamirahariffin@gmail.com</p>
-      </div>
-    </div>
-  </div>
-</div>
-</div>
-
-  </div> <!-- .featured-donate -->
 
    <div class="site-section fund-raisers">
     <div class="container">
