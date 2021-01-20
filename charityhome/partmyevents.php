@@ -149,7 +149,10 @@
 						if($result->num_rows>0)
 						{
 							$sql2="select count(*)
-								   FROM `event` e";
+								   FROM `event` e, `registration` r, `organizer` o
+									where r.eventid = e.eventid
+									and e.orgid = o.orgid
+ 									and r.partid = '$partid'";
 								 
 							$result=$conn->query($sql2);
 							$row=$result->fetch_row();
