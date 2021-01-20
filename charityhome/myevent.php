@@ -22,7 +22,16 @@
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/style.css">
 
-
+<script type="text/javascript">
+		function confirmDelete(eventid)
+		{
+			if(confirm('Your Data Will Be Deleted Permanently.You sure want to delete this event ?'))
+			{
+				window.location.href='deleteevent.php?eventid='+eventid;
+			}
+			
+		}
+	</script>
   </head>
   <body>
     <?php include 'headerorg.php'; ?>
@@ -53,12 +62,14 @@
 								<thead class="thead-dark">
 									<tr>
 										
+										<th>Event ID</th>
 										<th>Event Name</th>
 										<th>Event State</th>
 										<th>Event Location</th>
 										<th>Number of Participant</th>
 										<th>Event Date</th>
 										<th>Total Donation</th>
+										<th>Delete Event</th>
 										
 									</tr>
 					            </thead>
@@ -87,6 +98,7 @@
 											while($row=$result->fetch_assoc())
 											{
 												
+												$eventid = $row["eventid"];
 												$eventname = $row["eventname"];
 												$eventstate = $row["eventstate"];
 											    $eventlocation = $row["eventlocation"];
@@ -98,13 +110,14 @@
 												
 												echo "<tr>";
 												
+													echo "<td>$eventid</td>";
 													echo "<td>$eventname</td>";
 													echo "<td>$eventstate</td>";
 													echo "<td>$eventlocation</td>";
 													echo "<td>$eventnumofpart</td>";
 													echo "<td>$eventdate</td>";
 													echo "<td>$eventtotaldonation</td>";
-											
+													echo '<td><input type="button" name="delete" value="Delete" onClick="confirmDelete()"></button></td>';
 												echo "</tr>";
 											}
 										}

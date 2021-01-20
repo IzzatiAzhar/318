@@ -59,19 +59,18 @@
 		
 		$eventid = $_GET["eventid"];
 		
-		$conn = mysqli_connect("localhost","root","","ffa") or die("Database Not Connected");
+		$conn = OpenCon();
 		
-		$sql = "delete from event where eventid = '$eventid'";
+		$sql = "delete from event where eventid = $eventid";
 		
 		$result = $conn->query($sql);
 		
 		if(! $result){
 			die('Could not delete data: ' . mysqli_error());
-
 		}else {
-			header("Location:myevent.php");
+				echo "Data has been deleted";
 		}
-		
+		//header("Location:index.php");
 	?>	
 		
 		
