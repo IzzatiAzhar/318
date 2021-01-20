@@ -57,7 +57,7 @@
   
   <div class="block-31" style="position: relative;">
     <div class="owl-carousel loop-block-31 ">
-      <div class="block-30 block-30-sm item" style="background-image: url('images/banner.jpg');" data-stellar-background-ratio="0.5">
+      <div class="block-30 block-30-sm item" style="background-image: url('images/bg_2.jpg');" data-stellar-background-ratio="0.5">
         <div class="container">
           <div class="row align-items-center justify-content-center">
             <div class="col-md-7 text-center">
@@ -72,108 +72,107 @@
     </div>
   </div>
 
- 
-  
-  
   <div class="site-section">
     <div class="container">
       <div class="row block-9">
         <div class="col-md-6 pr-md-5">
-          <article>
-				<h2 style="text-align:center">Thank you for volunteering with us!</h2><br>
+			<article>
+				<h2 style="text-align:center">Your Data Has Been Stored.</h2><br>
 				
 				<?php
 				//$eventid=$_GET["eventid"];
 				
-				$regid = $_POST["regid"];
+				$donateid = $_POST["donateid"];
 				$partid = $login_id;
 				$eventid = $_POST["eventid"];
-				$datejoin = $_POST["datejoin"];
+				$amtdonation = $_POST["amtdonation"];
 				
 				$conn = OpenCon();
 				
-				$sql = "INSERT INTO `registration` (regid, partid, eventid, datejoin)
-						VALUES ('$regid', '$partid', '$eventid', '$datejoin')";
-						
+				
+				$sql = "INSERT INTO `donation` (donateid, partid, eventid, amtdonation)
+						VALUES ('$donateid', '$partid', '$eventid', '$amtdonation')";
+				
 				$result = $conn->query($sql);
 				
+				
 				if($result == true){
-					$sql1 = "select * from registration r, participant p, event e
-									where r.regid = $regid
-									and r.partid = p.partid
-									and r.eventid = e.eventid";
-					
-					$result1 = $conn->query($sql1);
-					
-						if($result1->num_rows > 0){
-							//echo '<script>console.log('.json_encode("sql1 baru success tak?") . ')</script>';
-							while($row = $result1->fetch_assoc()){
-								$eventid = $row["eventid"];
-								
-								//echo '<script>console.log('.json_encode("sql success tak?") . ')</script>';
-								//echo "$eventid" ;
-								$sql2 = "update `event` e
-											set `eventnumofpart` = (select count(e.eventid) as numofpart 
-													from `registration` r, `event`e
-													where r.eventid = e.eventid
-													and r.eventid = '$eventid')
+				//echo "Record updated successfully \n";
+				
+				//Display all data that has been inserted
+				
+				$sql2 = "select * from donation d, participant p, event e
+				where d.donateid = '$donateid'
+				and d.partid = p.partid
+				and d.eventid = e.eventid";
+				
+				$result2= $conn->query($sql2);
+				
+				if($result2->num_rows > 0){
+				//Output data of each row
+					while($row = $result2->fetch_assoc()){
+						$eventid = $row["eventid"];
+						//$partid = $row["partid"];
+						//$partid = $row["partid"];
+						
+						
+						
+						//$donateid = $row["donateid"];
+						//$partid = $row["partid"];
+						//$eventid = $row["eventid"];
+						//$amtdonation = $row["amtdonation"];
+						$sql4 = "update `event` e
+											set `eventtotaldonation` = (select sum(`amtdonation`) as totaldonation 
+													from `donation` d, `event`e
+													where d.eventid = e.eventid
+													and d.eventid = '$eventid')
 											where e.eventid = '$eventid'";
-											
-								
-								$result2 = $conn->query($sql2);
+						$result4 = $conn->query($sql4);
 								//sql 2 tak keluar
-								if($result == true){
-									//echo "$eventid" ;
-									//echo '<script>console.log('.json_encode("sql2 success tak?") . ')</script>';
-
-									$sql3 = "select * from registration r, participant p, event e
-												where r.regid = $regid
-												and r.partid = p.partid
-												and r.eventid = e.eventid";
-									//echo "$eventid" ;
+								if($result4 == true){
+									//$donate = $row["totaldonation"];
+									$sql3 = "select * from donation d, participant p, event e
+											where d.donateid = '$donateid'
+											and d.partid = p.partid
+											and d.eventid = e.eventid";
+									
 									$result3 = $conn->query($sql3);
-									if($result3->num_rows > 0){
+									
+									if($result3-> num_rows > 0){
 										while($row = $result3->fetch_assoc()){
-									
-									
-										$partid = $row["partid"];
-										//$partid = $row["partid"];
-										
-										$regid = $row["regid"];
-										$partid = $row["partid"];
-										$eventid = $row["eventid"];
-										$datejoin = $row["datejoin"];
-										
-										echo "<table id=user>";
-										echo "<tr>";
-											echo "<th>Registration ID </th>";
-											echo "<td>$regid</td>";
-										echo "</tr>";
-										echo "<tr>";
-											echo "<th>User ID </th>";
-											echo "<td>$partid</td>";
-										echo "</tr>";
-										echo "<tr>";
-											echo "<th>Event ID </th>";
-											echo "<td>$eventid</td>";
-										echo "</tr>";
-										echo "<tr>";
-											echo "<th>Date  </th>";
-											echo "<td>$datejoin</td>";
-										echo "</tr>";
+											$donateid = $row["donateid"];
+											$partid = $row["partid"];
+											$eventid = $row["eventid"];
+											$amtdonation = $row["amtdonation"];
+											
+											echo "<table id=user>";
+											echo "<tr>";
+												echo "<th>Donate ID </th>";
+												echo "<td>$donateid</td>";
+											echo "</tr>";
+											echo "<tr>";
+												echo "<th>USer ID </th>";
+												echo "<td>$partid</td>";
+											echo "</tr>";
+											echo "<tr>";
+												echo "<th>Event ID </th>";
+												echo "<td>$eventid</td>";
+											echo "</tr>";
+											echo "<tr>";
+												echo "<th>Amount Donation (RM) </th>";
+												echo "<td>$amtdonation</td>";
+											echo "</tr>";
 										}
 									}
+
 								}
-							}
-						
-					
-						}	
+					}
+				}
 				}else {
 					echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 				}
 				
-				
-				
+
 				CloseCon($conn);
 				
 				?>
@@ -181,7 +180,8 @@
 					<tr>
 					<br>
 						<td colspan="2" align="center">
-						<input   class="btn btn-primary px-3 py-2"  type="button" value="Home" onclick="window.location.href='participanthome.php'" />
+						<input  class="btn btn-primary px-3 py-2"  type="button" value="Home" onclick="window.location.href='participanthome.php'" />
+						<input  class="btn btn-primary px-3 py-2"  type="button" value="Back" onclick="window.location.href='searchevents.php'" />
 					</tr>
 				</table> 
 				
@@ -192,7 +192,7 @@
         
         </div>
 
-        <div class="col-md-6" ><img src="images/a11.jpg"></div>
+       
       </div>
     </div>
   </div>

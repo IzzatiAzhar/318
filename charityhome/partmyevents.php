@@ -23,20 +23,7 @@
     <link rel="stylesheet" href="css/style.css">
 
 	<script type="text/javascript">
-	  function confirmJoin(eventid)
-	  {
-		 if(confirm('Join This Events?'))
-		 {
-		    window.location.href='joinevents.php?eventid='+eventid;
-		 }
-	   }
-	    function confirmDonate(eventid)
-	  {
-		 if(confirm('Donate To This Events?'))
-		 {
-		    window.location.href='donateevents.php?eventid='+eventid;
-		 }
-	   }
+	  
   </script>
   </head>
   <body>
@@ -51,7 +38,7 @@
         <div class="container">
           <div class="row align-items-center justify-content-center text-center">
             <div class="col-md-7">
-              <h2 class="heading mb-5">The Details Of The Events</h2>
+              <h2 class="heading mb-5">My Events</h2>
             </div>
           </div>
         </div>
@@ -67,6 +54,7 @@
 						<table class="table">
 								<thead class="thead-light">
 									<tr>
+										<th>Organizer ID</th>
 										<th>Event ID</th>
 										<th>Event Name</th>
 										<th>State </th>
@@ -75,13 +63,12 @@
 										<th>Date Event</th>
 										<th>Person-in-charge</th>
 										<th>Total Donation (RM) </th>
-										<th>Join/Donate</th>
 									</tr>
 					        </thead>
 						
 						
 						<?php
-							$searching=$_GET["searchevents"];
+							$partid = $login_id;
 							$conn=OpenCon();
 							
 							//get page number
@@ -108,12 +95,12 @@
 								$page1=($page*7)-7;
 							}
 							
-							$sql = "SELECT * FROM `event` WHERE `eventid` LIKE '%$searching%'
-									or `eventname` like '%$searching%'
-									or `eventstate` like '%$searching%'
-									or `eventlocation` like '%$searching%'
-									or `eventdate` like '%$searching%'
-									or `eventpic` like '%$searching%'
+							$sql = "SELECT *
+									FROM `event` e, `registration` r, `organizer` o
+									where r.eventid = e.eventid
+									and e.orgid = o.orgid
+ 									and r.partid = '$partid'
+									order by eventdate desc
 									limit $page1,7";
 									
 									
@@ -128,6 +115,7 @@
 										{
 											while($row=$result->fetch_assoc())
 											{
+												$orgid = $row["orgid"];
 												$eventid = $row["eventid"];
 												$eventname = $row["eventname"];
 												$eventstate = $row["eventstate"];
@@ -139,7 +127,8 @@
 												
 												
 												echo "<tr>";
-												
+													echo "<td><a href=organizerdetails.php?orgid=$orgid>$orgid</a></td>";
+													//echo "<td>$orgid</td>";
 													echo "<td>$eventid</td>";
 													echo "<td>$eventname</td>";
 													echo "<td>$eventstate</td>";
@@ -148,9 +137,6 @@
 													echo "<td>$eventdate</td>";
 													echo "<td>$eventpic</td>";
 													echo "<td>$eventtotaldonation</td>";
-													echo "<td>" ?><button class="btn btn-primary px-3 py-2" value="Print" onclick="confirmJoin('<?php echo $eventid ?>')">JOIN</button><?php 
-																?><button class="btn btn-primary px-3 py-2" value="Print" onclick="confirmDonate('<?php echo $eventid ?>')">DONATE</button><?php "</td>";
-													
 												echo "</tr>";
 											}
 										}
@@ -163,12 +149,7 @@
 						if($result->num_rows>0)
 						{
 							$sql2="select count(*)
-								   FROM `event` WHERE `eventid` LIKE '%$searching%'
-									or `eventname` like '%$searching%'
-									or `eventstate` like '%$searching%'
-									or `eventlocation` like '%$searching%'
-									or `eventdate` like '%$searching%'
-									or `eventpic` like '%$searching%'";
+								   FROM `event` e";
 								 
 							$result=$conn->query($sql2);
 							$row=$result->fetch_row();
@@ -176,8 +157,8 @@
 							
 							for($pageno=1;$pageno<=$count;$pageno++)
 							{
-								?><a href="searcheventsaction.php?page=<?php echo $pageno; ?>&searchevents=<?php echo $searching; ?>"
-								style="text-decoration:none"> <?php echo $pageno. "";?></a><?php
+								?><a href="partmyevents.php?page=<?php echo $pageno; ?>" style="text-decoration:none"> <?php echo $pageno. " ";?></a><?php
+
 							}
 						}
 						
@@ -185,7 +166,7 @@
 								  
 						else
 						{
-						echo "<ul align='left'> <font color=red size='4pt'>Sorry, Data could not be found</font></ul>";
+						echo "<ul align='left'> <font color=red size='4pt'>There is no data </font></ul>";
 						}
 								  
 						

@@ -21,22 +21,50 @@
 
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/style.css">
+	
+	 <?php include 'header.php'; ?>
+	 
+	<style>
+		#user {
+		  font-family: Arial, Helvetica, sans-serif;
+		  border-collapse: collapse;
+		  width: 100%;
+		}
+
+		#user td, #user th {
+		  border: 1px solid #ddd;
+		  padding: 8px;
+		}
+
+		#user tr:nth-child(even){background-color: #f2f2f2;}
+
+		#user tr:hover {background-color: #ddd;}
+
+		#user th {
+		  padding-top: 12px;
+		  padding-bottom: 12px;
+		  text-align: left;
+		  background-color: #BDB768;
+		  color: white;
+		}
+	</style>
+	
 
   </head>
   <body>
-   <?php include 'header.php'; ?>
     
-   <?php include 'navigation.php'; ?>
-  </nav>
+  <?php include 'navigation.php'; ?>
   <!-- END nav -->
   
   <div class="block-31" style="position: relative;">
     <div class="owl-carousel loop-block-31 ">
       <div class="block-30 block-30-sm item" style="background-image: url('images/banner.jpg');" data-stellar-background-ratio="0.5">
         <div class="container">
-          <div class="row align-items-center justify-content-center text-center">
-            <div class="col-md-7">
-              <h2 class="heading mb-5">Free Meals Kuala Lumpur Details</h2>
+          <div class="row align-items-center justify-content-center">
+            <div class="col-md-7 text-center">
+              <h2 class="heading"><?php echo "Hi,  " .$login_name ;?></h2>
+		      
+
             </div>
           </div>
         </div>
@@ -44,44 +72,106 @@
       
     </div>
   </div>
+
+  
   
   <div class="site-section">
     <div class="container">
-      <div class="row align-items-center mb-5">
-
-        <div class="col-md-7 order-md-2 mb-5 mb-md-0">
-          <img src="images/a6.png" alt="" class="img-fluid">
-        </div>
-
-        <div class="col-md-5 pr-md-5 mb-5 order-md-1">
-          <div class="block-41">
-            <div class="block-41-subheading d-flex">
-              <div class="block-41-number">01</div>
-            </div>
-            <h2 class="block-41-heading mb-3">V.O.L.U.N.T.E.E.R</h2>
-            <div class="block-41-text">
-              <p>
-				Free Meals KL is a programme to distribute food to the marginalised of KL. As a volunteer, 
-				you can help us out by cooking the food and distribute to the homeless. It helps to ensure that the 
-				underprivileged don't fall victim to starvation. We also provide food and clothing to 
-				help the poor in their hardships. We provide free lunches daily to the urban poor and homeless
-				 of KL’s community every Monday - Saturday, from 11.15 am - 1.30 pm. </p>
-            </div>
-          </div>
-        </div>
+      <div class="row block-9">
+        <div class="col-md-6 pr-md-5">
+          <form action="updateprofiledetails.php" method="POST">
+            <article>
+		<h2 style="text-align:center">Organizer Details</h2>
+		<article>
+		 
+		<?php
+		
+		$partid = $login_id;
+		$partname = $login_name;
+		$orgid = $_GET["orgid"];
+		
+		$conn = OpenCon();
+		
+		
+		
+		$sql = "select * from organizer where orgid = $orgid";
+				
+		$result = $conn->query($sql);
+		
+		
+		
+		if ($result->num_rows > 0){
+		//Ouput data of each row
+			while($row = $result->fetch_assoc()){
+				
+				$orgid = $row["orgid"];
+				$orgname = $row["orgname"];
+				$orgtelno = $row["orgtelno"];
+				$orgemail = $row["orgemail"];
+				$orgaddress = $row["orgaddress"];
+				
+				
+				echo "<table id=user>";
+				echo "<tr>";
+					echo "<th>orgid </th>";
+					echo "<td>$orgid</td>";
+				echo "</tr>";
+				echo "<tr>";
+					echo "<th>orgname </th>";
+					echo "<td>$orgname</td>";
+				echo "</tr>";
+				echo "<tr>";
+					echo "<th>orgtelno </th>";
+					echo "<td>$orgtelno</td>";
+				echo "</tr>";
+				echo "<tr>";
+					echo "<th>orgemail </th>";
+					echo "<td>$orgemail</td>";
+				echo "</tr>";
+				echo "<tr>";
+					echo "<th>orgaddress </th>";
+					echo "<td>$orgaddress</td>";
+				echo "</tr>";
+				
+				
+			}
+		}else
+			echo "Error in fetching data";
+		echo "</table>";
+		echo "<br>";
+		
+		
+		CloseCon($conn);
+		
+		?>
+		
+		<table class="table">
+			<tr>
+				<td></td>
+					<td colspan="2" align="right">
+						<input  class="btn btn-primary px-3 py-2"  type="button" value="Back" onclick="history.back()" />
+					</td>
+			</tr>
+		</table>
+		
+		
+	</article>
+	</form>
         
-      </div> <!-- .row -->
-		<div align="center">
-			<input  class="btn btn-primary px-3 py-2"  type="button" value="Back" onclick="history.back()" />
-			<br>
-		</div>
+        </div>
+
+        <div class="col-md-6" ><img src="images/a9.png"></div>
+      </div>
     </div>
   </div>
+  		   
 
- 
 
+  
+  
   <footer class="footer">
     <?php include 'footer.php'; ?>
+    
   </footer>
 
   <!-- loader -->
@@ -98,6 +188,7 @@
   <script src="js/owl.carousel.min.js"></script>
   <script src="js/jquery.magnific-popup.min.js"></script>
   <script src="js/bootstrap-datepicker.js"></script>
+
   <script src="js/jquery.fancybox.min.js"></script>
   
   <script src="js/aos.js"></script>

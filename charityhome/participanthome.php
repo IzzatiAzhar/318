@@ -83,7 +83,7 @@
 						//$eventid = "E001";
 						$partid = $_SESSION['login_user'];
 				
-						$sql = "SELECT `eventname`,`eventid` FROM `event` where `eventid` = 'E001'";
+						$sql = "SELECT `eventname`,`eventid`, `eventtotaldonation` FROM `event` where `eventid` = 'E001'";
 						$result = $conn->query($sql);
 				
 						if ($result->num_rows > 0) {
@@ -91,31 +91,16 @@
 												
 							while($row = $result->fetch_assoc())
 							{                              
-									
-									$eventname = $row["eventname"];
 									$eventid = $row["eventid"];
+									$eventname = $row["eventname"];
+									$eventtotaldonation = $row["eventtotaldonation"];
 							}
 						}
 						else {
 							echo "Error in fetching data";
 						}
-						
-						$sql2 = "SELECT SUM(`amtdonation`) AS totaldonation
-								FROM `donation` 
-								where `eventid` = 'E001'";
-						
-						$result2 = $conn->query($sql2);
-						
-						  if($result2-> num_rows > 0) {
-							//output data of each row
-							while($row = $result2->fetch_assoc()){
-								
-									$donate = $row["totaldonation"];
-									//echo $donate;
-							}
-						}
+					
 
-						
 						CloseCon($conn);			
 					?>
 					
@@ -123,7 +108,7 @@
 						<div class="donate-info">
 						  <h2>#KITAPRIHATIN</h2><br>
 						  <p class="main-text">Total Donation</p>
-						  <p class="main-text"><?php echo "RM ", $donate ?></p>
+						  <p class="main-text"><?php echo "RM ", $eventtotaldonation ?></p>
 						  <span class="time d-block mb-3">Click the event for more details</span>
 						  <p><span class="text-success"></span><br> <em>for </em> <?php echo "<a href=kitabantukita.php>$eventid - $eventname Events</a>" ?></p>
 						   <button class="btn btn-primary px-3 py-2" value="Print" onclick="confirmJoin('<?php echo $eventid ?>')">JOIN</button>
@@ -146,7 +131,7 @@
 						
 						$partid = $_SESSION['login_user'];
 				
-						$sql = "SELECT `eventname`,`eventid` FROM `event` where `eventid` = 'E002'";
+						$sql = "SELECT `eventname`,`eventid`, `eventtotaldonation` FROM `event` where `eventid` = 'E002'";
 						$result = $conn->query($sql);
 				
 						if ($result->num_rows > 0) {
@@ -154,29 +139,17 @@
 												
 							while($row = $result->fetch_assoc())
 							{                              
-									
-									$eventname = $row["eventname"];
 									$eventid = $row["eventid"];
+									$eventname = $row["eventname"];
+									$eventtotaldonation = $row["eventtotaldonation"];
 							}
 						}
 						else {
 							echo "Error in fetching data";
 						}
 						
-						$sql2= "SELECT SUM(`amtdonation`) AS totaldonation
-								FROM `donation` 
-								where `eventid` = 'E002'";
 						
-						$result2 = $conn->query($sql2);
 						
-						  if($result2-> num_rows > 0) {
-							//output data of each row
-							while($row = $result2->fetch_assoc()){
-								
-									$donate = $row["totaldonation"];
-									//echo $donate;
-							}
-						}
 						
 						CloseCon($conn);			
 					?>
@@ -184,7 +157,7 @@
 						<div class="donate-info">
 						  <h2>#WeCare</h2><br>
 						   <p class="main-text">Total Donation</p>
-						   <p class="main-text"><?php echo "RM ", $donate ?></p>
+						   <p class="main-text"><?php echo "RM ", $eventtotaldonation ?></p>
 						  <span class="time d-block mb-3">Click the event for more details</span>
 						  <p><span class="text-success"></span><br> <em>for </em><?php echo "<a href=sharethelove.php>$eventid - $eventname Events</a>" ?></p>
 							<button class="btn btn-primary px-3 py-2" value="Print" onclick="confirmJoin('<?php echo $eventid ?>')">JOIN</button>
@@ -205,7 +178,7 @@
 					
 					$partid = $_SESSION['login_user'];
 			
-					$sql = "SELECT `eventname`,`eventid` FROM `event` where `eventid` = 'E003'";
+					$sql = "SELECT `eventname`,`eventid`,`eventtotaldonation` FROM `event` where `eventid` = 'E003'";
 					$result = $conn->query($sql);
 			
 					if ($result->num_rows > 0) {
@@ -216,26 +189,13 @@
 								
 								$eventname = $row["eventname"];
 								$eventid = $row["eventid"];
+								$eventtotaldonation = $row["eventtotaldonation"];
 						}
 					}
 					else {
 						echo "Error in fetching data";
 					}
 					
-					$sql2= "SELECT SUM(`amtdonation`) AS totaldonation
-								FROM `donation` 
-								where `eventid` = 'E003'";
-						
-						$result2 = $conn->query($sql2);
-						
-						  if($result2-> num_rows > 0) {
-							//output data of each row
-							while($row = $result2->fetch_assoc()){
-								
-									$donate = $row["totaldonation"];
-									//echo $donate;
-							}
-						}
 					
 					CloseCon($conn);			
 				?>
@@ -243,7 +203,7 @@
 				<div class="donate-info">
 				  <h2>#WeLove</h2><br>
 				  <p class="main-text">Total Donation</p>
-				  <p class="main-text"><?php echo "RM ", $donate ?></p>
+				  <p class="main-text"><?php echo "RM ", $eventtotaldonation ?></p>
 				  <span class="time d-block mb-3">Click the event for more details</span>
 				  <p><span class="text-success"></span><br> <em>for </em><?php echo "<a href=sharethelove.php>$eventid - $eventname Events</a>" ?></p>
 				  <button class="btn btn-primary px-3 py-2" value="Print" onclick="confirmJoin('<?php echo $eventid ?>')">JOIN</button>
@@ -264,7 +224,7 @@
 					
 					$partid = $_SESSION['login_user'];
 			
-					$sql = "SELECT `eventname`,`eventid` FROM `event` where `eventid` = 'E004'";
+					$sql = "SELECT `eventname`,`eventid`, `eventtotaldonation` FROM `event` where `eventid` = 'E004'";
 					$result = $conn->query($sql);
 			
 					if ($result->num_rows > 0) {
@@ -275,25 +235,12 @@
 								
 								$eventname = $row["eventname"];
 								$eventid = $row["eventid"];
+								$eventtotaldonation = $row["eventtotaldonation"];
 						}
 					}
 					else {
 						echo "Error in fetching data";
 					}
-					$sql2= "SELECT SUM(`amtdonation`) AS totaldonation
-								FROM `donation` 
-								where `eventid` = 'E004'";
-						
-						$result2 = $conn->query($sql2);
-						
-						  if($result2-> num_rows > 0) {
-							//output data of each row
-							while($row = $result2->fetch_assoc()){
-								
-									$donate = $row["totaldonation"];
-									//echo $donate;
-							}
-						}
 					
 					CloseCon($conn);			
 				?>
@@ -301,7 +248,7 @@
 					<div class="donate-info">
 					  <h2>#WeHelp</h2><br>
 					  <p class="main-text">Total Donation</p>
-					  <p class="main-text"><?php echo "RM ", $donate ?></p>
+					  <p class="main-text"><?php echo "RM ", $eventtotaldonation ?></p>
 					  <span class="time d-block mb-3">Click the event for more details</span>
 					  <p><span class="text-success"></span><br> <em>for </em><?php echo "<a href=sharethelove.php>$eventid - $eventname Events</a>" ?></p>
 					  <button class="btn btn-primary px-3 py-2" value="Print" onclick="confirmJoin('<?php echo $eventid ?>')">JOIN</button>
@@ -323,7 +270,7 @@
 					
 					$partid = $_SESSION['login_user'];
 			
-					$sql = "SELECT `eventname`,`eventid` FROM `event` where `eventid` = 'E005'";
+					$sql = "SELECT `eventname`,`eventid`, `eventtotaldonation` FROM `event` where `eventid` = 'E005'";
 					$result = $conn->query($sql);
 			
 					if ($result->num_rows > 0) {
@@ -334,26 +281,13 @@
 								
 								$eventname = $row["eventname"];
 								$eventid = $row["eventid"];
+								$eventtotaldonation = $row["eventtotaldonation"];
 						}
 					}
 					else {
 						echo "Error in fetching data";
 					}
 					
-					$sql2= "SELECT SUM(`amtdonation`) AS totaldonation
-								FROM `donation` 
-								where `eventid` = 'E005'";
-						
-						$result2 = $conn->query($sql2);
-						
-						  if($result2-> num_rows > 0) {
-							//output data of each row
-							while($row = $result2->fetch_assoc()){
-								
-									$donate = $row["totaldonation"];
-									//echo $donate;
-							}
-						}
 					
 					CloseCon($conn);			
 				?>
@@ -361,7 +295,7 @@
 					<div class="donate-info">
 					  <h2>#WeConcern</h2><br>
 					  <p class="main-text">Total Donation</p>
-					  <p class="main-text"><?php echo "RM ", $donate ?></p>
+					  <p class="main-text"><?php echo "RM ", $eventtotaldonation ?></p>
 					  <span class="time d-block mb-3">Click the event for more details</span>
 					  <p><span class="text-success"></span><br> <em>for </em><?php echo "<a href=sharethelove.php>$eventid - $eventname Events</a>" ?></p>
 					  <button class="btn btn-primary px-3 py-2" value="Print" onclick="confirmJoin('<?php echo $eventid ?>')">JOIN</button>
@@ -382,7 +316,7 @@
 					
 					$partid = $_SESSION['login_user'];
 			
-					$sql = "SELECT `eventname`,`eventid` FROM `event` where `eventid` = 'E006'";
+					$sql = "SELECT `eventname`,`eventid`, `eventtotaldonation` FROM `event` where `eventid` = 'E006'";
 					$result = $conn->query($sql);
 			
 					if ($result->num_rows > 0) {
@@ -393,26 +327,13 @@
 								
 								$eventname = $row["eventname"];
 								$eventid = $row["eventid"];
+								$eventtotaldonation = $row["eventtotaldonation"];
 						}
 					}
 					else {
 						echo "Error in fetching data";
 					}
 					
-					$sql2= "SELECT SUM(`amtdonation`) AS totaldonation
-								FROM `donation` 
-								where `eventid` = 'E006'";
-						
-						$result2 = $conn->query($sql2);
-						
-						  if($result2-> num_rows > 0) {
-							//output data of each row
-							while($row = $result2->fetch_assoc()){
-								
-									$donate = $row["totaldonation"];
-									//echo $donate;
-							}
-						}
 					
 					CloseCon($conn);			
 				?>
@@ -420,7 +341,7 @@
 					<div class="donate-info">
 					  <h2>Together We Help</h2><br>
 					  <p class="main-text">Total Donation</p>
-					  <p class="main-text"><?php echo "RM ", $donate ?></p>
+					  <p class="main-text"><?php echo "RM ", $eventtotaldonation ?></p>
 					  <span class="time d-block mb-3">Click the event for more details</span>
 					  <p><span class="text-success"></span><br> <em>for </em><?php echo "<a href=pitstopcommunity.php>$eventid - $eventname Events</a>" ?></p>
 					  <button class="btn btn-primary px-3 py-2" value="Print" onclick="confirmJoin('<?php echo $eventid ?>')">JOIN</button>
@@ -441,7 +362,7 @@
 					
 					$partid = $_SESSION['login_user'];
 			
-					$sql = "SELECT `eventname`,`eventid` FROM `event` where `eventid` = 'E007'";
+					$sql = "SELECT `eventname`,`eventid`, `eventtotaldonation` FROM `event` where `eventid` = 'E007'";
 					$result = $conn->query($sql);
 			
 					if ($result->num_rows > 0) {
@@ -452,26 +373,13 @@
 								
 								$eventname = $row["eventname"];
 								$eventid = $row["eventid"];
+								$eventtotaldonation = $row["eventtotaldonation"];
 						}
 					}
 					else {
 						echo "Error in fetching data";
 					}
 					
-					$sql2= "SELECT SUM(`amtdonation`) AS totaldonation
-								FROM `donation` 
-								where `eventid` = 'E007'";
-						
-						$result2 = $conn->query($sql2);
-						
-						  if($result2-> num_rows > 0) {
-							//output data of each row
-							while($row = $result2->fetch_assoc()){
-								
-									$donate = $row["totaldonation"];
-									//echo $donate;
-							}
-						}
 					
 					CloseCon($conn);			
 				?>
@@ -479,7 +387,7 @@
 					<div class="donate-info">
 					  <h2>Save The World</h2><br>
 					  <p class="main-text">Total Donation</p>
-					  <p class="main-text"><?php echo "RM ", $donate ?></p>
+					  <p class="main-text"><?php echo "RM ", $eventtotaldonation ?></p>
 					  <span class="time d-block mb-3">Click the event for more details</span>
 					   <p><span class="text-success"></span><br> <em>for </em><?php echo "<a href=lostfoodproject.php>$eventid - $eventname Events</a>" ?></p>
 					  <button class="btn btn-primary px-3 py-2" value="Print" onclick="confirmJoin('<?php echo $eventid ?>')">JOIN</button>
@@ -500,7 +408,7 @@
 					
 					$partid = $_SESSION['login_user'];
 			
-					$sql = "SELECT `eventname`,`eventid` FROM `event` where `eventid` = 'E008'";
+					$sql = "SELECT `eventname`,`eventid`, `eventtotaldonation` FROM `event` where `eventid` = 'E008'";
 					$result = $conn->query($sql);
 			
 					if ($result->num_rows > 0) {
@@ -511,26 +419,13 @@
 								
 								$eventname = $row["eventname"];
 								$eventid = $row["eventid"];
+								$eventtotaldonation = $row["eventtotaldonation"];
 						}
 					}
 					else {
 						echo "Error in fetching data";
 					}
 					
-					$sql2= "SELECT SUM(`amtdonation`) AS totaldonation
-								FROM `donation` 
-								where `eventid` = 'E008'";
-						
-						$result2 = $conn->query($sql2);
-						
-						  if($result2-> num_rows > 0) {
-							//output data of each row
-							while($row = $result2->fetch_assoc()){
-								
-									$donate = $row["totaldonation"];
-									//echo $donate;
-							}
-						}
 					
 					CloseCon($conn);			
 				?>
@@ -538,7 +433,7 @@
 					<div class="donate-info">
 					  <h2>Come and Get It</h2><br>
 					  <p class="main-text">Total Donation</p>
-					  <p class="main-text"><?php echo "RM ", $donate ?></p>
+					  <p class="main-text"><?php echo "RM ", $eventtotaldonation ?></p>
 					  <span class="time d-block mb-3">Click the event for more details</span>
 					  <p><span class="text-success"></span><br> <em>for </em><?php echo "<a href=freemealskl.php>$eventid - $eventname Events</a>" ?></p>
 					  <button class="btn btn-primary px-3 py-2" value="Print" onclick="confirmJoin('<?php echo $eventid ?>')">JOIN</button>

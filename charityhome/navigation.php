@@ -7,9 +7,11 @@
 
       <div class="collapse navbar-collapse" id="ftco-nav">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item active"><a href="participanthome.php" class="nav-link">Home</a></li>
-          <li class="nav-item"><a href="profile.php" class="nav-link">Profile</a></li>
-          <li class="nav-item"><a href="searchevents.php" class="nav-link">Search Events</a></li>
+          <li class="nav-item"><a href="participanthome.php" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="partlatestevents.php" class="nav-link">Latest Event</a></li>
+          <li class="nav-item"><a href="partmyevents.php" class="nav-link">My Events</a></li>
+		  <li class="nav-item"><a href="searchevents.php" class="nav-link">Search Events</a></li>
+		  <li class="nav-item"><a href="profile.php" class="nav-link">Profile</a></li>
           <li class="nav-item"><a href="participantlogout.php" class="nav-link">Logout</a></li>
         </ul>
       </div>

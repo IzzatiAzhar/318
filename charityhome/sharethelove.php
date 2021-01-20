@@ -120,7 +120,10 @@
         </div>
         
       </div> <!-- .row -->
-
+		<div align="center">
+			<input  class="btn btn-primary px-3 py-2"  type="button" value="Back" onclick="history.back()" />
+			<br>
+		</div>
     </div>
   </div>
 

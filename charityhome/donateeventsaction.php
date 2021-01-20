@@ -102,7 +102,7 @@
 				//Display all data that has been inserted
 				
 				$sql2 = "select * from donation d, participant p, event e
-				where d.donateid = $donateid
+				where d.donateid = '$donateid'
 				and d.partid = p.partid
 				and d.eventid = e.eventid";
 				
@@ -111,34 +111,61 @@
 				if($result2->num_rows > 0){
 				//Output data of each row
 					while($row = $result2->fetch_assoc()){
-						
-						//$partid = $row["partid"];
-						//$partid = $row["partid"];
-						
-						
-						
-						$donateid = $row["donateid"];
-						$partid = $row["partid"];
 						$eventid = $row["eventid"];
-						$amtdonation = $row["amtdonation"];
+						//$partid = $row["partid"];
+						//$partid = $row["partid"];
 						
-						echo "<table id=user>";
-						echo "<tr>";
-							echo "<th>Donate ID </th>";
-							echo "<td>$donateid</td>";
-						echo "</tr>";
-						echo "<tr>";
-							echo "<th>USer ID </th>";
-							echo "<td>$partid</td>";
-						echo "</tr>";
-						echo "<tr>";
-							echo "<th>Event ID </th>";
-							echo "<td>$eventid</td>";
-						echo "</tr>";
-						echo "<tr>";
-							echo "<th>Amount Donation (RM) </th>";
-							echo "<td>$amtdonation</td>";
-						echo "</tr>";
+						
+						
+						//$donateid = $row["donateid"];
+						//$partid = $row["partid"];
+						//$eventid = $row["eventid"];
+						//$amtdonation = $row["amtdonation"];
+						$sql4 = "update `event` e
+											set `eventtotaldonation` = (select sum(`amtdonation`) as totaldonation 
+													from `donation` d, `event`e
+													where d.eventid = e.eventid
+													and d.eventid = '$eventid')
+											where e.eventid = '$eventid'";
+						$result4 = $conn->query($sql4);
+								//sql 2 tak keluar
+								if($result4 == true){
+									//$donate = $row["totaldonation"];
+									$sql3 = "select * from donation d, participant p, event e
+											where d.donateid = '$donateid'
+											and d.partid = p.partid
+											and d.eventid = e.eventid";
+									
+									$result3 = $conn->query($sql3);
+									
+									if($result3-> num_rows > 0){
+										while($row = $result3->fetch_assoc()){
+											$donateid = $row["donateid"];
+											$partid = $row["partid"];
+											$eventid = $row["eventid"];
+											$amtdonation = $row["amtdonation"];
+											
+											echo "<table id=user>";
+											echo "<tr>";
+												echo "<th>Donate ID </th>";
+												echo "<td>$donateid</td>";
+											echo "</tr>";
+											echo "<tr>";
+												echo "<th>USer ID </th>";
+												echo "<td>$partid</td>";
+											echo "</tr>";
+											echo "<tr>";
+												echo "<th>Event ID </th>";
+												echo "<td>$eventid</td>";
+											echo "</tr>";
+											echo "<tr>";
+												echo "<th>Amount Donation (RM) </th>";
+												echo "<td>$amtdonation</td>";
+											echo "</tr>";
+										}
+									}
+
+								}
 					}
 				}
 				}else {
