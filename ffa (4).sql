@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 20, 2021 at 11:20 AM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.2.30
+-- Generation Time: Jan 22, 2021 at 12:53 AM
+-- Server version: 10.4.17-MariaDB
+-- PHP Version: 7.3.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -148,16 +148,15 @@ CREATE TABLE `organizer` (
   `orgtelno` int(15) NOT NULL,
   `orgemail` varchar(255) NOT NULL,
   `orgaddress` varchar(255) NOT NULL,
-  `orgpassword` varchar(10) NOT NULL,
-  `adminid` varchar(10) NOT NULL
+  `orgpassword` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `organizer`
 --
 
-INSERT INTO `organizer` (`orgid`, `orgname`, `orgtelno`, `orgemail`, `orgaddress`, `orgpassword`, `adminid`) VALUES
-('2000', 'Sayang Malaysia Team', 360344986, 'sayangmalaysiateam@gmail.com', 'No. 78, Jalan 1/27 Taman Melor, Shah Alam Selangor', '1234', 'admin00');
+INSERT INTO `organizer` (`orgid`, `orgname`, `orgtelno`, `orgemail`, `orgaddress`, `orgpassword`) VALUES
+('2000', 'Sayang Malaysia Team', 360344986, 'sayangmalaysiateam@gmail.com', 'No. 78, Jalan 1/27 Taman Melor, Shah Alam Selangor', '1234');
 
 -- --------------------------------------------------------
 
@@ -174,19 +173,18 @@ CREATE TABLE `participant` (
   `partpassword` varchar(10) NOT NULL,
   `parttelno` int(15) NOT NULL,
   `partemail` varchar(255) NOT NULL,
-  `partaddress` varchar(255) NOT NULL,
-  `adminid` varchar(10) NOT NULL
+  `partaddress` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `participant`
 --
 
-INSERT INTO `participant` (`partid`, `partname`, `partage`, `partstate`, `partoccupation`, `partpassword`, `parttelno`, `partemail`, `partaddress`, `adminid`) VALUES
-('101', 'Nur Izzati Bt Mohd Azhar', 20, 'Selangor', 'Student', '1234', 1110734264, 'izzati@gmail.com', 'No. 51 Jalan 1/17 KJ, Kundang Jaya, Rawang Selangor', 'admin00'),
-('102', 'Siti Nurezzaty Bt Mohd Rafek', 21, 'Johor', 'Student', '1234', 129764786, 'ezzaty@gmail.com', 'No 12 Jalan Jaya Putra, Taman JP Perdana, 81100 Johor Bahru', 'admin00'),
-('103', 'Nur Syahirah Amirah Bt Ariffin', 20, 'Melaka', 'Student', '1234', 198562134, 'syahirah@gmail.com', 'Lot 400 Lorong Bunga, Jasin ,Melaka', 'admin00'),
-('104', 'Nasuha Bt Asri', 20, 'Melaka', 'Student', '1234', 164555434, 'nasuha@gmail.com', 'No. 51 JaLan Cempaka, Ayer Keroh Melaka', 'admin00');
+INSERT INTO `participant` (`partid`, `partname`, `partage`, `partstate`, `partoccupation`, `partpassword`, `parttelno`, `partemail`, `partaddress`) VALUES
+('101', 'Nur Izzati Bt Mohd Azhar', 20, 'Selangor', 'Student', '1234', 1110734264, 'izzati@gmail.com', 'No. 51 Jalan 1/17 KJ, Kundang Jaya, Rawang Selangor'),
+('102', 'Siti Nurezzaty Bt Mohd Rafek', 21, 'Johor', 'Student', '1234', 129764786, 'ezzaty@gmail.com', 'No 12 Jalan Jaya Putra, Taman JP Perdana, 81100 Johor Bahru'),
+('103', 'Nur Syahirah Amirah Bt Ariffin', 20, 'Melaka', 'Student', '1234', 198562134, 'syahirah@gmail.com', 'Lot 400 Lorong Bunga, Jasin ,Melaka'),
+('104', 'Nasuha Bt Asri', 20, 'Melaka', 'Student', '1234', 164555434, 'nasuha@gmail.com', 'No. 51 JaLan Cempaka, Ayer Keroh Melaka');
 
 -- --------------------------------------------------------
 
@@ -252,8 +250,7 @@ ALTER TABLE `event`
 -- Indexes for table `organizer`
 --
 ALTER TABLE `organizer`
-  ADD PRIMARY KEY (`orgid`),
-  ADD KEY `adminid` (`adminid`);
+  ADD PRIMARY KEY (`orgid`);
 
 --
 -- Indexes for table `participant`

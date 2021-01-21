@@ -32,6 +32,8 @@
 			}
 			
 		}
+	
+
 	</script>
   </head>
   <body>
@@ -83,7 +85,7 @@
 							$orgid = $login_id;
 			
 							$sql="select * from organizer o,event e
-									where  o.orgid= $orgid
+									where  o.orgid= '$orgid'
 									and e.orgid=o.orgid";
 								
 									
@@ -118,7 +120,7 @@
 													echo "<td>$eventnumofpart</td>";
 													echo "<td>$eventdate</td>";
 													echo "<td>$eventtotaldonation</td>";
-													echo '<td><input type="button" name="delete" value="Delete" onClick="confirmDelete()"></button></td>';
+													echo "<td>" ?><button class="btn btn-primary px-3 py-2" value="Print" onclick="confirmDelete('<?php echo $eventid ?>')">Delete</button><?php  "</td>";
 												echo "</tr>";
 											}
 										}
@@ -127,7 +129,7 @@
 									echo "</table>";
 									
 									
-							
+									
 						}
 						
 						

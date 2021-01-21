@@ -165,7 +165,7 @@
 		echo "</table>";
 		echo "<br>";
 		?><button type="submit" class="btn btn-primary px-3 py-2">UPDATE</button>
-		 <button class="btn btn-primary px-3 py-2" onclick="confirmDelete('<?php echo $partid ?>')">REMOVE MYSELF</button><?php
+		 <button class="btn btn-primary px-3 py-2" onclick="confirmDelete('<?php echo $partid ?>')">DELETE MY ACCOUNT</button><?php
 		
 	
 		
