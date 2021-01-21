@@ -80,7 +80,7 @@
             <div class="icon"><span class="ion-ios-bulb"></span></div>
             <div class="media-body">
               <h3 class="heading">Our Mission</h3>
-              <p>We believe that no one should ever be hungry. We support individuals regardless of age, disability, ethnic or religious group, and we do not tolerate any form of discrimination.Together, let's end hunger in for all in Malaysia !</p>
+              <p>We believe that no one should ever be hungry. We support individuals regardless of age, disability, ethnic or religious group, and we do not tolerate any form of discrimination.Together, let's end hunger for all in Malaysia !</p>
             <br>
 			</div>
           </div>     
