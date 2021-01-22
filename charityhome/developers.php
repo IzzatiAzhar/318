@@ -134,6 +134,8 @@ html {
         <h2 style="color:black;">Nasuha Binti Asri</h2>
         <p style="color:black;" class="title">Developer 1</p>
         <p style="color:black;">Student ID: 2018256718</p>
+		<p style="color:black;">Program Code and Name: CS110 - Diplome in Computer Science</p>
+		<p style="color:black;">Group/Class: M3CS1105H</p>
         <p style="color:black;">nasuhasri00@gmail.com</p>
       </div>
     </div>
@@ -142,12 +144,14 @@ html {
   <div class="column">
     <div class="card">
 	<br>
-      <img src="images/ezzaty.jpeg" alt="Mike" style="width:40%" class="center">
+      <img src="images/ezzaty.jpeg" alt="ezzaty img" style="width:40%" class="center">
       <div class="container">
 	  <br>
         <h2 style="color:black;">Siti Nurezzaty Binti Mohd Rafek</h2>
         <p style="color:black;"class="title">Developer 2</p>
         <p style="color:black;">Student ID: 2018445776</p>
+		<p style="color:black;">Program Code and Name: CS110 - Diplome in Computer Science</p>
+		<p style="color:black;">Group/Class: M3CS1105H</p>
         <p style="color:black;">sitinurezzaty95@gmail.com</p>
       </div>
     </div>
@@ -163,12 +167,14 @@ html {
   <div class="column" margin="auto">
     <div class="card">
 	<br>
-      <img src="images/izzati.jpeg" alt="John" style="width:40%" class="center">
+      <img src="images/izzati.jpeg" alt="izzati img" style="width:40%" class="center">
       <div class="container">
 	  <br>
         <h2 style="color:black;">Nur Izzati Binti Mohd Azhar</h2>
         <p style="color:black;" class="title">Developer 3</p>
         <p style="color:black;">Student ID: 2018678518</p>
+		<p style="color:black;">Program Code and Name: CS110 - Diplome in Computer Science</p>
+		<p style="color:black;">Group/Class: M3CS1105H</p>
         <p style="color:black;">izzatiazhar@gmail.com</p>
       </div>
     </div>
@@ -177,12 +183,14 @@ html {
    <div class="column">
     <div class="card">
 	<br>
-      <img src="images/syahirah.jpeg" alt="John" style="width:40%" class="center">
+      <img src="images/syahirah.jpeg" alt="syahirah img" style="width:40%" class="center">
       <div class="container">
 	  <br>
         <h2 style="color:black;">Nur Syahirah Amirah Binti Ariffin</h2>
         <p style="color:black;"class="title">Developer 4</p>
         <p style="color:black;">Student ID: 2018270758</p>
+		<p style="color:black;">Program Code and Name: CS110 - Diplome in Computer Science</p>
+		<p style="color:black;">Group/Class: M3CS1105H</p>
         <p style="color:black;">nursyahirahamirahariffin@gmail.com</p>
       </div>
     </div>

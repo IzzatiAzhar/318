@@ -62,7 +62,7 @@
 		
 		$conn = OpenCon();
 		
-		$sql = "delete from participant where partid = $partid";
+		$sql = "delete from participant where partid = '$partid'";
 		
 		$result = $conn->query($sql);
 		
