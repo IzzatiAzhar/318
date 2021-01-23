@@ -24,7 +24,17 @@
     <link rel="stylesheet" href="css/style.css">
 
 	<script type="text/javascript">
-	  
+	  function percentage(eventtotaldonation)
+	{
+		var percentage ;
+		var percent;
+		var target = 50000;
+		percent = (eventtotaldonation/target)*100;
+		percentage = percent.toFixed(2);
+		alert("The percentage of total donation is "  + percentage);
+ 
+	}
+	
   </script>
   </head>
   <body>
@@ -64,6 +74,7 @@
 										<th>Date Event</th>
 										<th>Person-in-charge</th>
 										<th>Total Donation (RM) </th>
+										<th>Percentage of Total Donation </th>
 									</tr>
 					        </thead>
 						
@@ -138,6 +149,7 @@
 													echo "<td>$eventdate</td>";
 													echo "<td>$eventpic</td>";
 													echo "<td>$eventtotaldonation</td>";
+													echo "<td>" ?><button class="btn btn-primary px-3 py-2" value="Print" onclick="percentage('<?php echo $eventtotaldonation ?>')">Percentage</button><?php  "</td>";
 												echo "</tr>";
 											}
 										}
