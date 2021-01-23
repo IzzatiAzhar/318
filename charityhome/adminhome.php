@@ -102,7 +102,7 @@
     <div class="container">
       <div class="row block-9">
         <div class="col-md-6 pr-md-5">
-          <form action="updateadmindetails.php" method="POST">
+          <form>
             <article>
 		<h2 style="text-align:center">Food For All Profile</h2>
 		<article>
@@ -150,7 +150,6 @@
 			echo "Error in fetching data";
 		echo "</table>";
 		echo "<br>";
-		?><button type="submit" class="btn btn-primary px-3 py-2">UPDATE</button><?php
 		
 	
 		
