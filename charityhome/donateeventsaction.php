@@ -123,15 +123,7 @@
 				//Output data of each row
 					while($row = $result2->fetch_assoc()){
 						$eventid = $row["eventid"];
-						//$partid = $row["partid"];
-						//$partid = $row["partid"];
 						
-						
-						
-						//$donateid = $row["donateid"];
-						//$partid = $row["partid"];
-						//$eventid = $row["eventid"];
-						//$amtdonation = $row["amtdonation"];
 						$sql4 = "update `event` e
 											set `eventtotaldonation` = (select sum(`amtdonation`) as totaldonation 
 													from `donation` d, `event`e
@@ -139,9 +131,9 @@
 													and d.eventid = '$eventid')
 											where e.eventid = '$eventid'";
 						$result4 = $conn->query($sql4);
-								//sql 2 tak keluar
+								
 								if($result4 == true){
-									//$donate = $row["totaldonation"];
+									
 									$sql3 = "select * from donation d, participant p, event e
 											where d.donateid = '$donateid'
 											and d.partid = p.partid

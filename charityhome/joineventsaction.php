@@ -107,12 +107,10 @@
 					$result1 = $conn->query($sql1);
 					
 						if($result1->num_rows > 0){
-							//echo '<script>console.log('.json_encode("sql1 baru success tak?") . ')</script>';
+							
 							while($row = $result1->fetch_assoc()){
 								$eventid = $row["eventid"];
-								
-								//echo '<script>console.log('.json_encode("sql success tak?") . ')</script>';
-								//echo "$eventid" ;
+								;
 								$sql2 = "update `event` e
 											set `eventnumofpart` = (select count(e.eventid) as numofpart 
 													from `registration` r, `event`e
@@ -122,23 +120,22 @@
 											
 								
 								$result2 = $conn->query($sql2);
-								//sql 2 tak keluar
+								
 								if($result == true){
-									//echo "$eventid" ;
-									//echo '<script>console.log('.json_encode("sql2 success tak?") . ')</script>';
+									
 
 									$sql3 = "select * from registration r, participant p, event e
 												where r.regid = $regid
 												and r.partid = p.partid
 												and r.eventid = e.eventid";
-									//echo "$eventid" ;
+									
 									$result3 = $conn->query($sql3);
 									if($result3->num_rows > 0){
 										while($row = $result3->fetch_assoc()){
 									
 									
 										$partid = $row["partid"];
-										//$partid = $row["partid"];
+										
 										
 										$regid = $row["regid"];
 										$partid = $row["partid"];

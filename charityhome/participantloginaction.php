@@ -62,7 +62,7 @@
 							  $partid=$_POST["partid"];
 							  $partpassword=$_POST["partpassword"];
 
-							  $sql="SELECT * FROM `participant` e WHERE partid=$partid and partpassword='$partpassword'";
+							  $sql="SELECT * FROM `participant` e WHERE partid='$partid' and partpassword='$partpassword'";
 							  
 							  $result=$conn->query($sql);
 							  //output data
