@@ -38,8 +38,16 @@
 		    window.location.href='donateevents.php?eventid='+eventid;
 		 }
 	   }
-  </script>
 
+	  function averageDonation(eventtotaldonation)
+	{
+		var average ;
+		average = (eventtotaldonation/30);
+		total = average.toFixed(2);
+		alert("On average,RM "  + total+" is being donated in a day");
+ 
+	}
+</script>
   </head>
   <body>
     <?php include 'header.php'; ?>
@@ -113,7 +121,8 @@
 						  <span class="time d-block mb-3">Click the event for more details</span>
 						  <p><span class="text-success"></span><br> <em>for </em> <?php echo "<a href=kitabantukita.php>$eventid - $eventname Events</a>" ?></p>
 						   <button class="btn btn-primary px-3 py-2" value="Print" onclick="confirmJoin('<?php echo $eventid ?>')">JOIN</button>
-						   <button class="btn btn-primary px-3 py-2" value="Print" onclick="confirmDonate('<?php echo $eventid ?>')">DONATE</button>
+						   <button class="btn btn-primary px-3 py-2" value="Print" onclick="confirmDonate('<?php echo $eventid ?>')">DONATE</button><br><br><br>
+						   <button class="btn btn-primary px-3 py-2" value="Print" onclick="averageDonation('<?php echo $eventtotaldonation ?>')">Average Donation</button>
 						</div>
 						
 			</div>
@@ -162,7 +171,8 @@
 						  <span class="time d-block mb-3">Click the event for more details</span>
 						  <p><span class="text-success"></span><br> <em>for </em><?php echo "<a href=sharethelove.php>$eventid - $eventname Events</a>" ?></p>
 							<button class="btn btn-primary px-3 py-2" value="Print" onclick="confirmJoin('<?php echo $eventid ?>')">JOIN</button>
-						   <button class="btn btn-primary px-3 py-2" value="Print" onclick="confirmDonate('<?php echo $eventid ?>')">DONATE</button>
+						   <button class="btn btn-primary px-3 py-2" value="Print" onclick="confirmDonate('<?php echo $eventid ?>')">DONATE</button><br><br>
+						   <button class="btn btn-primary px-3 py-2" value="Print" onclick="averageDonation('<?php echo $eventtotaldonation ?>')">Average Donation</button>
 						</div>
             </div>
           </div>    
@@ -208,7 +218,8 @@
 				  <span class="time d-block mb-3">Click the event for more details</span>
 				  <p><span class="text-success"></span><br> <em>for </em><?php echo "<a href=sharethelove.php>$eventid - $eventname Events</a>" ?></p>
 				  <button class="btn btn-primary px-3 py-2" value="Print" onclick="confirmJoin('<?php echo $eventid ?>')">JOIN</button>
-				   <button class="btn btn-primary px-3 py-2" value="Print" onclick="confirmDonate('<?php echo $eventid ?>')">DONATE</button>
+				   <button class="btn btn-primary px-3 py-2" value="Print" onclick="confirmDonate('<?php echo $eventid ?>')">DONATE</button><br><br>
+						   <button class="btn btn-primary px-3 py-2" value="Print" onclick="averageDonation('<?php echo $eventtotaldonation ?>')">Average Donation</button>
 				</div>
             </div>
           </div>    
@@ -253,7 +264,8 @@
 					  <span class="time d-block mb-3">Click the event for more details</span>
 					  <p><span class="text-success"></span><br> <em>for </em><?php echo "<a href=sharethelove.php>$eventid - $eventname Events</a>" ?></p>
 					  <button class="btn btn-primary px-3 py-2" value="Print" onclick="confirmJoin('<?php echo $eventid ?>')">JOIN</button>
-					   <button class="btn btn-primary px-3 py-2" value="Print" onclick="confirmDonate('<?php echo $eventid ?>')">DONATE</button>
+					   <button class="btn btn-primary px-3 py-2" value="Print" onclick="confirmDonate('<?php echo $eventid ?>')">DONATE</button><br><br>
+						   <button class="btn btn-primary px-3 py-2" value="Print" onclick="averageDonation('<?php echo $eventtotaldonation ?>')">Average Donation</button>
 					</div>
             </div>
           </div>    
@@ -300,7 +312,8 @@
 					  <span class="time d-block mb-3">Click the event for more details</span>
 					  <p><span class="text-success"></span><br> <em>for </em><?php echo "<a href=sharethelove.php>$eventid - $eventname Events</a>" ?></p>
 					  <button class="btn btn-primary px-3 py-2" value="Print" onclick="confirmJoin('<?php echo $eventid ?>')">JOIN</button>
-					  <button class="btn btn-primary px-3 py-2" value="Print" onclick="confirmDonate('<?php echo $eventid ?>')">DONATE</button>
+					  <button class="btn btn-primary px-3 py-2" value="Print" onclick="confirmDonate('<?php echo $eventid ?>')">DONATE</button><br><br>
+						   <button class="btn btn-primary px-3 py-2" value="Print" onclick="averageDonation('<?php echo $eventtotaldonation ?>')">Average Donation</button>
 					</div>
 			</div>    
           </div>
@@ -346,7 +359,8 @@
 					  <span class="time d-block mb-3">Click the event for more details</span>
 					  <p><span class="text-success"></span><br> <em>for </em><?php echo "<a href=pitstopcommunity.php>$eventid - $eventname Events</a>" ?></p>
 					  <button class="btn btn-primary px-3 py-2" value="Print" onclick="confirmJoin('<?php echo $eventid ?>')">JOIN</button>
-					   <button class="btn btn-primary px-3 py-2" value="Print" onclick="confirmDonate('<?php echo $eventid ?>')">DONATE</button>
+					   <button class="btn btn-primary px-3 py-2" value="Print" onclick="confirmDonate('<?php echo $eventid ?>')">DONATE</button><br><br>
+						   <button class="btn btn-primary px-3 py-2" value="Print" onclick="averageDonation('<?php echo $eventtotaldonation ?>')">Average Donation</button>
 					</div>
 			</div>
           </div>    
@@ -392,7 +406,8 @@
 					  <span class="time d-block mb-3">Click the event for more details</span>
 					   <p><span class="text-success"></span><br> <em>for </em><?php echo "<a href=lostfoodproject.php>$eventid - $eventname Events</a>" ?></p>
 					  <button class="btn btn-primary px-3 py-2" value="Print" onclick="confirmJoin('<?php echo $eventid ?>')">JOIN</button>
-					  <button class="btn btn-primary px-3 py-2" value="Print" onclick="confirmDonate('<?php echo $eventid ?>')">DONATE</button>
+					  <button class="btn btn-primary px-3 py-2" value="Print" onclick="confirmDonate('<?php echo $eventid ?>')">DONATE</button><br><br>
+						   <button class="btn btn-primary px-3 py-2" value="Print" onclick="averageDonation('<?php echo $eventtotaldonation ?>')">Average Donation</button>
 					</div>
 			</div>
           </div>    
@@ -438,7 +453,8 @@
 					  <span class="time d-block mb-3">Click the event for more details</span>
 					  <p><span class="text-success"></span><br> <em>for </em><?php echo "<a href=freemealskl.php>$eventid - $eventname Events</a>" ?></p>
 					  <button class="btn btn-primary px-3 py-2" value="Print" onclick="confirmJoin('<?php echo $eventid ?>')">JOIN</button>
-					  <button class="btn btn-primary px-3 py-2" value="Print" onclick="confirmDonate('<?php echo $eventid ?>')">DONATE</button>
+					  <button class="btn btn-primary px-3 py-2" value="Print" onclick="confirmDonate('<?php echo $eventid ?>')">DONATE</button><br><br>
+						   <button class="btn btn-primary px-3 py-2" value="Print" onclick="averageDonation('<?php echo $eventtotaldonation ?>')">Average Donation</button>
 					</div>
 			</div>
           </div>    
