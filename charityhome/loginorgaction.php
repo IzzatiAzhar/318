@@ -84,7 +84,7 @@
               }
               else
               {
-                $sql = "SELECT * FROM organizer WHERE orgid = $organizerID AND orgpassword = '$organizerPassword'";
+                $sql = "SELECT * FROM organizer WHERE orgid = '$organizerID' AND orgpassword = '$organizerPassword'";
 
                 $result = $conn->query($sql);
 

@@ -109,7 +109,7 @@
 				
 				//Display all data that has been inserted
 				
-				$sql2 = "select * from participant where partid = $partid";
+				$sql2 = "select * from participant where partid = '$partid'";
 				
 				$result2= $conn->query($sql2);
 				
