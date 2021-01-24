@@ -45,7 +45,7 @@
 		  padding-top: 12px;
 		  padding-bottom: 12px;
 		  text-align: left;
-		  background-color: #BC8F8F;
+		  background-color: #BDB768;
 		  color: white;
 		}
 	</style>
@@ -58,7 +58,7 @@
   
   <div class="block-31" style="position: relative;">
     <div class="owl-carousel loop-block-31 ">
-      <div class="block-30 block-30-sm item" style="background-image: url('images/home.jpg');" data-stellar-background-ratio="0.5">
+      <div class="block-30 block-30-sm item" style="background-image: url('images/banner.jpg');" data-stellar-background-ratio="0.5">
         <div class="container">
           <div class="row align-items-center justify-content-center">
             <div class="col-md-7 text-center">
@@ -77,7 +77,7 @@
     <div class="container">
       <div class="row block-9">
         <div class="col-md-6 pr-md-5">
-			<article>
+          <article>
 				<h2 style="text-align:center">Your Profile Has Been Updated.</h2><br>
 				
 				<?php
@@ -94,9 +94,10 @@
 				$sql = "update organizer
 						set orgtelno = '$orgtelno',
 							orgemail = '$orgemail',
+							orgemail = '$orgemail',
 							orgaddress = '$orgaddress',
-							orgpassword = '$orgpassword',
-						where orgid = $orgid";
+							orgpassword = '$orgpassword'
+						where orgid = '$orgid'";
 				
 				$result = $conn->query($sql);
 				
@@ -105,7 +106,7 @@
 				
 				//Display all data that has been inserted
 				
-				$sql2 = "select * from organizer where orgid = $orgid";
+				$sql2 = "select * from organizer where orgid = '$orgid'";
 				
 				$result2= $conn->query($sql2);
 				
@@ -120,17 +121,15 @@
 						$orgaddress = $row["orgaddress"];
 						$orgpassword = $row["orgpassword"];
 						
-						
 						echo "<table id=user>";
 						echo "<tr>";
-							echo "<th>Name </th>";
-							echo "<td>$orgname</td>";
-						echo "</tr>";
-						echo "<tr>";
-							echo "<th>ID </th>";
+							echo "<th>Organizer ID </th>";
 							echo "<td>$orgid</td>";
 						echo "</tr>";
-						
+						echo "<tr>";
+							echo "<th>Organizer Name </th>";
+							echo "<td>$orgname</td>";
+						echo "</tr>";
 						echo "<tr>";
 							echo "<th>Contact Number </th>";
 							echo "<td>$orgtelno</td>";
@@ -144,7 +143,7 @@
 							echo "<td>$orgaddress</td>";
 						echo "</tr>";
 						echo "<tr>";
-							echo "<th>Updated Password </th>";
+							echo "<th>Password </th>";
 							echo "<td>$orgpassword</td>";
 						echo "</tr>";
 					}
@@ -158,8 +157,10 @@
 				?>
 				<table>
 					<tr>
+					<br>
 						<td colspan="2" align="center">
-						<input type="button" value="Home" onclick="window.location.href='orghome.php'" />
+						<input class="btn btn-primary px-3 py-2" type="button" value="Home" onclick="window.location.href='orghome.php'" />
+						<input  class="btn btn-primary px-3 py-2"  type="button" value="Back" onclick="window.location.href='profileorg.php'" />
 					</tr>
 				</table> 
 				
@@ -170,7 +171,7 @@
         
         </div>
 
-       
+        <div class="col-md-6" ><img src="images/a10.png"></div>
       </div>
     </div>
   </div>

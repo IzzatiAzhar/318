@@ -69,7 +69,7 @@
 		if(! $result){
 			die('Could not delete data: ' . mysqli_error());
 		}else {
-				echo "Data has been deleted";
+				header("Location:index.php");
 		}
 		//header("Location:index.php");
 	?>	

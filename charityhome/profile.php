@@ -104,7 +104,7 @@
 		
 		
 		
-		$sql = "select * from participant where partid = $partid";
+		$sql = "select * from participant where partid = '$partid'";
 				
 		$result = $conn->query($sql);
 		
@@ -164,8 +164,7 @@
 			echo "Error in fetching data";
 		echo "</table>";
 		echo "<br>";
-		?><button type="submit" class="btn btn-primary px-3 py-2">UPDATE</button>
-		 <button class="btn btn-primary px-3 py-2" onclick="confirmDelete('<?php echo $partid ?>')">DELETE MY ACCOUNT</button><?php
+		?><button type="submit" class="btn btn-primary px-3 py-2">UPDATE</button><?php
 		
 	
 		
@@ -173,15 +172,19 @@
 		CloseCon($conn);
 		
 		?>
+	
 		
 		
 	</article>
 	</form>
         
         </div>
-
-        <div class="col-md-6" ><img src="images/a9.png"></div>
-      </div>
+		
+        <div class="col-md-6" ><img src="images/a9.png"></div><br>
+		<div>
+		<div><button class="btn btn-primary px-3 py-2" onclick="confirmDelete('<?php echo $partid ?>')">DELETE MY ACCOUNT</button></div>
+		</div>
+	  </div>
     </div>
   </div>
   		   

@@ -80,7 +80,7 @@
 			<article>
 			<h2 style="text-align:center">Updating Profile</h2><br>
 			<h4 style="text-align:center">Please update your profile accordingly. Thank you</h4><br>
-			<form action="updateorgaction.php" id="updateform" method ="POST">
+			<form action="organizerupdateaction.php" id="updateform" method ="POST">
 			<?php
 			
 			$conn = OpenCon();

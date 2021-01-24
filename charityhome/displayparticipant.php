@@ -68,8 +68,9 @@
 
 							
 							
-							$sql="select * from  registration 
-									where eventid = '$eventid'";
+							$sql="select * from  registration r, participant p
+									where r.partid = p.partid
+									and eventid = '$eventid'";
 									
 									
 							$result=$conn->query($sql);
