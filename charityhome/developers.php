@@ -134,7 +134,7 @@ html {
         <h2 style="color:black;">Nasuha Binti Asri</h2>
         <p style="color:black;" class="title">Developer 1</p>
         <p style="color:black;">Student ID: 2018256718</p>
-		<p style="color:black;">Program Code and Name: CS110 - Diplome in Computer Science</p>
+		<p style="color:black;">Program Code and Name: CS110 - Diploma in Computer Science</p>
 		<p style="color:black;">Group/Class: M3CS1105H</p>
         <p style="color:black;">nasuhasri00@gmail.com</p>
       </div>
@@ -150,7 +150,7 @@ html {
         <h2 style="color:black;">Siti Nurezzaty Binti Mohd Rafek</h2>
         <p style="color:black;"class="title">Developer 2</p>
         <p style="color:black;">Student ID: 2018445776</p>
-		<p style="color:black;">Program Code and Name: CS110 - Diplome in Computer Science</p>
+		<p style="color:black;">Program Code and Name: CS110 - Diploma in Computer Science</p>
 		<p style="color:black;">Group/Class: M3CS1105H</p>
         <p style="color:black;">sitinurezzaty95@gmail.com</p>
       </div>
@@ -173,7 +173,7 @@ html {
         <h2 style="color:black;">Nur Izzati Binti Mohd Azhar</h2>
         <p style="color:black;" class="title">Developer 3</p>
         <p style="color:black;">Student ID: 2018678518</p>
-		<p style="color:black;">Program Code and Name: CS110 - Diplome in Computer Science</p>
+		<p style="color:black;">Program Code and Name: CS110 - Diploma in Computer Science</p>
 		<p style="color:black;">Group/Class: M3CS1105H</p>
         <p style="color:black;">izzatiazhar@gmail.com</p>
       </div>
@@ -189,7 +189,7 @@ html {
         <h2 style="color:black;">Nur Syahirah Amirah Binti Ariffin</h2>
         <p style="color:black;"class="title">Developer 4</p>
         <p style="color:black;">Student ID: 2018270758</p>
-		<p style="color:black;">Program Code and Name: CS110 - Diplome in Computer Science</p>
+		<p style="color:black;">Program Code and Name: CS110 - Diploma in Computer Science</p>
 		<p style="color:black;">Group/Class: M3CS1105H</p>
         <p style="color:black;">nursyahirahamirahariffin@gmail.com</p>
       </div>
