@@ -113,23 +113,23 @@
 				
 				echo "<table id=user>";
 				echo "<tr>";
-					echo "<th>orgid </th>";
+					echo "<th>Organizer ID </th>";
 					echo "<td>$orgid</td>";
 				echo "</tr>";
 				echo "<tr>";
-					echo "<th>orgname </th>";
+					echo "<th>Organizer Name </th>";
 					echo "<td>$orgname</td>";
 				echo "</tr>";
 				echo "<tr>";
-					echo "<th>orgtelno </th>";
+					echo "<th>Contact Number </th>";
 					echo "<td>$orgtelno</td>";
 				echo "</tr>";
 				echo "<tr>";
-					echo "<th>orgemail </th>";
+					echo "<th>Email </th>";
 					echo "<td>$orgemail</td>";
 				echo "</tr>";
 				echo "<tr>";
-					echo "<th>orgaddress </th>";
+					echo "<th>Address </th>";
 					echo "<td>$orgaddress</td>";
 				echo "</tr>";
 				
