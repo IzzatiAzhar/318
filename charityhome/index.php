@@ -130,7 +130,7 @@
             <img src="images/kbk.png" alt="Image placeholder" class="img-fluid">
             <div class="donate-info">
               <h2>#KITAPRIHATIN</h2>
-              <span class="time d-block mb-3">Click the event for more details</span>
+              <span class="time d-block mb-3">Click the event for more details.</span>
 				<p><span class="text-success"></span><br> <a href="kbkhome.php" class="mb-3 img-wrap">#KitaBantuKita Event</a></p>
             </div>
           </div>    
@@ -141,7 +141,7 @@
             <img src="images/stls.png" alt="Image placeholder" class="img-fluid">
             <div class="donate-info">
               <h2>#WeCare</h2>
-              <span class="time d-block mb-3">Click the event for more details</span>
+              <span class="time d-block mb-3">Click the event for more details.</span>
 				<p><span class="text-success"></span><br>  <a href="sharethelovehome.php" class="mb-3 img-wrap">Share The Love Events</a></p>
 
 		   </div>
@@ -153,7 +153,7 @@
             <img src="images/pscc.png" alt="Image placeholder" class="img-fluid">
             <div class="donate-info">
               <h2>Together We Help</h2>
-              <span class="time d-block mb-3">Click the event for more details</span>
+              <span class="time d-block mb-3">Click the event for more details.</span>
 				<p><span class="text-success"></span><br>  <a href="pitstopcommunityhome.php" class="mb-3 img-wrap">Pit Stop Community Cafe</a></p>
             </div>
           </div>    
@@ -164,7 +164,7 @@
             <img src="images/tlfp.png" alt="Image placeholder" class="img-fluid">
             <div class="donate-info">
               <h2>Save The World</h2>
-              <span class="time d-block mb-3">Click the event for more details</span>
+              <span class="time d-block mb-3">Click the event for more details.</span>
 				<p><span class="text-success"></span><br>  <a href="lostfoodprojecthome.php" class="mb-3 img-wrap">The Lost Food Project</a></p>
             </div>
           </div>    
