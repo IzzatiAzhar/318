@@ -114,7 +114,7 @@
 							
 							$sql = "SELECT *
 									FROM `event` e, `organizer` o
-									where e.orgid = e.orgid
+									where e.orgid = o.orgid
 									order by eventdate desc
 									limit $page1,7";
 									
